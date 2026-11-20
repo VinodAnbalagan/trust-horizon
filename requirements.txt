@@ -1,0 +1,7 @@
+# torch and torchvision come from the RunPod PyTorch template (2.4 or newer).
+numpy
+pillow
+aiohttp
+huggingface_hub>=0.25
+matplotlib
+scipy
