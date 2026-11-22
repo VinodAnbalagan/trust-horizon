@@ -5,3 +5,4 @@ aiohttp
 huggingface_hub>=0.25
 matplotlib
 scipy
+tensordict==0.10.0
