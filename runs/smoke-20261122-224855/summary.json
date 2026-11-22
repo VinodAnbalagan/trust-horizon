@@ -1,0 +1,26 @@
+{
+  "run_id": "smoke-20261122-224855",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "variant": "combined",
+  "ctx": 8,
+  "horizon": 32,
+  "n_seeds": 4,
+  "tau_ctx": 0.1,
+  "sched_K": 8,
+  "tasks": {
+    "walker-walk": {
+      "error": "ModuleNotFoundError: No module named 'tensordict'"
+    }
+  },
+  "timing": {
+    "total_secs": 26.5,
+    "total_readable": "26.5s",
+    "usd_per_hour": 0.5,
+    "est_cost_usd": 0.004,
+    "stages_secs": {
+      "checkpoint_download": 7.9,
+      "model_load": 5.8,
+      "data": 11.9
+    }
+  }
+}

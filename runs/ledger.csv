@@ -1,0 +1,4 @@
+run_id,phase,gpu,usd_per_hour,total_secs,est_cost_usd,note
+smoke-20261122-224855,phase0,NVIDIA GeForce RTX 3090,0.5,26.5,0.004,
+smoke-20261122-225052,phase0,NVIDIA GeForce RTX 3090,0.5,43.9,0.006,
+smoke-20261122-225226,phase0,NVIDIA GeForce RTX 3090,0.5,549.9,0.076,

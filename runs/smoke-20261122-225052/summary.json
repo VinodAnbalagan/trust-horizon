@@ -1,0 +1,63 @@
+{
+  "run_id": "smoke-20261122-225052",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "variant": "combined",
+  "ctx": 8,
+  "horizon": 32,
+  "n_seeds": 4,
+  "tau_ctx": 0.1,
+  "sched_K": 8,
+  "tasks": {
+    "walker-walk": {
+      "n_windows": 2,
+      "dream_secs": 26.5,
+      "ms_per_dream_step_per_window": 413.7,
+      "peak_gpu_gb": 2.34,
+      "seq16_dpsnr": [
+        0.92,
+        0.11
+      ],
+      "spearman_signal_vs_seq16_dpsnr": {},
+      "first_step_dpsnr_le_0": [
+        13,
+        2
+      ],
+      "mean_dpsnr_by_quarter": [
+        1.4,
+        0.11,
+        -0.22,
+        -0.01
+      ]
+    }
+  },
+  "phase1_projection": {
+    "sec_per_window_step": 0.4137,
+    "note": "Measured at this run's batch size; bigger batches are usually faster per window, so these are upper bounds. Add about 1 min per task for data download.",
+    "plans": {
+      "small: 10 tasks x 8 windows x 96 steps": {
+        "hours": 0.88,
+        "usd": 0.44
+      },
+      "medium: 20 tasks x 16 windows x 96 steps": {
+        "hours": 3.53,
+        "usd": 1.76
+      },
+      "large: 30 tasks x 32 windows x 96 steps": {
+        "hours": 10.59,
+        "usd": 5.29
+      }
+    }
+  },
+  "timing": {
+    "total_secs": 43.9,
+    "total_readable": "43.9s",
+    "usd_per_hour": 0.5,
+    "est_cost_usd": 0.006,
+    "stages_secs": {
+      "checkpoint_download": 0.3,
+      "model_load": 5.8,
+      "data": 10.3,
+      "dream": 26.5
+    }
+  }
+}
