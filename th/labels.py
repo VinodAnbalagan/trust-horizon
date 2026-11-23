@@ -26,6 +26,14 @@ from typing import Optional
 
 import numpy as np
 
+MSE_NOISE_FLOOR = 1e-4   # keep in sync with th/rollout.py
+
+
+def dpsnr_np(mse: np.ndarray, mse_floor: np.ndarray, c: float = MSE_NOISE_FLOOR) -> np.ndarray:
+    """Noise-floored dPSNR, recomputed from stored errors (fixes files written before the floor)."""
+    return 10 * np.log10((np.asarray(mse_floor, dtype=np.float64) + c) / (np.asarray(mse, dtype=np.float64) + c))
+
+
 SMOOTH = 5
 SUSTAIN = 5
 WEAK_EARLY_STEPS = 8

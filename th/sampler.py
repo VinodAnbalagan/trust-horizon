@@ -7,9 +7,10 @@ whole batch, which is fine for one interactive session but mixes windows and
 seeds together when we batch. Here u_f is returned per batch element, so one
 forward pass can serve many rollouts and many noise seeds at once.
 
-Everything else (shortcut schedule, context corruption tau_ctx, warm start
-tau_init, action convention) is kept identical to upstream so our signals are
-directly comparable with the paper's.
+Everything else (shortcut schedule, context corruption tau_ctx, action convention)
+follows upstream. Precision is bfloat16, as in training and in the paper's evaluation
+code (train_dynamics.sample_one_timestep_packed); the interactive demo we first copied
+used float16 autocast, which the first Phase 1 repro run inherited.
 """
 from __future__ import annotations
 
@@ -69,7 +70,7 @@ def sample_next_latent(
         signal_idxs = torch.full((B, t + 1), ctx_sig_idx, device=device, dtype=torch.long)
         signal_idxs[:, -1] = sig_i
         packed_seq = torch.cat([past_input, z], dim=1)
-        with torch.autocast(device_type=device.type, enabled=autocast_on):
+        with torch.autocast(device_type=device.type, enabled=autocast_on, dtype=torch.bfloat16):
             x1_full, _ = dyn(
                 actions_in, step_idxs, signal_idxs, packed_seq,
                 act_mask=actmask_in, agent_tokens=None, lang_emb=lang_emb,

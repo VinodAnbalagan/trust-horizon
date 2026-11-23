@@ -26,7 +26,7 @@ from typing import Dict, List, Optional
 
 import numpy as np
 
-from th.labels import onsets, weak_baseline
+from th.labels import dpsnr_np, onsets, weak_baseline
 
 SIGNALS = ("u_r", "u_f", "u_s")
 EPS = 1e-6
@@ -102,6 +102,8 @@ def load_split(stage_dir: Path, k: int, weak_tasks: Optional[List[str]] = None) 
         name = f.stem
         with np.load(f) as z:
             d = {kk: z[kk] for kk in z.files}
+        if "mse" in d:
+            d["dpsnr"] = dpsnr_np(d["mse"], d["mse_floor"])
         is_weak = (name in weak_tasks) if weak_tasks is not None else weak_baseline(d["dpsnr"])
         if is_weak:
             sp.weak.append(name)

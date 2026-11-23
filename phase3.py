@@ -113,7 +113,10 @@ def analyze(args):
         bank = np.load(bp)["bank"]
         sources = [("val (expert, held out)", fit_dir / f"{task}.npz")] + \
                   [(p, dream_dir / f"{task}__{p}.npz") for p in NEW_STARTS]
+        from th.labels import dpsnr_np
         loaded = [(s, dict(np.load(f))) for s, f in sources if f.exists()]
+        for _, d in loaded:
+            d["dpsnr"] = dpsnr_np(d["mse"], d["mse_floor"])
         if not loaded:
             continue
         ref = next((d for s, d in loaded if s.startswith("val")), loaded[0][1])

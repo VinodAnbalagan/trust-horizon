@@ -11,12 +11,17 @@ For each window of real frames + actions:
 Per-step outputs (arrays of shape (n_windows, horizon)):
   u_f        flow instability of the dream sample (seed 0)
   u_s        inter-seed variance across n_seeds denoising samples
-  u_r        tokenizer round-trip residual of the dream latent
-  motion     RMS latent change of the dream step (normalizer for u_*_norm)
+  u_s        variance across seeds 0 and 1 (paper: n_samples_unc = 2)
+  u_s4       variance across all n_seeds
+  u_r        tokenizer round-trip residual of the mean of seeds 0 and 1 (paper: URNormScorer)
+  u_r_s0     the same for the seed-0 prediction that the dream follows
+  motion     RMS change from the previous latent to the mean of seeds 0 and 1 (paper)
+  motion_real  RMS change between consecutive REAL latents (for the paper's dataset-average m)
   lat_err    RMS(z_dream - z_real)
   mse, mse_floor   pixel MSE of the dream frame / of repeating the last
                    context frame, both against the real frame
-  dpsnr      10*log10(mse_floor / mse); <= 0 means the dream is no better
+  dpsnr_raw  10*log10(mse_floor / mse), exactly as the paper (inf when the scene is static)
+  dpsnr      10*log10((mse_floor + c) / (mse + c)), c = MSE_NOISE_FLOOR; <= 0 means the dream is no better
              than a frozen frame (the paper's scene-divergence criterion,
              here per step instead of per sequence)
 
@@ -52,7 +57,9 @@ class WM:
     C: int = 3
 
 
-def load_wm(tok_ckpt: str, dyn_ckpt: str, *, device, eval_d: float = 0.125, packing_factor: int = 2) -> WM:
+def load_wm(tok_ckpt: str, dyn_ckpt: str, *, device, eval_d: float = 0.25, packing_factor: int = 2) -> WM:
+    # eval_d = 0.25 (K = 4 denoising steps) as in the paper's evaluation code (collect_data.py,
+    # train_dynamics.py); the live demo uses 0.125.
     # Upstream loaders; requires mmbench2/src on sys.path.
     from interactive import load_tokenizer_from_ckpt, load_dynamics_from_ckpt, make_tau_schedule
 
@@ -78,7 +85,7 @@ def encode(wm: WM, frames01: torch.Tensor) -> torch.Tensor:
     from interactive import pack_bottleneck_to_spatial
 
     patches = temporal_patchify(frames01, wm.patch)
-    with torch.autocast(device_type=wm.device.type, enabled=wm.device.type == "cuda"):
+    with torch.autocast(device_type=wm.device.type, enabled=wm.device.type == "cuda", dtype=torch.bfloat16):
         z, _ = wm.encoder(patches)
     return pack_bottleneck_to_spatial(z, n_spatial=wm.n_spatial, k=wm.packing_factor).float()
 
@@ -90,9 +97,22 @@ def decode(wm: WM, z: torch.Tensor) -> torch.Tensor:
     from interactive import unpack_spatial_to_bottleneck
 
     zb = unpack_spatial_to_bottleneck(z.unsqueeze(1), k=wm.packing_factor, d_bottleneck=wm.d_bottleneck)
-    with torch.autocast(device_type=wm.device.type, enabled=wm.device.type == "cuda"):
+    with torch.autocast(device_type=wm.device.type, enabled=wm.device.type == "cuda", dtype=torch.bfloat16):
         patches = wm.decoder(zb)
     return temporal_unpatchify(patches.float(), wm.H, wm.W, wm.C, wm.patch)[:, 0].clamp(0, 1)
+
+
+MSE_NOISE_FLOOR = 1e-4   # pixel MSE on [0, 1] images, i.e. 40 dB PSNR: invisible differences.
+# Without it, a scene that stays perfectly still makes mse_floor = 0 and dPSNR = -inf,
+# so even a perfect dream of a still scene would count as broken.
+
+
+def dpsnr_from_mse(mse, mse_floor, c: float = MSE_NOISE_FLOOR):
+    """Works on numpy arrays or torch tensors."""
+    import numpy as _np
+    if isinstance(mse, torch.Tensor):
+        return 10 * torch.log10((mse_floor + c) / (mse + c))
+    return 10 * _np.log10((_np.asarray(mse_floor) + c) / (_np.asarray(mse) + c))
 
 
 def _rms(x: torch.Tensor) -> torch.Tensor:
@@ -129,7 +149,9 @@ def dream_batch(
     last_ctx = real[:, ctx - 1]                                    # floor baseline frame
 
     hist = [z_real[:, k] for k in range(ctx)]                      # dream history, list of (B, Sz, Dz)
-    keys = ["u_f", "u_s", "u_r", "motion", "lat_err", "mse", "mse_floor", "dpsnr", "u_f_all_seeds"]
+    keys = ["u_f", "u_s", "u_s4", "u_r", "u_r_s0", "motion", "motion_real", "lat_err", "mse", "mse_floor",
+            "dpsnr", "dpsnr_raw", "u_f_all_seeds"]
+    assert n_seeds >= 2, "the paper's u_s and u_r need at least 2 seeds"
     out = {k: np.zeros((B, Hz), dtype=np.float32) for k in keys}
     keep = int(keep_frames)
     dream_frames = [] if keep > 0 else None
@@ -155,21 +177,28 @@ def dream_batch(
         u_f = u_f.view(B, N)
         z_dream = z_next[:, 0]                                     # the dream follows seed 0
 
+        z_mean = z_next[:, :2].mean(dim=1)                         # paper: u_r on the mean of 2 seeds
+        f_mean = decode(wm, z_mean)
+        z_rt_mean = encode(wm, f_mean[:, None])[:, 0]
         f_dream = decode(wm, z_dream)                              # (B, C, H, W)
-        z_rt = encode(wm, f_dream[:, None])[:, 0]                  # round trip
+        z_rt = encode(wm, f_dream[:, None])[:, 0]                  # round trip of the dream itself
         gt = real[:, g]
 
         out["u_f"][:, h] = u_f[:, 0].cpu().numpy()
         out["u_f_all_seeds"][:, h] = u_f.mean(1).cpu().numpy()
-        out["u_s"][:, h] = z_next.var(dim=1).flatten(1).mean(1).cpu().numpy()
-        out["u_r"][:, h] = _rms(z_dream - z_rt).cpu().numpy()
-        out["motion"][:, h] = _rms(z_dream - hist[-1]).cpu().numpy()
+        out["u_s"][:, h] = z_next[:, :2].var(dim=1).flatten(1).mean(1).cpu().numpy()
+        out["u_s4"][:, h] = z_next.var(dim=1).flatten(1).mean(1).cpu().numpy()
+        out["motion_real"][:, h] = _rms(z_real[:, g] - z_real[:, g - 1]).cpu().numpy()
+        out["u_r"][:, h] = _rms(z_mean - z_rt_mean).cpu().numpy()
+        out["u_r_s0"][:, h] = _rms(z_dream - z_rt).cpu().numpy()
+        out["motion"][:, h] = _rms(z_mean - hist[-1]).cpu().numpy()
         out["lat_err"][:, h] = _rms(z_dream - z_real[:, g]).cpu().numpy()
         mse = (f_dream - gt).pow(2).flatten(1).mean(1)
         mse_floor = (last_ctx - gt).pow(2).flatten(1).mean(1)
         out["mse"][:, h] = mse.cpu().numpy()
         out["mse_floor"][:, h] = mse_floor.cpu().numpy()
-        out["dpsnr"][:, h] = (10 * torch.log10(mse_floor.clamp_min(1e-12) / mse.clamp_min(1e-12))).cpu().numpy()
+        out["dpsnr"][:, h] = dpsnr_from_mse(mse, mse_floor).cpu().numpy()
+        out["dpsnr_raw"][:, h] = (10 * torch.log10(mse_floor / mse.clamp_min(1e-12))).cpu().numpy()
 
         hist.append(z_dream)
         if progress is not None:

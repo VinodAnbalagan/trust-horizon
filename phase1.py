@@ -2,7 +2,7 @@
 
 Four stages, each resumable (tasks already saved are skipped):
 
-  repro   8 context + 16 dreamed frames, 32 windows per seen task (val split).
+  repro   8 context + 16 dreamed frames, 32 windows per seen task (test split, as the paper).
           Checks we reproduce the paper's correlation of about 0.8.
   fit     long dreams (up to 96 steps), 16 windows per seen task (val split).
           Training data for the Phase 2 hazard model.
@@ -48,12 +48,12 @@ SEEN_TASKS = [
 
 STAGES = {
     #          partition      tasks      windows  horizon
-    "repro":  ("val",         "seen",    32,      16),
+    "repro":  ("test",        "seen",    32,      16),   # paper: held-out test sequences
     "fit":    ("val",         "seen",    16,      96),
     "test":   ("test",        "seen",    8,       96),
     "unseen": ("active_test", "unseen",  16,      96),
 }
-SEC_PER_WINDOW_STEP = 0.435   # measured in Phase 0 on an RTX 3090 with 4 seeds
+SEC_PER_WINDOW_STEP = 0.20    # first repro run on an RTX 4090 (8 denoising steps); 4 steps should be faster
 
 
 def task_list(kind: str):
