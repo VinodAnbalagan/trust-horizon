@@ -1,0 +1,156 @@
+{
+  "n_tasks": 20,
+  "n_sequences": 640,
+  "pooled_rho": {
+    "u_r": 0.356,
+    "u_f": 0.421,
+    "u_s": 0.261
+  },
+  "median_within_task_rho": {
+    "u_r": -0.114,
+    "u_f": -0.161,
+    "u_s": -0.068
+  },
+  "per_task": {
+    "atari-ms-pacman": {
+      "n": 32,
+      "mean_seq_dpsnr": -Infinity,
+      "u_r": -0.514,
+      "u_f": -0.663,
+      "u_s": -0.457
+    },
+    "atari-pong": {
+      "n": 32,
+      "mean_seq_dpsnr": 6.76,
+      "u_r": -0.548,
+      "u_f": -0.29,
+      "u_s": 0.087
+    },
+    "bipedal-walker-uneven": {
+      "n": 32,
+      "mean_seq_dpsnr": 0.17,
+      "u_r": 0.1,
+      "u_f": -0.387,
+      "u_s": -0.381
+    },
+    "cheetah-run": {
+      "n": 32,
+      "mean_seq_dpsnr": 3.23,
+      "u_r": 0.551,
+      "u_f": 0.571,
+      "u_s": 0.473
+    },
+    "cup-catch": {
+      "n": 32,
+      "mean_seq_dpsnr": 2.74,
+      "u_r": 0.375,
+      "u_f": 0.334,
+      "u_s": 0.393
+    },
+    "finger-turn-easy": {
+      "n": 32,
+      "mean_seq_dpsnr": -Infinity,
+      "u_r": -0.097,
+      "u_f": -0.163,
+      "u_s": -0.082
+    },
+    "lunarlander-land": {
+      "n": 32,
+      "mean_seq_dpsnr": -Infinity,
+      "u_r": -0.752,
+      "u_f": -0.927,
+      "u_s": -0.898
+    },
+    "ms-ant-walk": {
+      "n": 32,
+      "mean_seq_dpsnr": 0.46,
+      "u_r": -0.203,
+      "u_f": -0.18,
+      "u_s": -0.075
+    },
+    "ms-pick-cube": {
+      "n": 32,
+      "mean_seq_dpsnr": 0.34,
+      "u_r": -0.274,
+      "u_f": -0.441,
+      "u_s": -0.437
+    },
+    "mujoco-halfcheetah": {
+      "n": 32,
+      "mean_seq_dpsnr": 3.5,
+      "u_r": -0.065,
+      "u_f": -0.066,
+      "u_s": 0.03
+    },
+    "mw-assembly": {
+      "n": 32,
+      "mean_seq_dpsnr": 3.23,
+      "u_r": 0.129,
+      "u_f": -0.065,
+      "u_s": -0.069
+    },
+    "mw-door-open": {
+      "n": 32,
+      "mean_seq_dpsnr": 1.47,
+      "u_r": -0.162,
+      "u_f": -0.349,
+      "u_s": -0.317
+    },
+    "og-antball": {
+      "n": 32,
+      "mean_seq_dpsnr": -0.37,
+      "u_r": -0.527,
+      "u_f": -0.484,
+      "u_s": -0.475
+    },
+    "og-point-maze": {
+      "n": 32,
+      "mean_seq_dpsnr": 3.37,
+      "u_r": 0.486,
+      "u_f": -0.105,
+      "u_s": -0.066
+    },
+    "pygame-coinrun": {
+      "n": 32,
+      "mean_seq_dpsnr": 4.15,
+      "u_r": -0.224,
+      "u_f": 0.405,
+      "u_s": 0.525
+    },
+    "pygame-point-maze-var1": {
+      "n": 32,
+      "mean_seq_dpsnr": 2.42,
+      "u_r": 0.268,
+      "u_f": 0.213,
+      "u_s": 0.396
+    },
+    "pygame-pong": {
+      "n": 32,
+      "mean_seq_dpsnr": 7.27,
+      "u_r": -0.13,
+      "u_f": -0.04,
+      "u_s": 0.327
+    },
+    "rd-push-red": {
+      "n": 32,
+      "mean_seq_dpsnr": 1.53,
+      "u_r": 0.26,
+      "u_f": -0.158,
+      "u_s": -0.049
+    },
+    "reacher-easy": {
+      "n": 32,
+      "mean_seq_dpsnr": 1.03,
+      "u_r": -0.165,
+      "u_f": -0.318,
+      "u_s": -0.295
+    },
+    "walker-walk": {
+      "n": 32,
+      "mean_seq_dpsnr": 1.3,
+      "u_r": 0.182,
+      "u_f": 0.103,
+      "u_s": 0.217
+    }
+  }
+}
