@@ -63,3 +63,24 @@ delta PSNR from the mean pixel MSE over the horizon against a repeated last cont
 the second half of the denoising steps, base checkpoint.
 
 The first run is kept as `runs/phase1/repro_fp16` for comparison. `repro` is re-run with all fixes.
+
+## After the second repro run, while fit, test and unseen were running (2026-11-23, 23:50 UTC)
+
+Written after the long-dream stages started and before any of their results were looked at.
+
+Second repro run (paper settings, `test` split, 640 sequences): task-level Spearman 0.84 (u_r) and
+0.85 (u_f), matching the paper's about 0.8; pooled over sequences 0.55 and 0.53; within task about
+-0.2. u_s as a variance does not correlate (about 0); as a standard deviation divided by motion it
+gives 0.83 at task level.
+
+Diagnosis of the negative within-task values: dPSNR compares the dream with a frozen frame, and
+within a task dPSNR rises with scene motion (median rho 0.33) and with the frozen frame's own error
+(0.58), while u_f also rises with motion (0.59). Against a direct error (latent error or the dream's
+pixel MSE) the signals rank dreams within a task at rho +0.5 to +0.7.
+
+16. **Failure label unchanged**: dPSNR <= 0 (centered median rule) stays the primary label. It is the
+    paper's scene-divergence criterion and means "no better than a frozen frame". The forecast model
+    already includes motion as a feature. As a robustness check we also report results with a
+    direct-error label (no extra GPU needed; the errors are stored).
+17. **u_s**: we report both the paper's variance and the standard deviation, and say which one
+    reproduces the paper's correlation.
