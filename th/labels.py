@@ -4,8 +4,12 @@ Rule (decided 2026-11-23 from the Phase 0 smoke test, where single-step dips of
 dPSNR below 0 were mostly noise; median chosen over mean after a unit test showed one
 extreme frame could pull a 5-step mean below 0):
 
-* smooth  : trailing MEDIAN of dPSNR over the last 5 steps (fewer at the start), so a
-            single outlier frame, however extreme, cannot trigger a failure
+* smooth  : CENTERED median of dPSNR over 5 steps (t-2 .. t+2, fewer at the edges), so
+            a single outlier frame, however extreme, cannot trigger a failure. Centered,
+            not trailing: a trailing median recognizes a break about 2 steps late, which
+            would hand every forecast 2 steps of fake warning (found with a synthetic test
+            where signals jump exactly at the break). Labels are ground truth and may look
+            ahead; only the forecast's features must be causal.
 * failure : the smoothed dPSNR is <= 0 for 5 steps in a row
 * onset   : the first step of that 5-step run (1-based step number)
 * censored: no failure within the horizon; we only know the dream survived
@@ -29,11 +33,12 @@ WEAK_MIN_DB = 1.0
 
 
 def smooth_dpsnr(dpsnr: np.ndarray, window: int = SMOOTH) -> np.ndarray:
-    """Causal trailing median along the last axis."""
+    """Centered running median along the last axis (truncated at the edges)."""
     x = np.asarray(dpsnr, dtype=np.float64)
     out = np.empty_like(x)
-    for t in range(x.shape[-1]):
-        out[..., t] = np.median(x[..., max(0, t - window + 1): t + 1], axis=-1)
+    T, h = x.shape[-1], window // 2
+    for t in range(T):
+        out[..., t] = np.median(x[..., max(0, t - h): min(T, t + h + 1)], axis=-1)
     return out
 
 

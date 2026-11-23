@@ -29,11 +29,23 @@ nohup bash scripts/run_phase1.sh <pod price> repro > runs/phase1.log 2>&1 &
 
 Each run prints its time and estimated cost, and logs it to `runs/ledger.csv`.
 
+Later phases:
+
+```
+python phase2.py                       # hazard model, calibration, warning, survival (CPU)
+python phase3.py bank | dreams         # GPU: trust horizon vs distance from training data
+python phase3.py analyze               # CPU
+python phase4.py                       # open the sealed unseen tasks, once (CPU)
+```
+
 ## Layout
 
 ```
 smoke.py           Phase 0 smoke test
 phase1.py          Phase 1 data collection (repro, fit, test, sealed unseen)
+phase2.py          forecasts, calibration, warning time, survival curves
+phase3.py          trust horizon vs distance from training data
+phase4.py          one-time evaluation on the unseen tasks
 th/                rollouts, data loading, sampler, labels, analysis, timing
 scripts/           pod setup
 tests/             CPU pipeline test

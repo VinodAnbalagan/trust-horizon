@@ -86,7 +86,8 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("stage", choices=list(STAGES) + ["estimate"])
     p.add_argument("--usd-per-hour", type=float, default=0.50)
-    p.add_argument("--variant", default="combined")
+    p.add_argument("--variant", default="base",
+                   help="base = trained on the 200 seen tasks only (see PROTOCOL.md); combined also saw the unseen tasks")
     p.add_argument("--n-seeds", type=int, default=4)
     p.add_argument("--tau-ctx", type=float, default=0.1)
     p.add_argument("--batch-windows", type=int, default=8)

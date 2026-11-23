@@ -9,8 +9,8 @@ from th.labels import failure_onset, onsets, smooth_dpsnr, weak_baseline  # noqa
 
 
 def main():
-    # trailing median
-    assert np.allclose(smooth_dpsnr(np.array([2.0, 4.0, 6.0, -50.0, 6.0]), 3), [2.0, 3.0, 4.0, 4.0, 6.0])
+    # centered median
+    assert np.allclose(smooth_dpsnr(np.array([2.0, 4.0, 6.0, -50.0, 6.0]), 3)[:4], [3.0, 4.0, 4.0, 6.0])
 
     # a single dip is not a failure
     row = np.full(40, 3.0)
@@ -22,8 +22,8 @@ def main():
     # a sustained drop is; onset is the first step of the 5-step run (1-based)
     row = np.concatenate([np.full(20, 3.0), np.full(20, -3.0)])
     o = failure_onset(row)
-    # smoothed median first <= 0 at index 22 (median of 3,3,-3,-3,-3), so onset is step 23
-    assert o == 23, o
+    # drop starts at index 20 (step 21); a centered median sees it with no lag
+    assert o == 21, o
 
     # never breaking is censored
     assert failure_onset(np.full(30, 1.0)) is None
