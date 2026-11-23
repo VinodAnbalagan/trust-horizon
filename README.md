@@ -20,16 +20,25 @@ bash scripts/setup_runpod.sh
 python smoke.py --usd-per-hour <pod price>
 ```
 
+Phase 1 (long runs, in the background):
+
+```
+python phase1.py estimate --usd-per-hour <pod price>
+nohup bash scripts/run_phase1.sh <pod price> repro > runs/phase1.log 2>&1 &
+```
+
 Each run prints its time and estimated cost, and logs it to `runs/ledger.csv`.
 
 ## Layout
 
 ```
 smoke.py           Phase 0 smoke test
-th/                rollouts, data loading, sampler, timing
+phase1.py          Phase 1 data collection (repro, fit, test, sealed unseen)
+th/                rollouts, data loading, sampler, labels, analysis, timing
 scripts/           pod setup
 tests/             CPU pipeline test
 PREREGISTRATION.md guesses made before seeing data
+PROTOCOL.md        measurement decisions, each made before its data
 ```
 
 ## Credits

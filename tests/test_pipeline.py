@@ -72,6 +72,8 @@ def main():
         lang = task_lang_emb("walker-walk", TASKS_JSON, 512).expand(2, -1)
         a = dream_batch(wm, frames, acts, mask, lang, ctx=8, n_seeds=3, seed=1)
         b = dream_batch(wm, frames, acts, mask, lang, ctx=8, n_seeds=3, seed=1)
+        z0 = a.pop("z_start"); b.pop("z_start")
+        assert z0.shape[0] == 2 and z0.dtype == np.float16
         for k, v in a.items():
             assert v.shape == (2, 32) and np.isfinite(v).all(), k
             assert np.allclose(v, b[k]), f"{k} not deterministic"

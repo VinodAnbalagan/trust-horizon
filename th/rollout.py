@@ -112,7 +112,7 @@ def dream_batch(
     n_seeds: int = 4,
     tau_ctx: float = 0.1,
     seed: int = 0,
-    keep_frames: bool = False,
+    keep_frames: int = 0,           # keep dreamed frames for the first `keep_frames` windows
     progress=None,                  # optional callable(step_done, total_steps)
 ) -> Dict[str, np.ndarray]:
     dev = wm.device
@@ -131,7 +131,8 @@ def dream_batch(
     hist = [z_real[:, k] for k in range(ctx)]                      # dream history, list of (B, Sz, Dz)
     keys = ["u_f", "u_s", "u_r", "motion", "lat_err", "mse", "mse_floor", "dpsnr", "u_f_all_seeds"]
     out = {k: np.zeros((B, Hz), dtype=np.float32) for k in keys}
-    dream_frames = [] if keep_frames else None
+    keep = int(keep_frames)
+    dream_frames = [] if keep > 0 else None
 
     for h in range(Hz):
         g = ctx + h                                                # index of the frame being dreamed
@@ -173,9 +174,11 @@ def dream_batch(
         hist.append(z_dream)
         if progress is not None:
             progress(h + 1, Hz)
-        if keep_frames:
-            dream_frames.append((f_dream * 255).round().to(torch.uint8).cpu())
+        if keep > 0:
+            dream_frames.append((f_dream[:keep] * 255).round().to(torch.uint8).cpu())
 
-    if keep_frames:
-        out["dream_frames"] = torch.stack(dream_frames, dim=1).numpy()   # (B, Hz, C, H, W)
+    if keep > 0:
+        out["dream_frames"] = torch.stack(dream_frames, dim=1).numpy()   # (keep, Hz, C, H, W)
+    # latent of the last real context frame: the dream's start state (for distance-to-data in Phase 3)
+    out["z_start"] = z_real[:, ctx - 1].to(torch.float16).cpu().numpy()
     return out
