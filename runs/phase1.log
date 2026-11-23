@@ -174,3 +174,204 @@ median within a task          -0.114  -0.161  -0.068
   reacher-easy                -0.165  -0.318  -0.295   dPSNR   1.03
   walker-walk                  0.182   0.103   0.217   dPSNR    1.3
 =================== all requested stages finished  Mon Nov 23 22:56:00 UTC 2026 ===================
+nohup: ignoring input
+=================== stage repro  Mon Nov 23 23:14:45 UTC 2026 ===================
+phase1 repro: 20 tasks, 0 already done, 20 to run on NVIDIA GeForce RTX 4090
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1/20] cup-catch   (stage elapsed 20.1s, est. $0.00)
+  [cup-catch] step 16/16  elapsed 19.7s  eta 0.0s
+  [cup-catch] step 16/16  elapsed 31.9s  eta 0.0s
+  [cup-catch] step 16/16  elapsed 44.2s  eta 0.0s
+  [cup-catch] step 16/16  elapsed 56.4s  eta 0.0s
+  saved 32 windows x 16 steps in 49.2s
+
+[2/20] finger-turn-easy   (stage elapsed 1.3min, est. $0.02)
+  [finger-turn-easy] step 16/16  elapsed 20.2s  eta 0.0s
+  [finger-turn-easy] step 16/16  elapsed 32.5s  eta 0.0s
+  [finger-turn-easy] step 16/16  elapsed 44.8s  eta 0.0s
+  [finger-turn-easy] step 16/16  elapsed 57.1s  eta 0.0s
+  saved 32 windows x 16 steps in 49.1s
+
+[3/20] reacher-easy   (stage elapsed 2.2min, est. $0.03)
+  [reacher-easy] step 16/16  elapsed 20.2s  eta 0.0s
+  [reacher-easy] step 16/16  elapsed 32.4s  eta 0.0s
+  [reacher-easy] step 16/16  elapsed 44.7s  eta 0.0s
+  [reacher-easy] step 16/16  elapsed 56.9s  eta 0.0s
+  saved 32 windows x 16 steps in 49.0s
+
+[4/20] cheetah-run   (stage elapsed 3.2min, est. $0.05)
+  [cheetah-run] step 16/16  elapsed 22.1s  eta 0.0s
+  [cheetah-run] step 16/16  elapsed 34.3s  eta 0.0s
+  [cheetah-run] step 16/16  elapsed 46.6s  eta 0.0s
+  [cheetah-run] step 16/16  elapsed 58.8s  eta 0.0s
+  saved 32 windows x 16 steps in 49.0s
+
+[5/20] walker-walk   (stage elapsed 4.2min, est. $0.06)
+  [walker-walk] step 16/16  elapsed 23.7s  eta 0.0s
+  [walker-walk] step 16/16  elapsed 36.0s  eta 0.0s
+  [walker-walk] step 16/16  elapsed 48.3s  eta 0.0s
+  [walker-walk] step 16/16  elapsed 1.0min  eta 0.0s
+  saved 32 windows x 16 steps in 49.1s
+
+[6/20] mw-assembly   (stage elapsed 5.2min, est. $0.08)
+  [mw-assembly] step 16/16  elapsed 15.4s  eta 0.0s
+  [mw-assembly] step 16/16  elapsed 27.7s  eta 0.0s
+  [mw-assembly] step 16/16  elapsed 40.0s  eta 0.0s
+  [mw-assembly] step 16/16  elapsed 52.2s  eta 0.0s
+  saved 32 windows x 16 steps in 49.1s
+
+[7/20] mw-door-open   (stage elapsed 6.0min, est. $0.09)
+  [mw-door-open] step 16/16  elapsed 15.7s  eta 0.0s
+  [mw-door-open] step 16/16  elapsed 28.0s  eta 0.0s
+  [mw-door-open] step 16/16  elapsed 40.2s  eta 0.0s
+  [mw-door-open] step 16/16  elapsed 52.5s  eta 0.0s
+  saved 32 windows x 16 steps in 49.0s
+
+[8/20] ms-pick-cube   (stage elapsed 6.9min, est. $0.10)
+  [ms-pick-cube] step 16/16  elapsed 14.6s  eta 0.0s
+  [ms-pick-cube] step 16/16  elapsed 26.9s  eta 0.0s
+  [ms-pick-cube] step 16/16  elapsed 39.1s  eta 0.0s
+  [ms-pick-cube] step 16/16  elapsed 51.3s  eta 0.0s
+  saved 32 windows x 16 steps in 49.0s
+
+[9/20] ms-ant-walk   (stage elapsed 7.8min, est. $0.12)
+  [ms-ant-walk] step 16/16  elapsed 23.3s  eta 0.0s
+  [ms-ant-walk] step 16/16  elapsed 35.5s  eta 0.0s
+  [ms-ant-walk] step 16/16  elapsed 47.8s  eta 0.0s
+  [ms-ant-walk] step 16/16  elapsed 1.0min  eta 0.0s
+  saved 32 windows x 16 steps in 49.0s
+
+[10/20] mujoco-halfcheetah   (stage elapsed 8.8min, est. $0.13)
+  [mujoco-halfcheetah] step 16/16  elapsed 31.6s  eta 0.0s
+  [mujoco-halfcheetah] step 16/16  elapsed 43.9s  eta 0.0s
+  [mujoco-halfcheetah] step 16/16  elapsed 56.2s  eta 0.0s
+  [mujoco-halfcheetah] step 16/16  elapsed 1.1min  eta 0.0s
+  saved 32 windows x 16 steps in 49.1s
+
+[11/20] bipedal-walker-uneven   (stage elapsed 9.9min, est. $0.15)
+  [bipedal-walker-uneven] step 16/16  elapsed 17.3s  eta 0.0s
+  [bipedal-walker-uneven] step 16/16  elapsed 29.6s  eta 0.0s
+  [bipedal-walker-uneven] step 16/16  elapsed 41.8s  eta 0.0s
+  [bipedal-walker-uneven] step 16/16  elapsed 54.1s  eta 0.0s
+  saved 32 windows x 16 steps in 49.2s
+
+[12/20] lunarlander-land   (stage elapsed 10.8min, est. $0.16)
+  [lunarlander-land] step 16/16  elapsed 17.9s  eta 0.0s
+  [lunarlander-land] step 16/16  elapsed 30.2s  eta 0.0s
+  [lunarlander-land] step 16/16  elapsed 42.5s  eta 0.0s
+  [lunarlander-land] step 16/16  elapsed 54.8s  eta 0.0s
+  saved 32 windows x 16 steps in 49.1s
+
+[13/20] rd-push-red   (stage elapsed 11.7min, est. $0.17)
+  [rd-push-red] step 16/16  elapsed 15.4s  eta 0.0s
+  [rd-push-red] step 16/16  elapsed 27.7s  eta 0.0s
+  [rd-push-red] step 16/16  elapsed 40.0s  eta 0.0s
+  [rd-push-red] step 16/16  elapsed 52.3s  eta 0.0s
+  saved 32 windows x 16 steps in 49.2s
+
+[14/20] og-point-maze   (stage elapsed 12.6min, est. $0.19)
+  [og-point-maze] step 16/16  elapsed 15.1s  eta 0.0s
+  [og-point-maze] step 16/16  elapsed 27.3s  eta 0.0s
+  [og-point-maze] step 16/16  elapsed 39.6s  eta 0.0s
+  [og-point-maze] step 16/16  elapsed 51.8s  eta 0.0s
+  saved 32 windows x 16 steps in 49.0s
+
+[15/20] og-antball   (stage elapsed 13.5min, est. $0.20)
+  [og-antball] step 16/16  elapsed 17.2s  eta 0.0s
+  [og-antball] step 16/16  elapsed 29.4s  eta 0.0s
+  [og-antball] step 16/16  elapsed 41.8s  eta 0.0s
+  [og-antball] step 16/16  elapsed 54.1s  eta 0.0s
+  saved 32 windows x 16 steps in 49.2s
+
+[16/20] pygame-point-maze-var1   (stage elapsed 14.4min, est. $0.21)
+  [pygame-point-maze-var1] step 16/16  elapsed 16.5s  eta 0.0s
+  [pygame-point-maze-var1] step 16/16  elapsed 28.8s  eta 0.0s
+  [pygame-point-maze-var1] step 16/16  elapsed 41.1s  eta 0.0s
+  [pygame-point-maze-var1] step 16/16  elapsed 53.3s  eta 0.0s
+  saved 32 windows x 16 steps in 49.0s
+
+[17/20] pygame-pong   (stage elapsed 15.3min, est. $0.23)
+  [pygame-pong] step 16/16  elapsed 21.6s  eta 0.0s
+  [pygame-pong] step 16/16  elapsed 33.8s  eta 0.0s
+  [pygame-pong] step 16/16  elapsed 46.0s  eta 0.0s
+  [pygame-pong] step 16/16  elapsed 58.3s  eta 0.0s
+  saved 32 windows x 16 steps in 49.1s
+
+[18/20] pygame-coinrun   (stage elapsed 16.2min, est. $0.24)
+  [pygame-coinrun] step 16/16  elapsed 21.3s  eta 0.0s
+  [pygame-coinrun] step 16/16  elapsed 33.6s  eta 0.0s
+  [pygame-coinrun] step 16/16  elapsed 45.8s  eta 0.0s
+  [pygame-coinrun] step 16/16  elapsed 58.1s  eta 0.0s
+  saved 32 windows x 16 steps in 49.0s
+
+[19/20] atari-pong   (stage elapsed 17.2min, est. $0.26)
+  [atari-pong] step 16/16  elapsed 29.0s  eta 0.0s
+  [atari-pong] step 16/16  elapsed 41.3s  eta 0.0s
+  [atari-pong] step 16/16  elapsed 53.8s  eta 0.0s
+  [atari-pong] step 16/16  elapsed 1.1min  eta 0.0s
+  saved 32 windows x 16 steps in 49.3s
+
+[20/20] atari-ms-pacman   (stage elapsed 18.3min, est. $0.27)
+  [atari-ms-pacman] step 16/16  elapsed 26.4s  eta 0.0s
+  [atari-ms-pacman] step 16/16  elapsed 38.6s  eta 0.0s
+  [atari-ms-pacman] step 16/16  elapsed 50.9s  eta 0.0s
+  [atari-ms-pacman] step 16/16  elapsed 1.1min  eta 0.0s
+  saved 32 windows x 16 steps in 49.1s
+
+repro done in 19.4min, est. $0.287. All runs so far: 1.06 GPU-hours, est. $0.88
+
+=========== reproduction: Spearman(signal, rollout error); paper: about 0.8 pooled ===========
+
+paper-exact (as far as stated)   (638 sequences, 2 static ones dropped)
+                             u_r     u_f     u_s    u_s4  u_r_s0
+  pooled (paper's way)     0.553   0.527  -0.079  -0.077   0.552
+  task level (20 pts)      0.835   0.853   0.045   0.045   0.835
+  within task, median     -0.175  -0.287  -0.253  -0.233  -0.168
+
+noise-floored dPSNR   (640 sequences, 0 static ones dropped)
+                             u_r     u_f     u_s    u_s4  u_r_s0
+  pooled (paper's way)     0.565   0.519  -0.112  -0.111   0.563
+  task level (20 pts)      0.859   0.847   0.011   0.011   0.859
+  within task, median     -0.177  -0.308  -0.251  -0.224  -0.148
+
+signal = max over steps   (638 sequences, 2 static ones dropped)
+                             u_r     u_f     u_s    u_s4  u_r_s0
+  pooled (paper's way)     0.524   0.493  -0.145  -0.135   0.522
+  task level (20 pts)      0.794   0.805   0.051  -0.071   0.794
+  within task, median     -0.169  -0.265  -0.212   -0.22  -0.203
+
+signal = last step   (638 sequences, 2 static ones dropped)
+                             u_r     u_f     u_s    u_s4  u_r_s0
+  pooled (paper's way)     0.553   0.559  -0.129  -0.134   0.553
+  task level (20 pts)      0.832   0.898  -0.003  -0.012   0.836
+  within task, median     -0.174  -0.285  -0.281  -0.259  -0.117
+
+normalized by predicted motion   (638 sequences, 2 static ones dropped)
+                             u_r     u_f     u_s    u_s4  u_r_s0
+  pooled (paper's way)      0.55    0.52  -0.069  -0.068   0.549
+  task level (20 pts)      0.786   0.814    0.03   0.036   0.802
+  within task, median     -0.175  -0.287  -0.253  -0.233  -0.168
+
+per task, paper-exact:
+  atari-ms-pacman              0.115   0.017   0.053   dPSNR   2.55
+  atari-pong                  -0.443  -0.304  -0.045   dPSNR   6.05
+  bipedal-walker-uneven        0.139  -0.414  -0.364   dPSNR   2.46
+  cheetah-run                  0.325    0.75   0.633   dPSNR   8.38
+  cup-catch                   -0.389    -0.3  -0.237   dPSNR  -1.66
+  finger-turn-easy            -0.089  -0.508  -0.545   dPSNR   4.11
+  lunarlander-land            -0.189  -0.518  -0.588   dPSNR  -2.94   (2 static)
+  ms-ant-walk                 -0.092   0.307   0.192   dPSNR    1.9
+  ms-pick-cube                -0.047   0.188     0.1   dPSNR  -0.11
+  mujoco-halfcheetah          -0.166  -0.271  -0.269   dPSNR   5.48
+  mw-assembly                 -0.719  -0.826  -0.748   dPSNR   2.14
+  mw-door-open                -0.635   -0.71  -0.716   dPSNR   1.08
+  og-antball                   -0.39  -0.695  -0.721   dPSNR  -1.51
+  og-point-maze               -0.593  -0.779  -0.704   dPSNR  -1.38
+  pygame-coinrun              -0.521   0.276   0.422   dPSNR   3.79
+  pygame-point-maze-var1       0.238    0.43   0.398   dPSNR   3.01
+  pygame-pong                 -0.185   0.417   0.526   dPSNR   6.36
+  rd-push-red                 -0.816  -0.864  -0.859   dPSNR  -1.56
+  reacher-easy                -0.136  -0.274  -0.315   dPSNR  -1.04
+  walker-walk                  0.499   0.471   0.312   dPSNR   4.72
+=================== all requested stages finished  Mon Nov 23 23:34:09 UTC 2026 ===================

@@ -1,0 +1,292 @@
+{
+  "n_tasks": 20,
+  "variants": {
+    "paper-exact (as far as stated)": {
+      "n_sequences": 638,
+      "dropped_undefined": 2,
+      "pooled": {
+        "u_r": 0.553,
+        "u_f": 0.527,
+        "u_s": -0.079,
+        "u_s4": -0.077,
+        "u_r_s0": 0.552
+      },
+      "within_task_median": {
+        "u_r": -0.175,
+        "u_f": -0.287,
+        "u_s": -0.253,
+        "u_s4": -0.233,
+        "u_r_s0": -0.168
+      },
+      "task_level": {
+        "u_r": 0.835,
+        "u_f": 0.853,
+        "u_s": 0.045,
+        "u_s4": 0.045,
+        "u_r_s0": 0.835
+      }
+    },
+    "noise-floored dPSNR": {
+      "n_sequences": 640,
+      "dropped_undefined": 0,
+      "pooled": {
+        "u_r": 0.565,
+        "u_f": 0.519,
+        "u_s": -0.112,
+        "u_s4": -0.111,
+        "u_r_s0": 0.563
+      },
+      "within_task_median": {
+        "u_r": -0.177,
+        "u_f": -0.308,
+        "u_s": -0.251,
+        "u_s4": -0.224,
+        "u_r_s0": -0.148
+      },
+      "task_level": {
+        "u_r": 0.859,
+        "u_f": 0.847,
+        "u_s": 0.011,
+        "u_s4": 0.011,
+        "u_r_s0": 0.859
+      }
+    },
+    "signal = max over steps": {
+      "n_sequences": 638,
+      "dropped_undefined": 2,
+      "pooled": {
+        "u_r": 0.524,
+        "u_f": 0.493,
+        "u_s": -0.145,
+        "u_s4": -0.135,
+        "u_r_s0": 0.522
+      },
+      "within_task_median": {
+        "u_r": -0.169,
+        "u_f": -0.265,
+        "u_s": -0.212,
+        "u_s4": -0.22,
+        "u_r_s0": -0.203
+      },
+      "task_level": {
+        "u_r": 0.794,
+        "u_f": 0.805,
+        "u_s": 0.051,
+        "u_s4": -0.071,
+        "u_r_s0": 0.794
+      }
+    },
+    "signal = last step": {
+      "n_sequences": 638,
+      "dropped_undefined": 2,
+      "pooled": {
+        "u_r": 0.553,
+        "u_f": 0.559,
+        "u_s": -0.129,
+        "u_s4": -0.134,
+        "u_r_s0": 0.553
+      },
+      "within_task_median": {
+        "u_r": -0.174,
+        "u_f": -0.285,
+        "u_s": -0.281,
+        "u_s4": -0.259,
+        "u_r_s0": -0.117
+      },
+      "task_level": {
+        "u_r": 0.832,
+        "u_f": 0.898,
+        "u_s": -0.003,
+        "u_s4": -0.012,
+        "u_r_s0": 0.836
+      }
+    },
+    "normalized by predicted motion": {
+      "n_sequences": 638,
+      "dropped_undefined": 2,
+      "pooled": {
+        "u_r": 0.55,
+        "u_f": 0.52,
+        "u_s": -0.069,
+        "u_s4": -0.068,
+        "u_r_s0": 0.549
+      },
+      "within_task_median": {
+        "u_r": -0.175,
+        "u_f": -0.287,
+        "u_s": -0.253,
+        "u_s4": -0.233,
+        "u_r_s0": -0.168
+      },
+      "task_level": {
+        "u_r": 0.786,
+        "u_f": 0.814,
+        "u_s": 0.03,
+        "u_s4": 0.036,
+        "u_r_s0": 0.802
+      }
+    }
+  },
+  "per_task_paper_exact": {
+    "atari-ms-pacman": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 2.55,
+      "u_r": 0.115,
+      "u_f": 0.017,
+      "u_s": 0.053
+    },
+    "atari-pong": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 6.05,
+      "u_r": -0.443,
+      "u_f": -0.304,
+      "u_s": -0.045
+    },
+    "bipedal-walker-uneven": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 2.46,
+      "u_r": 0.139,
+      "u_f": -0.414,
+      "u_s": -0.364
+    },
+    "cheetah-run": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 8.38,
+      "u_r": 0.325,
+      "u_f": 0.75,
+      "u_s": 0.633
+    },
+    "cup-catch": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": -1.66,
+      "u_r": -0.389,
+      "u_f": -0.3,
+      "u_s": -0.237
+    },
+    "finger-turn-easy": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 4.11,
+      "u_r": -0.089,
+      "u_f": -0.508,
+      "u_s": -0.545
+    },
+    "lunarlander-land": {
+      "n": 30,
+      "static_windows": 2,
+      "mean_seq_dpsnr": -2.94,
+      "u_r": -0.189,
+      "u_f": -0.518,
+      "u_s": -0.588
+    },
+    "ms-ant-walk": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 1.9,
+      "u_r": -0.092,
+      "u_f": 0.307,
+      "u_s": 0.192
+    },
+    "ms-pick-cube": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": -0.11,
+      "u_r": -0.047,
+      "u_f": 0.188,
+      "u_s": 0.1
+    },
+    "mujoco-halfcheetah": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 5.48,
+      "u_r": -0.166,
+      "u_f": -0.271,
+      "u_s": -0.269
+    },
+    "mw-assembly": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 2.14,
+      "u_r": -0.719,
+      "u_f": -0.826,
+      "u_s": -0.748
+    },
+    "mw-door-open": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 1.08,
+      "u_r": -0.635,
+      "u_f": -0.71,
+      "u_s": -0.716
+    },
+    "og-antball": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": -1.51,
+      "u_r": -0.39,
+      "u_f": -0.695,
+      "u_s": -0.721
+    },
+    "og-point-maze": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": -1.38,
+      "u_r": -0.593,
+      "u_f": -0.779,
+      "u_s": -0.704
+    },
+    "pygame-coinrun": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 3.79,
+      "u_r": -0.521,
+      "u_f": 0.276,
+      "u_s": 0.422
+    },
+    "pygame-point-maze-var1": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 3.01,
+      "u_r": 0.238,
+      "u_f": 0.43,
+      "u_s": 0.398
+    },
+    "pygame-pong": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 6.36,
+      "u_r": -0.185,
+      "u_f": 0.417,
+      "u_s": 0.526
+    },
+    "rd-push-red": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": -1.56,
+      "u_r": -0.816,
+      "u_f": -0.864,
+      "u_s": -0.859
+    },
+    "reacher-easy": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": -1.04,
+      "u_r": -0.136,
+      "u_f": -0.274,
+      "u_s": -0.315
+    },
+    "walker-walk": {
+      "n": 32,
+      "static_windows": 0,
+      "mean_seq_dpsnr": 4.72,
+      "u_r": 0.499,
+      "u_f": 0.471,
+      "u_s": 0.312
+    }
+  }
+}
