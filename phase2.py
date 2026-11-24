@@ -2,6 +2,7 @@
 
     python phase2.py                 # fit on runs/phase1/fit, evaluate on runs/phase1/test
     python phase2.py --k 8           # forecast window (steps ahead); 8 is the pre-registered value
+    python phase2.py --label error   # direct-error label (PROTOCOL item 18), tau 0.5 by default
 
 Outputs in runs/phase2/: report.json and four figures
 (reliability.png, warning.png, survival.png, forecasts.png).
@@ -39,14 +40,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fit-dir", default=str(ROOT / "runs" / "phase1" / "fit"))
     ap.add_argument("--test-dir", default=str(ROOT / "runs" / "phase1" / "test"))
-    ap.add_argument("--out", default=str(ROOT / "runs" / "phase2"))
+    ap.add_argument("--out", default=None)
     ap.add_argument("--k", type=int, default=8)
+    ap.add_argument("--label", choices=["dpsnr", "error"], default="dpsnr")
+    ap.add_argument("--tau", type=float, default=0.5)
     args = ap.parse_args()
-    out = Path(args.out)
+    tag = "dpsnr" if args.label == "dpsnr" else f"error_tau{args.tau:g}"
+    out = Path(args.out) if args.out else ROOT / "runs" / "phase2" / tag
     out.mkdir(parents=True, exist_ok=True)
 
-    tr = load_split(Path(args.fit_dir), args.k)
-    te = load_split(Path(args.test_dir), args.k, weak_tasks=tr.weak)
+    tr = load_split(Path(args.fit_dir), args.k, label=args.label, tau=args.tau)
+    te = load_split(Path(args.test_dir), args.k, weak_tasks=tr.weak, label=args.label, tau=args.tau, chance=tr.chance)
+    print(f"label: {tag}")
     print(f"fit:  {len(tr.onsets)} tasks, {len(tr.win_onset)} dreams, {len(tr.y)} forecast rows, "
           f"positive rate {tr.y.mean():.3f}")
     print(f"test: {len(te.onsets)} tasks, {len(te.win_onset)} dreams, {len(te.y)} forecast rows, "
@@ -69,6 +74,15 @@ def main():
     r, probs["combined"] = evaluate("combined (all signals)", combined, tr, te)
     results.append(r)
 
+    # ---------------- detection: is the dream ALREADY broken at step t? (not a forecast)
+    detection = {}
+    if len(set(tr.yd)) == 2 and len(set(te.yd)) == 2:
+        dm = _Lazy().fit(tr.Xd, tr.yd)
+        detection["combined"] = _r(auroc(te.yd, dm.predict_proba(te.Xd)[:, 1]))
+        for s_ in SIGNALS:
+            detection[f"{s_} level"] = _r(auroc(te.yd, te.Xd[:, feature_names().index(f"{s_}_level")]))
+        detection["positive_rate_test"] = _r(te.yd.mean())
+
     # ---------------- pre-registered checks
     thr_rows = [x for x in results if x["name"].endswith("threshold rule")]
     best_thr = min(thr_rows, key=lambda x: x["brier"])
@@ -78,6 +92,14 @@ def main():
     lr = combined.model.named_steps["logisticregression"]
     coefs = dict(zip(feature_names(), lr.coef_[0].tolist()))
     weight = {s: float(sum(abs(coefs[n]) for n in feature_names() if n.startswith(s))) for s in SIGNALS}
+    # Robust importance (PROTOCOL item 19): drop in test AUROC when a signal's features are removed.
+    # Weights of correlated features are unstable; a known-answer test picked the wrong signal by weight.
+    full_auc = auroc(te.y, probs["combined"]) or 0.5
+    ablation = {}
+    for s in SIGNALS:
+        keep = [i for i, n in enumerate(feature_names()) if not n.startswith(s)]
+        m_ = _Lazy().fit(tr.X[:, keep], tr.y)
+        ablation[s] = round(full_auc - (auroc(te.y, m_.predict_proba(te.X[:, keep])[:, 1]) or 0.5), 4)
     step1 = int(np.sum(te.win_onset == 1))
 
     checks = {
@@ -90,7 +112,9 @@ def main():
                                   "breaks_at_step_1_excluded": step1,
                                   "result": bool(warn) and float(np.median(warn)) >= 3},
         "6_largest_weight": {"weights": {k: round(v, 3) for k, v in weight.items()},
-                             "result": max(weight, key=weight.get)},
+                             "result_by_weight": max(weight, key=weight.get),
+                             "auroc_drop_when_removed": ablation,
+                             "result": max(ablation, key=ablation.get)},
     }
 
     # ---------------- survival (fit and test together; both are seen tasks)
@@ -101,7 +125,10 @@ def main():
         surv[name] = {"median_trust_horizon": median_survival(S), "n": int(len(on)),
                       "frac_failed": round(float(np.mean(~np.isnan(on))), 3), "S": S.round(4).tolist()}
 
-    report = {"k": args.k, "fit_tasks": list(tr.onsets), "weak_tasks": tr.weak,
+    report = {"label": tag, "k": args.k, "fit_tasks": list(tr.onsets), "weak_tasks": tr.weak,
+              "chance_error": {k_: round(v, 4) for k_, v in tr.chance.items()}, "detection_auroc": detection,
+              "dreams_broken": {"fit": round(float(np.mean(~np.isnan(tr.win_onset))), 3),
+                                "test": round(float(np.mean(~np.isnan(te.win_onset))), 3)},
               "positive_rate": {"fit": round(float(tr.y.mean()), 4), "test": round(float(te.y.mean()), 4)},
               "models": results, "preregistered_checks": checks, "reliability_combined": rel,
               "warning_times": warn, "coefficients_combined": {k: round(v, 4) for k, v in coefs.items()},
@@ -109,6 +136,10 @@ def main():
     (out / "report.json").write_text(json.dumps(report, indent=2))
 
     # ---------------- print
+    print(f"dreams that break: fit {report['dreams_broken']['fit']}, test {report['dreams_broken']['test']}")
+    print(f"\n========== detection: is the dream already broken at step t? (AUROC on test) ==========")
+    for k_, v in detection.items():
+        print(f"  {k_:<26}{v}")
     print(f"\n========== forecast: P(dream breaks within {args.k} steps), evaluated on test ==========")
     print(f"{'model':<28}{'Brier':>9}{'AUROC':>8}")
     for x in results:
@@ -121,7 +152,9 @@ def main():
           f"{c['2_calibrated_within_0.1']['result']}   (you said 55%)")
     print(f"3. median warning >= 3 steps (median {c['3_median_warning_ge_3']['median_warning']}, "
           f"{c['3_median_warning_ge_3']['n_breaks']} breaks): {c['3_median_warning_ge_3']['result']}   (you said 40%)")
-    print(f"6. largest weight: {c['6_largest_weight']['result']} {c['6_largest_weight']['weights']}   (you said u_s, 50%)")
+    print(f"6. most important signal (AUROC drop when removed): {c['6_largest_weight']['result']} "
+          f"{c['6_largest_weight']['auroc_drop_when_removed']}   (you said u_s, 50%)")
+    print(f"   by raw weight (unreliable with correlated signals): {c['6_largest_weight']['result_by_weight']}")
     print("   (4 is tested in Phase 3, 5 in Phase 4)")
     print("\n========== trust horizon (median steps before a dream breaks; None = beyond horizon) ==========")
     for name, v in surv.items():

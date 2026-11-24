@@ -52,7 +52,10 @@ def smooth_dpsnr(dpsnr: np.ndarray, window: int = SMOOTH) -> np.ndarray:
 
 def failure_onset(dpsnr_row: np.ndarray, smooth: int = SMOOTH, sustain: int = SUSTAIN) -> Optional[int]:
     """1-based step at which the dream breaks, or None if it never does."""
-    bad = smooth_dpsnr(dpsnr_row, smooth) <= 0
+    return _first_sustained(smooth_dpsnr(dpsnr_row, smooth) <= 0, sustain)
+
+
+def _first_sustained(bad: np.ndarray, sustain: int = SUSTAIN) -> Optional[int]:
     run = 0
     for t, b in enumerate(bad):
         run = run + 1 if b else 0
@@ -68,3 +71,30 @@ def onsets(dpsnr: np.ndarray, **kw) -> np.ndarray:
 
 def weak_baseline(dpsnr: np.ndarray, early: int = WEAK_EARLY_STEPS, min_db: float = WEAK_MIN_DB) -> bool:
     return bool(np.median(np.asarray(dpsnr)[:, :early].mean(axis=1)) < min_db)
+
+
+# ---------------------------------------------------------------- direct-error label
+# PROTOCOL item 18 (2026-11-24). A dream is broken once its latent error, smoothed the same way
+# (centered 5-step median), stays at or above TAU x the task's "chance" error for 5 steps in a
+# row. Chance error = median RMS distance between start-state latents of different windows of the
+# same task: how far apart two unrelated real frames of that task typically are. Unlike dPSNR this
+# does not depend on how much the scene moves. TAU = 0.5 is primary, 1.0 is the sensitivity check.
+
+TAU = 0.5
+
+
+def chance_error(z_start: np.ndarray) -> float:
+    z = np.asarray(z_start, dtype=np.float32).reshape(len(z_start), -1)
+    d = np.sqrt(((z[:, None, :] - z[None, :, :]) ** 2).mean(-1))
+    iu = np.triu_indices(len(z), 1)
+    return float(np.median(d[iu]))
+
+
+def error_onsets(lat_err: np.ndarray, chance: float, tau: float = TAU) -> np.ndarray:
+    """(n_windows,) onset steps under the direct-error label, NaN where censored."""
+    sm = smooth_dpsnr(lat_err)                      # same centered median, applied to the error
+    out = []
+    for row in sm:
+        o = _first_sustained(row >= tau * chance)
+        out.append(np.nan if o is None else o)
+    return np.array(out, dtype=float)

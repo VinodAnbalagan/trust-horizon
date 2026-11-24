@@ -84,3 +84,26 @@ pixel MSE) the signals rank dreams within a task at rho +0.5 to +0.7.
     direct-error label (no extra GPU needed; the errors are stored).
 17. **u_s**: we report both the paper's variance and the standard deviation, and say which one
     reproduces the paper's correlation.
+
+## After Phase 2 with the dPSNR label, before any result with the new label (2026-11-24)
+
+Phase 2 with the paper's frozen-frame label: no forecast skill (test AUROC 0.50 to 0.59) and no
+detection either, while the signals track latent error step by step (u_r rho +0.47 within task).
+The frozen-frame label mostly reflects scene motion: a wrong dream of a fast scene can still beat a
+frozen frame, and a decent dream of a near-still scene can lose to one.
+
+18. **Direct-error label (exploratory, chosen after seeing the dPSNR result).** A dream is broken once
+    its latent error (centered 5-step median) stays at or above TAU x the task's chance error for 5
+    steps in a row. Chance error = median RMS distance between start-state latents of different
+    windows of the same task: how far apart two unrelated real frames of the task are. TAU = 0.5
+    (primary, "halfway to a random frame"); TAU = 1.0 reported as the sensitivity check. TAU was
+    chosen from how often dreams cross it (at TAU = 1 most dreams in about half the tasks never do),
+    not from any forecast result. No weak-baseline exclusion: the label does not use a frozen frame.
+    Chance error is computed on the fit split and reused for test.
+    Known limitation of both labels: they average over the whole image, so errors on small objects
+    (for example the agent in a maze) are underweighted.
+19. **Signal importance (guess 6) by ablation.** The drop in test AUROC when a signal's features are
+    removed. The pre-registered "largest weight" is still reported, but a known-answer test showed it
+    picks the wrong signal when signals are correlated (planted u_r, chose u_s), so it is unreliable.
+20. **Detection reported alongside forecasting.** AUROC for "the dream is already broken at step t",
+    to separate "the signals notice a break" from "the signals see it coming".

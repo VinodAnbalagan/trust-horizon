@@ -26,7 +26,7 @@ from typing import Dict, List, Optional
 
 import numpy as np
 
-from th.labels import dpsnr_np, onsets, weak_baseline
+from th.labels import chance_error, dpsnr_np, error_onsets, onsets, weak_baseline
 
 SIGNALS = ("u_r", "u_f", "u_s")
 EPS = 1e-6
@@ -81,17 +81,24 @@ class Split:
     dpsnr: Dict[str, np.ndarray] = field(default_factory=dict)
     feats: Dict[str, np.ndarray] = field(default_factory=dict)
     weak: List[str] = field(default_factory=list)
+    chance: Dict[str, float] = field(default_factory=dict)
+    Xd: np.ndarray = field(default_factory=lambda: np.empty(0))    # detection rows: every step
+    yd: np.ndarray = field(default_factory=lambda: np.empty(0))    # 1 if already broken at t
     win_onset: np.ndarray = field(default_factory=lambda: np.empty(0))   # onset per window id (NaN = censored)
     win_task: List[str] = field(default_factory=list)
 
 
-def load_split(stage_dir: Path, k: int, weak_tasks: Optional[List[str]] = None) -> Split:
-    """Build forecast and hazard rows for every usable task in a stage directory.
-    weak_tasks: if given (from the fit split), use that list; else decide from this split."""
+def load_split(stage_dir: Path, k: int, weak_tasks: Optional[List[str]] = None, label: str = "dpsnr",
+               tau: float = 0.5, chance: Optional[Dict[str, float]] = None) -> Split:
+    """Build forecast, hazard and detection rows for every usable task in a stage directory.
+    label "dpsnr": the paper's frozen-frame criterion (weak-baseline tasks left out).
+    label "error": direct latent error >= tau x the task's chance error (all tasks kept).
+    weak_tasks / chance: pass the fit split's values to apply them to another split."""
     stage_dir = Path(stage_dir)
     if stage_dir.name == "unseen" and not (stage_dir / "UNSEALED").exists():
         raise SystemExit("unseen is sealed until Phase 4 (create runs/phase1/unseen/UNSEALED to open it)")
     X, y, task, win, step = [], [], [], [], []
+    Xd, yd = [], []
     Xh, yh, taskh, steph = [], [], [], []
     sp = Split(*[np.empty(0)] * 9)
     wid = 0
@@ -104,11 +111,16 @@ def load_split(stage_dir: Path, k: int, weak_tasks: Optional[List[str]] = None) 
             d = {kk: z[kk] for kk in z.files}
         if "mse" in d:
             d["dpsnr"] = dpsnr_np(d["mse"], d["mse_floor"])
-        is_weak = (name in weak_tasks) if weak_tasks is not None else weak_baseline(d["dpsnr"])
-        if is_weak:
-            sp.weak.append(name)
-            continue
-        on = onsets(d["dpsnr"])
+        if label == "dpsnr":
+            is_weak = (name in weak_tasks) if weak_tasks is not None else weak_baseline(d["dpsnr"])
+            if is_weak:
+                sp.weak.append(name)
+                continue
+            on = onsets(d["dpsnr"])
+        else:
+            c = chance[name] if chance and name in chance else chance_error(d["z_start"])
+            sp.chance[name] = c
+            on = error_onsets(d["lat_err"], c, tau)
         F = window_features(d)
         n, T, _ = F.shape
         sp.onsets[name], sp.horizons[name], sp.dpsnr[name], sp.feats[name] = on, T, d["dpsnr"], F
@@ -122,12 +134,14 @@ def load_split(stage_dir: Path, k: int, weak_tasks: Optional[List[str]] = None) 
                 if np.isnan(o) or t <= o:
                     Xh.append(F[i, t - 1]); steph.append(t); taskh.append(name)
                     yh.append(int(not np.isnan(o) and t == o))
+                Xd.append(F[i, t - 1]); yd.append(int(not np.isnan(o) and t >= o))
             win_onset.append(o)
             sp.win_task.append(name)
             wid += 1
     sp.win_onset = np.array(win_onset, dtype=float)
     sp.X, sp.y, sp.task, sp.win, sp.step = (np.array(X), np.array(y), np.array(task), np.array(win), np.array(step))
     sp.Xh, sp.yh, sp.taskh, sp.steph = np.array(Xh), np.array(yh), np.array(taskh), np.array(steph)
+    sp.Xd, sp.yd = np.array(Xd), np.array(yd)
     return sp
 
 

@@ -14,11 +14,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def run(lead, d):
+def run(lead, d, label="dpsnr"):
     env = {**os.environ, "LEAD": str(lead)}
     subprocess.run([sys.executable, str(ROOT / "tests" / "make_synthetic_phase1.py"), d], env=env, check=True)
     subprocess.run([sys.executable, str(ROOT / "phase2.py"), "--fit-dir", f"{d}/fit", "--test-dir", f"{d}/test",
-                    "--out", f"{d}/p2"], check=True, capture_output=True)
+                    "--out", f"{d}/p2", "--label", label], check=True, capture_output=True)
     return json.loads(Path(f"{d}/p2/report.json").read_text())
 
 
@@ -33,6 +33,12 @@ def main():
         r = run(1, d + "/lead1")
         mw = r["preregistered_checks"]["3_median_warning_ge_3"]["median_warning"]
         assert mw == 0, f"lockstep signals must give no warning, got {mw}"
+        # direct-error label: same known answers
+        r = run(6, d + "/e6", "error")
+        assert r["weak_tasks"] == [] and r["preregistered_checks"]["3_median_warning_ge_3"]["median_warning"] >= 3
+        assert r["detection_auroc"]["combined"] > 0.9, r["detection_auroc"]
+        r = run(1, d + "/e1", "error")
+        assert r["preregistered_checks"]["3_median_warning_ge_3"]["median_warning"] == 0
     print("analysis checks passed")
 
 
