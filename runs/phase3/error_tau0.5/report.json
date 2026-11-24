@@ -1,0 +1,2683 @@
+{
+  "label": "error_tau0.5",
+  "bins": [
+    {
+      "bin": 0,
+      "dist_range": [
+        0.346,
+        0.901
+      ],
+      "n": 80,
+      "frac_failed": 0.412,
+      "median_trust_horizon": null,
+      "S": [
+        0.9875,
+        0.9875,
+        0.9875,
+        0.9875,
+        0.9625,
+        0.95,
+        0.9125,
+        0.9,
+        0.9,
+        0.8875,
+        0.8375,
+        0.825,
+        0.825,
+        0.825,
+        0.8125,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.775,
+        0.7625,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.7375,
+        0.7375,
+        0.7375,
+        0.7375,
+        0.7375,
+        0.7375,
+        0.7375,
+        0.7375,
+        0.725,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.675,
+        0.6625,
+        0.65,
+        0.65,
+        0.65,
+        0.65,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.625,
+        0.625,
+        0.6125,
+        0.6125,
+        0.6125,
+        0.6125,
+        0.6125,
+        0.6,
+        0.5875,
+        0.5875,
+        0.5875,
+        0.5875,
+        0.5875
+      ]
+    },
+    {
+      "bin": 1,
+      "dist_range": [
+        0.901,
+        0.998
+      ],
+      "n": 80,
+      "frac_failed": 0.637,
+      "median_trust_horizon": 40,
+      "S": [
+        0.9875,
+        0.975,
+        0.9625,
+        0.9625,
+        0.95,
+        0.9125,
+        0.9,
+        0.8625,
+        0.8625,
+        0.8625,
+        0.8375,
+        0.8125,
+        0.8,
+        0.7875,
+        0.775,
+        0.775,
+        0.7625,
+        0.75,
+        0.725,
+        0.7125,
+        0.6875,
+        0.675,
+        0.675,
+        0.65,
+        0.6375,
+        0.625,
+        0.625,
+        0.6125,
+        0.6,
+        0.6,
+        0.6,
+        0.5875,
+        0.5875,
+        0.575,
+        0.575,
+        0.5625,
+        0.5375,
+        0.5375,
+        0.5125,
+        0.5,
+        0.5,
+        0.5,
+        0.475,
+        0.475,
+        0.475,
+        0.475,
+        0.475,
+        0.475,
+        0.475,
+        0.4625,
+        0.4625,
+        0.4625,
+        0.4625,
+        0.4625,
+        0.4625,
+        0.4625,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.425,
+        0.425,
+        0.4125,
+        0.4125,
+        0.4125,
+        0.4125,
+        0.4,
+        0.4,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.3875,
+        0.375,
+        0.375,
+        0.3625,
+        0.3625,
+        0.3625,
+        0.3625,
+        0.3625,
+        0.3625
+      ]
+    },
+    {
+      "bin": 2,
+      "dist_range": [
+        0.998,
+        1.111
+      ],
+      "n": 80,
+      "frac_failed": 0.6,
+      "median_trust_horizon": 37,
+      "S": [
+        0.9875,
+        0.9875,
+        0.975,
+        0.975,
+        0.975,
+        0.9625,
+        0.925,
+        0.8875,
+        0.8375,
+        0.8375,
+        0.825,
+        0.8125,
+        0.7875,
+        0.775,
+        0.775,
+        0.775,
+        0.7625,
+        0.7375,
+        0.725,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.65,
+        0.6375,
+        0.625,
+        0.625,
+        0.6125,
+        0.6125,
+        0.5875,
+        0.5875,
+        0.575,
+        0.575,
+        0.5625,
+        0.55,
+        0.525,
+        0.5125,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.4875,
+        0.4875,
+        0.4875,
+        0.4875,
+        0.4875,
+        0.4875,
+        0.4875,
+        0.4875,
+        0.4875,
+        0.4875,
+        0.475,
+        0.475,
+        0.475,
+        0.475,
+        0.4625,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.45,
+        0.4375,
+        0.4375,
+        0.4375,
+        0.4375,
+        0.4375,
+        0.4375,
+        0.4375,
+        0.4375,
+        0.425,
+        0.425,
+        0.425,
+        0.4125,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    {
+      "bin": 3,
+      "dist_range": [
+        1.111,
+        1.714
+      ],
+      "n": 80,
+      "frac_failed": 0.45,
+      "median_trust_horizon": null,
+      "S": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9875,
+        0.975,
+        0.9625,
+        0.9625,
+        0.9625,
+        0.9625,
+        0.9625,
+        0.9625,
+        0.9625,
+        0.9625,
+        0.9625,
+        0.9625,
+        0.95,
+        0.95,
+        0.95,
+        0.9125,
+        0.9,
+        0.9,
+        0.8875,
+        0.875,
+        0.8625,
+        0.8375,
+        0.8125,
+        0.8,
+        0.8,
+        0.775,
+        0.775,
+        0.775,
+        0.75,
+        0.75,
+        0.7375,
+        0.7375,
+        0.725,
+        0.725,
+        0.7,
+        0.6875,
+        0.6875,
+        0.675,
+        0.675,
+        0.675,
+        0.675,
+        0.675,
+        0.65,
+        0.65,
+        0.65,
+        0.65,
+        0.65,
+        0.65,
+        0.65,
+        0.65,
+        0.65,
+        0.65,
+        0.65,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6375,
+        0.6125,
+        0.6,
+        0.6,
+        0.5875,
+        0.5875,
+        0.5875,
+        0.5875,
+        0.5875,
+        0.5875,
+        0.5875,
+        0.575,
+        0.575,
+        0.575,
+        0.575,
+        0.575,
+        0.575,
+        0.575,
+        0.575,
+        0.575,
+        0.575,
+        0.5625,
+        0.55,
+        0.55,
+        0.55,
+        0.55,
+        0.55,
+        0.55,
+        0.55,
+        0.55,
+        0.55,
+        0.55
+      ]
+    }
+  ],
+  "guess4_monotone_decrease": false,
+  "hazard_log_distance_coef": 0.443,
+  "by_source": {
+    "active_expert": {
+      "n": 80,
+      "median_dist": 0.959
+    },
+    "active_random": {
+      "n": 80,
+      "median_dist": 1.039
+    },
+    "active_zero": {
+      "n": 80,
+      "median_dist": 1.011
+    },
+    "val (expert, held out)": {
+      "n": 80,
+      "median_dist": 1.0
+    }
+  },
+  "dreams": [
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 0.4853367507457733,
+      "onset": 5,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 0.9727408289909363,
+      "onset": 20,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 1.2852064371109009,
+      "onset": 42,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 0.506768524646759,
+      "onset": 22,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 1.027259111404419,
+      "onset": 36,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 0.6131397485733032,
+      "onset": 88,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 0.5862338542938232,
+      "onset": 50,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 1.1098545789718628,
+      "onset": 9,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 1.3321021795272827,
+      "onset": 30,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 1.2752575874328613,
+      "onset": 20,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 0.9660910964012146,
+      "onset": 6,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 1.1050794124603271,
+      "onset": 1,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 0.6599650382995605,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 0.9669834971427917,
+      "onset": 37,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 1.1328684091567993,
+      "onset": 25,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "val (expert, held out)",
+      "dist": 1.0474497079849243,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 0.6743844747543335,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 1.067590355873108,
+      "onset": 37,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 0.8765676021575928,
+      "onset": 6,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 0.9690767526626587,
+      "onset": 29,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 0.7531233429908752,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 1.0419766902923584,
+      "onset": 20,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 1.1949946880340576,
+      "onset": 5,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 1.0958194732666016,
+      "onset": 55,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 0.9380394220352173,
+      "onset": 11,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 0.9842960834503174,
+      "onset": 85,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 0.9776954650878906,
+      "onset": 15,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 0.954953134059906,
+      "onset": 25,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 0.9520161747932434,
+      "onset": 62,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 1.0806806087493896,
+      "onset": 80,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 1.130277156829834,
+      "onset": 63,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_random",
+      "dist": 0.9906648993492126,
+      "onset": 14,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.743910551071167,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.9553807377815247,
+      "onset": 34,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.851185142993927,
+      "onset": 11,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.7491081357002258,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.5921411514282227,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.8636518120765686,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.9607932567596436,
+      "onset": 43,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.757412314414978,
+      "onset": 11,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.8103129267692566,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.7442470788955688,
+      "onset": 22,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.7997552156448364,
+      "onset": 37,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.9003351926803589,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.8102561235427856,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.9206854104995728,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.5921411514282227,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_zero",
+      "dist": 0.9550344347953796,
+      "onset": 40,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2680226564407349,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2702205181121826,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2712640762329102,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.264042854309082,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2510881423950195,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2517259120941162,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2583037614822388,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.252752661705017,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2619372606277466,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2641545534133911,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2572394609451294,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2549259662628174,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.28028404712677,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2594906091690063,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2515161037445068,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "cup-catch",
+      "source": "active_expert",
+      "dist": 1.2692792415618896,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 0.9968344569206238,
+      "onset": 17,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 0.9807219505310059,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 1.173509955406189,
+      "onset": 83,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 1.1126518249511719,
+      "onset": 37,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 1.0174217224121094,
+      "onset": 84,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 1.0001357793807983,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 0.8018871545791626,
+      "onset": 11,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 0.6784749627113342,
+      "onset": 11,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 0.9060890674591064,
+      "onset": 1,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 1.2043402194976807,
+      "onset": 33,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 0.9188068509101868,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 0.9998642802238464,
+      "onset": 20,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 1.1614817380905151,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 1.1792176961898804,
+      "onset": 62,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 0.9686001539230347,
+      "onset": 43,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "val (expert, held out)",
+      "dist": 1.104810118675232,
+      "onset": 13,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.1205400228500366,
+      "onset": 47,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.288183569908142,
+      "onset": 27,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.320479393005371,
+      "onset": 27,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.247786521911621,
+      "onset": 20,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 0.9098494648933411,
+      "onset": 19,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.2548609972000122,
+      "onset": 28,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.3339296579360962,
+      "onset": 6,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.1740524768829346,
+      "onset": 82,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.2345207929611206,
+      "onset": 23,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.2585464715957642,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 0.9691411852836609,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 0.9745413661003113,
+      "onset": 64,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.0727672576904297,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.186852216720581,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.0152114629745483,
+      "onset": 35,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_random",
+      "dist": 1.1772717237472534,
+      "onset": 39,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 0.965492308139801,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.1972167491912842,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.0565091371536255,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.1479864120483398,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.0635946989059448,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.1268024444580078,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.0618394613265991,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.0618394613265991,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.3206431865692139,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.193481206893921,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.2720527648925781,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.1240755319595337,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.0214993953704834,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.2090288400650024,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.2707862854003906,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_zero",
+      "dist": 1.0765727758407593,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.7758028507232666,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 1.0859450101852417,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 1.0482428073883057,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.9037638306617737,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.7530839443206787,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.9648478627204895,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.6421248316764832,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.48842853307724,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.4909082353115082,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.3459112346172333,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.520718514919281,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.4828936457633972,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 1.0558056831359863,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 1.1168487071990967,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 1.0881215333938599,
+      "onset": 83,
+      "horizon": 96
+    },
+    {
+      "task": "finger-turn-easy",
+      "source": "active_expert",
+      "dist": 0.9418871402740479,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 1.2184689044952393,
+      "onset": 21,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 1.2219297885894775,
+      "onset": 20,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 1.2779043912887573,
+      "onset": 7,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 0.8493593335151672,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 0.7538405656814575,
+      "onset": 46,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 0.8451685309410095,
+      "onset": 82,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 0.9773983359336853,
+      "onset": 70,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 1.2884764671325684,
+      "onset": 39,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 0.7999464869499207,
+      "onset": 80,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 0.824762225151062,
+      "onset": 87,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 1.0108397006988525,
+      "onset": 59,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 1.07555091381073,
+      "onset": 60,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 0.9891601204872131,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 1.0789164304733276,
+      "onset": 45,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 0.5310308933258057,
+      "onset": 37,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "val (expert, held out)",
+      "dist": 1.7136176824569702,
+      "onset": 33,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.492932915687561,
+      "onset": 40,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.163181185722351,
+      "onset": 72,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.1537362337112427,
+      "onset": 30,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.1388170719146729,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.102615237236023,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.1484686136245728,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.2007055282592773,
+      "onset": 26,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.0520858764648438,
+      "onset": 31,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.3393841981887817,
+      "onset": 65,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.328378438949585,
+      "onset": 58,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.1773375272750854,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.0220361948013306,
+      "onset": 11,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.0877325534820557,
+      "onset": 27,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 0.9172018766403198,
+      "onset": 24,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.148707389831543,
+      "onset": 47,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_random",
+      "dist": 1.5675444602966309,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.4345183372497559,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.1816024780273438,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 0.9868185520172119,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.2262121438980103,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.1263679265975952,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 0.990212619304657,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.1592351198196411,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.0450457334518433,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.3515633344650269,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 0.9965229034423828,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 0.6757116317749023,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.0439547300338745,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.0834901332855225,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.3401775360107422,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.1044551134109497,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_zero",
+      "dist": 1.2876205444335938,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.7597025632858276,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.8272081613540649,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.8496906757354736,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 1.098602056503296,
+      "onset": 24,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.8257988095283508,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.9378501176834106,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.694766104221344,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.9763455390930176,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.7363607287406921,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 1.0818039178848267,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 1.1007386445999146,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.9641091227531433,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 1.3495643138885498,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.9592493176460266,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 1.4662220478057861,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "og-point-maze",
+      "source": "active_expert",
+      "dist": 0.9596708416938782,
+      "onset": null,
+      "horizon": 92
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 1.088270664215088,
+      "onset": 33,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 1.0702645778656006,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 0.9734735488891602,
+      "onset": 50,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 1.1110899448394775,
+      "onset": 17,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 0.9158501625061035,
+      "onset": 32,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 1.1823811531066895,
+      "onset": 62,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 0.937859058380127,
+      "onset": 57,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 0.9104814529418945,
+      "onset": 62,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 1.0265265703201294,
+      "onset": 35,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 0.8999934196472168,
+      "onset": 36,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 1.034670352935791,
+      "onset": 23,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 1.0526113510131836,
+      "onset": 9,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 0.848545253276825,
+      "onset": 28,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 0.689527690410614,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 1.1413894891738892,
+      "onset": 24,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "val (expert, held out)",
+      "dist": 0.8416085839271545,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 1.0085276365280151,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 0.8497990965843201,
+      "onset": 44,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 1.0771230459213257,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 1.0270112752914429,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 0.9068483710289001,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 0.5354832410812378,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 0.9070333242416382,
+      "onset": 87,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 0.8385214805603027,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 0.9911919832229614,
+      "onset": 68,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 1.0461878776550293,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 1.0536561012268066,
+      "onset": 72,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 0.8959423899650574,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 0.8909671902656555,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 1.0351637601852417,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 0.8809706568717957,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_random",
+      "dist": 1.0952868461608887,
+      "onset": 34,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 0.8759533166885376,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 1.0073949098587036,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 0.98570317029953,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 0.8850308060646057,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 1.0069630146026611,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 1.038147211074829,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 0.8898991346359253,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 0.8988708257675171,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 1.0013244152069092,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 1.047759771347046,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 1.0430065393447876,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 0.8477476239204407,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 1.0196895599365234,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 0.9017029404640198,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 0.9257993698120117,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_zero",
+      "dist": 0.9802473187446594,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.981701135635376,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 1.1111403703689575,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.9048271775245667,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.8803389072418213,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.8730297684669495,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.8802950382232666,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.985180139541626,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.7197460532188416,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.7474929690361023,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.8876516819000244,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.9449965953826904,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.9466915726661682,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.9593199491500854,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.8284540176391602,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.8454538583755493,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-point-maze-var1",
+      "source": "active_expert",
+      "dist": 0.9273738861083984,
+      "onset": null,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 0.9021349549293518,
+      "onset": 18,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 0.973128080368042,
+      "onset": 36,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 1.055096983909607,
+      "onset": 23,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 1.0308798551559448,
+      "onset": 14,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 0.945013165473938,
+      "onset": 13,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 1.0038518905639648,
+      "onset": 7,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 1.0340218544006348,
+      "onset": 20,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 0.9522868990898132,
+      "onset": 11,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 0.9863439798355103,
+      "onset": 8,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 0.9887842535972595,
+      "onset": 8,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 0.9961481094360352,
+      "onset": 22,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 1.1697193384170532,
+      "onset": 35,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 0.8516397476196289,
+      "onset": 23,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 1.032016634941101,
+      "onset": 25,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 1.0899627208709717,
+      "onset": 23,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "val (expert, held out)",
+      "dist": 1.0964505672454834,
+      "onset": 3,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 1.1483941078186035,
+      "onset": 26,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 0.9457060098648071,
+      "onset": 26,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 0.9375596642494202,
+      "onset": 24,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 1.0886272192001343,
+      "onset": 6,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 0.9518815279006958,
+      "onset": 12,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 1.0001065731048584,
+      "onset": 9,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 0.9461811184883118,
+      "onset": 6,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 1.0499458312988281,
+      "onset": 7,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 1.059487223625183,
+      "onset": 18,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 0.8868271708488464,
+      "onset": 45,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 0.9313695430755615,
+      "onset": 19,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 1.0212310552597046,
+      "onset": 29,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 0.9568718671798706,
+      "onset": 2,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 0.9675548672676086,
+      "onset": 21,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 0.9416183233261108,
+      "onset": 6,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_random",
+      "dist": 0.9239020943641663,
+      "onset": 37,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 1.0417088270187378,
+      "onset": 9,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 1.0304009914398193,
+      "onset": 12,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 1.0308245420455933,
+      "onset": 13,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 0.9669828414916992,
+      "onset": 28,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 0.9172787666320801,
+      "onset": 12,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 1.0460952520370483,
+      "onset": 8,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 0.9492311477661133,
+      "onset": 7,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 0.898195743560791,
+      "onset": 16,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 1.0928627252578735,
+      "onset": 7,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 0.934649646282196,
+      "onset": 21,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 1.0680105686187744,
+      "onset": 8,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 0.8593541383743286,
+      "onset": 1,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 1.1293323040008545,
+      "onset": 17,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 1.0150563716888428,
+      "onset": 19,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 0.8899134993553162,
+      "onset": 7,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_zero",
+      "dist": 1.0632983446121216,
+      "onset": 18,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.882632315158844,
+      "onset": 44,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.8196211457252502,
+      "onset": 10,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.8889526724815369,
+      "onset": 15,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.9668213725090027,
+      "onset": 3,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.9580879211425781,
+      "onset": 8,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.7458741664886475,
+      "onset": 7,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.9867405891418457,
+      "onset": 39,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.8818003535270691,
+      "onset": 24,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.8604847192764282,
+      "onset": 8,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.9246845841407776,
+      "onset": 39,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.8383215069770813,
+      "onset": 12,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.8588764667510986,
+      "onset": 5,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.9721498489379883,
+      "onset": 5,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 0.8934744000434875,
+      "onset": 7,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 1.0718148946762085,
+      "onset": 29,
+      "horizon": 96
+    },
+    {
+      "task": "pygame-pong",
+      "source": "active_expert",
+      "dist": 1.0227599143981934,
+      "onset": 8,
+      "horizon": 96
+    }
+  ]
+}
