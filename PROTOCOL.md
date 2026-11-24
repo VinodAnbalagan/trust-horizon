@@ -117,3 +117,35 @@ frozen frame, and a decent dream of a near-still scene can lose to one.
     flags and chance error come from their own dreams (both are properties of the task, not of
     the outcome). Guess 5 is scored as pre-registered (plain forecast AUROC within 0.05) on the
     primary label. The seal check runs first and Phase 4 stops if any unseen file changed.
+
+## Before Phase 3 data and before the extra forecast tests (2026-11-24)
+
+22. **Phase 3 analysis.** Start states from `active_random`, `active_zero` and `active_expert` (collected
+    after `base` was trained) for cup-catch, finger-turn-easy, og-point-maze, pygame-point-maze-var1,
+    pygame-pong, plus the held-out expert `fit` dreams of the same tasks. Distance = mean L2 distance
+    of the start latent to its 5 nearest neighbours among 2000 encoded training clips per task
+    (`expert` and `mixed-small`), divided by the median for held-out expert starts (so those are 1.0).
+    Primary label tau 0.5 with each task's chance error from its held-out expert starts; the
+    frozen-frame label is also reported. Quartile bins of distance, Kaplan-Meier per bin, guess 4
+    (median trust horizon falls monotonically with distance), and a discrete-time hazard with log
+    distance, log step and task as covariates.
+
+23. **Four further forecast tests**, all on existing Phase 1 data, CPU only. Fit on `fit`, evaluate on
+    `test` (unseen reported as secondary). Primary label tau 0.5; tau 1.0 and frozen frame reported.
+    Skill is always reported three ways: plain AUROC, beyond time (within dream-step groups
+    1-8, 9-16, 17-32, 33-48, 49-64, 65-96), and within task and step group.
+    T1. **Forecast window sweep**: "breaks within k steps" for k = 1, 2, 4, 8, 16, same features
+        and logistic model as Phase 2.
+    T2. **Aligned at the break**: for every dream that breaks after step 12, each signal's log value,
+        standardized within task, at offsets -10 to +4 around the onset, minus the mean of the same
+        task's dreams that are still unbroken at the same absolute step (matched controls).
+        95% bootstrap intervals over dreams (2000 resamples, seed 0). A lead is claimed only if the
+        interval excludes 0 at an offset of -2 or earlier.
+    T3. **Per-dream survival (landmark)**: at landmark steps s = 1, 8, 24, for dreams still unbroken
+        at s, predict P(still unbroken at s + u) for u = 4, 8, 16, 32 with one logistic model per u
+        on the features at s. Scored by the concordance index (risk = 1 - P(unbroken at s + 16),
+        against the observed remaining time, censored dreams included) and by calibration of the
+        u = 16 prediction against the observed fraction.
+    T4. **Flexible model**: gradient-boosted trees (sklearn HistGradientBoostingClassifier, default
+        settings, random_state 0) on the Phase 2 features plus each signal's raw level at the last
+        8 steps, for the k = 8 forecast, compared with the logistic model.

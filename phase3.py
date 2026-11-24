@@ -7,7 +7,8 @@ compare survival curves across distance bins.
 
     python phase3.py bank   --usd-per-hour 0.50    # GPU, short: encode training clips per task
     python phase3.py dreams --usd-per-hour 0.50    # GPU: long dreams from the new start states
-    python phase3.py analyze                       # CPU: distances, survival by distance bin
+    python phase3.py analyze                       # CPU: distances, survival by distance bin (primary label)
+    python phase3.py analyze --label dpsnr         # same with the paper's frozen-frame label
     python phase3.py estimate
 
 Uses Phase 1 `fit` dreams (expert, held out) as the in-distribution group.
@@ -32,7 +33,7 @@ NEW_STARTS = ["active_random", "active_zero", "active_expert"]   # collected aft
 TRAIN_PARTS = ["expert", "mixed-small"]                          # part of base's training data
 N_BANK = int(os.environ.get("TH_N_BANK", 2000))        # env overrides are for tests only
 N_WINDOWS = int(os.environ.get("TH_N_WINDOWS", 16))
-SEC_PER_WINDOW_STEP = 0.435
+SEC_PER_WINDOW_STEP = 0.15    # Phase 1 fit stage on an RTX 4090 (4 denoising steps)
 
 
 def estimate(price):
@@ -101,8 +102,10 @@ def gpu_stage(stage, args):
 def analyze(args):
     from th.bank import knn_distance
     from th.hazard import kaplan_meier, median_survival
-    from th.labels import onsets, weak_baseline
+    from th.labels import chance_error, dpsnr_np, error_onsets, onsets, weak_baseline
 
+    tag = "dpsnr" if args.label == "dpsnr" else f"error_tau{args.tau:g}"
+    print(f"label: {tag}")
     bank_dir, dream_dir = ROOT / "runs" / "phase3" / "bank", ROOT / "runs" / "phase3" / "dreams"
     fit_dir = Path(args.fit_dir)
     rows = []   # one per dream: task, source, distance, onset, horizon
@@ -113,19 +116,19 @@ def analyze(args):
         bank = np.load(bp)["bank"]
         sources = [("val (expert, held out)", fit_dir / f"{task}.npz")] + \
                   [(p, dream_dir / f"{task}__{p}.npz") for p in NEW_STARTS]
-        from th.labels import dpsnr_np
         loaded = [(s, dict(np.load(f))) for s, f in sources if f.exists()]
         for _, d in loaded:
             d["dpsnr"] = dpsnr_np(d["mse"], d["mse_floor"])
         if not loaded:
             continue
         ref = next((d for s, d in loaded if s.startswith("val")), loaded[0][1])
-        if weak_baseline(ref["dpsnr"]):
+        if args.label == "dpsnr" and weak_baseline(ref["dpsnr"]):
             print(f"  {task}: weak baseline, skipped"); continue
+        chance = chance_error(ref["z_start"])     # task's chance error from held-out expert starts
         dist = {s: knn_distance(d["z_start"].reshape(len(d["z_start"]), -1), bank) for s, d in loaded}
         scale = float(np.median(dist[loaded[0][0]]))   # in-distribution reference = 1.0
         for s, d in loaded:
-            on = onsets(d["dpsnr"])
+            on = onsets(d["dpsnr"]) if args.label == "dpsnr" else error_onsets(d["lat_err"], chance, args.tau)
             for i in range(len(on)):
                 rows.append({"task": task, "source": s, "dist": float(dist[s][i] / max(scale, 1e-9)),
                              "onset": None if np.isnan(on[i]) else int(on[i]), "horizon": int(d["dpsnr"].shape[1])})
@@ -162,8 +165,9 @@ def analyze(args):
         m = fit_logistic(np.array(X), np.array(y))
         coef = float(m.named_steps["logisticregression"].coef_[0][0] / m.named_steps["standardscaler"].scale_[0])
 
-    out = ROOT / "runs" / "phase3"
-    rep = {"bins": per_bin, "guess4_monotone_decrease": bool(monotone),
+    out = ROOT / "runs" / "phase3" / tag
+    out.mkdir(parents=True, exist_ok=True)
+    rep = {"label": tag, "bins": per_bin, "guess4_monotone_decrease": bool(monotone),
            "hazard_log_distance_coef": None if coef is None else round(coef, 3),
            "by_source": {s: {"n": int(sum(r["source"] == s for r in rows)),
                              "median_dist": round(float(np.median([r["dist"] for r in rows if r["source"] == s])), 3)}
@@ -204,6 +208,8 @@ def main():
     ap.add_argument("--usd-per-hour", type=float, default=0.50)
     ap.add_argument("--variant", default="base")
     ap.add_argument("--fit-dir", default=str(ROOT / "runs" / "phase1" / "fit"))
+    ap.add_argument("--label", choices=["dpsnr", "error"], default="error")
+    ap.add_argument("--tau", type=float, default=0.5)
     args = ap.parse_args()
     if args.stage == "estimate":
         estimate(args.usd_per_hour)
