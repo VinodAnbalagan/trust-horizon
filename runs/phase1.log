@@ -375,3 +375,344 @@ per task, paper-exact:
   reacher-easy                -0.136  -0.274  -0.315   dPSNR  -1.04
   walker-walk                  0.499   0.471   0.312   dPSNR   4.72
 =================== all requested stages finished  Mon Nov 23 23:34:09 UTC 2026 ===================
+nohup: ignoring input
+=================== stage fit  Mon Nov 23 23:47:22 UTC 2026 ===================
+phase1 fit: 20 tasks, 0 already done, 20 to run on NVIDIA GeForce RTX 4090
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1/20] cup-catch   (stage elapsed 5.1s, est. $0.00)
+  [cup-catch] step 32/96  elapsed 39.3s  eta 1.3min
+  [cup-catch] step 64/96  elapsed 1.3min  eta 38.1s
+  [cup-catch] step 96/96  elapsed 1.9min  eta 0.0s
+  [cup-catch] step 32/96  elapsed 2.4min  eta 4.9min
+  [cup-catch] step 64/96  elapsed 3.0min  eta 1.5min
+  [cup-catch] step 96/96  elapsed 3.7min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[2/20] finger-turn-easy   (stage elapsed 3.7min, est. $0.06)
+  [finger-turn-easy] step 32/96  elapsed 39.4s  eta 1.3min
+  [finger-turn-easy] step 64/96  elapsed 1.3min  eta 38.2s
+  [finger-turn-easy] step 96/96  elapsed 1.9min  eta 0.0s
+  [finger-turn-easy] step 32/96  elapsed 2.4min  eta 4.8min
+  [finger-turn-easy] step 64/96  elapsed 3.0min  eta 1.5min
+  [finger-turn-easy] step 96/96  elapsed 3.7min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[3/20] reacher-easy   (stage elapsed 7.4min, est. $0.11)
+  [reacher-easy] step 32/96  elapsed 39.4s  eta 1.3min
+  [reacher-easy] step 64/96  elapsed 1.3min  eta 38.1s
+  [reacher-easy] step 96/96  elapsed 1.9min  eta 0.0s
+  [reacher-easy] step 32/96  elapsed 2.4min  eta 4.8min
+  [reacher-easy] step 64/96  elapsed 3.0min  eta 1.5min
+  [reacher-easy] step 96/96  elapsed 3.6min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[4/20] cheetah-run   (stage elapsed 11.0min, est. $0.16)
+  [cheetah-run] step 32/96  elapsed 41.3s  eta 1.4min
+  [cheetah-run] step 64/96  elapsed 1.3min  eta 39.1s
+  [cheetah-run] step 96/96  elapsed 1.9min  eta 0.0s
+  [cheetah-run] step 32/96  elapsed 2.4min  eta 4.9min
+  [cheetah-run] step 64/96  elapsed 3.1min  eta 1.5min
+  [cheetah-run] step 96/96  elapsed 3.7min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[5/20] walker-walk   (stage elapsed 14.7min, est. $0.22)
+  [walker-walk] step 32/96  elapsed 42.3s  eta 1.4min
+  [walker-walk] step 64/96  elapsed 1.3min  eta 39.6s
+  [walker-walk] step 96/96  elapsed 1.9min  eta 0.0s
+  [walker-walk] step 32/96  elapsed 2.5min  eta 4.9min
+  [walker-walk] step 64/96  elapsed 3.1min  eta 1.5min
+  [walker-walk] step 96/96  elapsed 3.7min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[6/20] mw-assembly   (stage elapsed 18.4min, est. $0.27)
+  [mw-assembly] step 32/92  elapsed 35.3s  eta 1.1min
+  [mw-assembly] step 64/92  elapsed 1.2min  eta 31.6s
+  [mw-assembly] step 92/92  elapsed 1.7min  eta 0.0s
+  [mw-assembly] step 32/92  elapsed 2.3min  eta 4.3min
+  [mw-assembly] step 64/92  elapsed 2.9min  eta 1.3min
+  [mw-assembly] step 92/92  elapsed 3.4min  eta 0.0s
+  saved 16 windows x 92 steps in 3.4min
+
+[7/20] mw-door-open   (stage elapsed 21.8min, est. $0.32)
+  [mw-door-open] step 32/92  elapsed 34.8s  eta 1.1min
+  [mw-door-open] step 64/92  elapsed 1.2min  eta 31.4s
+  [mw-door-open] step 92/92  elapsed 1.7min  eta 0.0s
+  [mw-door-open] step 32/92  elapsed 2.3min  eta 4.2min
+  [mw-door-open] step 64/92  elapsed 2.9min  eta 1.3min
+  [mw-door-open] step 92/92  elapsed 3.4min  eta 0.0s
+  saved 16 windows x 92 steps in 3.4min
+
+[8/20] ms-pick-cube   (stage elapsed 25.3min, est. $0.37)
+  [ms-pick-cube] step 17/17  elapsed 15.6s  eta 0.0s
+  [ms-pick-cube] step 17/17  elapsed 29.1s  eta 0.0s
+  saved 16 windows x 17 steps in 26.9s
+
+[9/20] ms-ant-walk   (stage elapsed 25.7min, est. $0.38)
+  [ms-ant-walk] step 32/96  elapsed 43.1s  eta 1.4min
+  [ms-ant-walk] step 64/96  elapsed 1.3min  eta 40.0s
+  [ms-ant-walk] step 96/96  elapsed 1.9min  eta 0.0s
+  [ms-ant-walk] step 32/96  elapsed 2.5min  eta 4.9min
+  [ms-ant-walk] step 64/96  elapsed 3.1min  eta 1.5min
+  [ms-ant-walk] step 96/96  elapsed 3.7min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[10/20] mujoco-halfcheetah   (stage elapsed 29.4min, est. $0.44)
+  [mujoco-halfcheetah] step 32/96  elapsed 55.8s  eta 1.9min
+  [mujoco-halfcheetah] step 64/96  elapsed 1.5min  eta 46.3s
+  [mujoco-halfcheetah] step 96/96  elapsed 2.2min  eta 0.0s
+  [mujoco-halfcheetah] step 32/96  elapsed 2.7min  eta 5.4min
+  [mujoco-halfcheetah] step 64/96  elapsed 3.3min  eta 1.7min
+  [mujoco-halfcheetah] step 96/96  elapsed 3.9min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[11/20] bipedal-walker-uneven   (stage elapsed 33.4min, est. $0.49)
+  [bipedal-walker-uneven] step 32/96  elapsed 36.4s  eta 1.2min
+  [bipedal-walker-uneven] step 64/96  elapsed 1.2min  eta 36.7s
+  [bipedal-walker-uneven] step 96/96  elapsed 1.8min  eta 0.0s
+  [bipedal-walker-uneven] step 32/96  elapsed 2.4min  eta 4.7min
+  [bipedal-walker-uneven] step 64/96  elapsed 3.0min  eta 1.5min
+  [bipedal-walker-uneven] step 96/96  elapsed 3.6min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[12/20] lunarlander-land   (stage elapsed 37.0min, est. $0.55)
+  [lunarlander-land] step 32/96  elapsed 37.5s  eta 1.2min
+  [lunarlander-land] step 64/96  elapsed 1.2min  eta 37.2s
+  [lunarlander-land] step 96/96  elapsed 1.9min  eta 0.0s
+  [lunarlander-land] step 32/96  elapsed 2.4min  eta 4.8min
+  [lunarlander-land] step 64/96  elapsed 3.0min  eta 1.5min
+  [lunarlander-land] step 96/96  elapsed 3.6min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[13/20] rd-push-red   (stage elapsed 40.6min, est. $0.60)
+  [rd-push-red] step 32/92  elapsed 36.2s  eta 1.1min
+  [rd-push-red] step 64/92  elapsed 1.2min  eta 32.0s
+  [rd-push-red] step 92/92  elapsed 1.8min  eta 0.0s
+  [rd-push-red] step 32/92  elapsed 2.3min  eta 4.3min
+  [rd-push-red] step 64/92  elapsed 2.9min  eta 1.3min
+  [rd-push-red] step 92/92  elapsed 3.4min  eta 0.0s
+  saved 16 windows x 92 steps in 3.4min
+
+[14/20] og-point-maze   (stage elapsed 44.0min, est. $0.65)
+  [og-point-maze] step 32/92  elapsed 34.5s  eta 1.1min
+  [og-point-maze] step 64/92  elapsed 1.2min  eta 31.2s
+  [og-point-maze] step 92/92  elapsed 1.7min  eta 0.0s
+  [og-point-maze] step 32/92  elapsed 2.3min  eta 4.2min
+  [og-point-maze] step 64/92  elapsed 2.9min  eta 1.3min
+  [og-point-maze] step 92/92  elapsed 3.4min  eta 0.0s
+  saved 16 windows x 92 steps in 3.4min
+
+[15/20] og-antball   (stage elapsed 47.4min, est. $0.70)
+  [og-antball] step 32/96  elapsed 36.7s  eta 1.2min
+  [og-antball] step 64/96  elapsed 1.2min  eta 36.8s
+  [og-antball] step 96/96  elapsed 1.8min  eta 0.0s
+  [og-antball] step 32/96  elapsed 2.4min  eta 4.7min
+  [og-antball] step 64/96  elapsed 3.0min  eta 1.5min
+  [og-antball] step 96/96  elapsed 3.6min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[16/20] pygame-point-maze-var1   (stage elapsed 51.0min, est. $0.76)
+  [pygame-point-maze-var1] step 32/96  elapsed 36.1s  eta 1.2min
+  [pygame-point-maze-var1] step 64/96  elapsed 1.2min  eta 36.5s
+  [pygame-point-maze-var1] step 96/96  elapsed 1.8min  eta 0.0s
+  [pygame-point-maze-var1] step 32/96  elapsed 2.4min  eta 4.7min
+  [pygame-point-maze-var1] step 64/96  elapsed 3.0min  eta 1.5min
+  [pygame-point-maze-var1] step 96/96  elapsed 3.6min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[17/20] pygame-pong   (stage elapsed 54.6min, est. $0.81)
+  [pygame-pong] step 32/96  elapsed 40.7s  eta 1.4min
+  [pygame-pong] step 64/96  elapsed 1.3min  eta 38.8s
+  [pygame-pong] step 96/96  elapsed 1.9min  eta 0.0s
+  [pygame-pong] step 32/96  elapsed 2.4min  eta 4.9min
+  [pygame-pong] step 64/96  elapsed 3.0min  eta 1.5min
+  [pygame-pong] step 96/96  elapsed 3.7min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[18/20] pygame-coinrun   (stage elapsed 58.3min, est. $0.86)
+  [pygame-coinrun] step 32/96  elapsed 39.9s  eta 1.3min
+  [pygame-coinrun] step 64/96  elapsed 1.3min  eta 38.4s
+  [pygame-coinrun] step 96/96  elapsed 1.9min  eta 0.0s
+  [pygame-coinrun] step 32/96  elapsed 2.4min  eta 4.8min
+  [pygame-coinrun] step 64/96  elapsed 3.0min  eta 1.5min
+  [pygame-coinrun] step 96/96  elapsed 3.7min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[19/20] atari-pong   (stage elapsed 1.03h, est. $0.92)
+  [atari-pong] step 32/96  elapsed 47.6s  eta 1.6min
+  [atari-pong] step 64/96  elapsed 1.4min  eta 42.2s
+  [atari-pong] step 96/96  elapsed 2.0min  eta 0.0s
+  [atari-pong] step 32/96  elapsed 2.6min  eta 5.1min
+  [atari-pong] step 64/96  elapsed 3.2min  eta 1.6min
+  [atari-pong] step 96/96  elapsed 3.8min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+[20/20] atari-ms-pacman   (stage elapsed 1.10h, est. $0.97)
+  [atari-ms-pacman] step 32/96  elapsed 45.6s  eta 1.5min
+  [atari-ms-pacman] step 64/96  elapsed 1.4min  eta 41.3s
+  [atari-ms-pacman] step 96/96  elapsed 2.0min  eta 0.0s
+  [atari-ms-pacman] step 32/96  elapsed 2.5min  eta 5.0min
+  [atari-ms-pacman] step 64/96  elapsed 3.1min  eta 1.6min
+  [atari-ms-pacman] step 96/96  elapsed 3.8min  eta 0.0s
+  saved 16 windows x 96 steps in 3.5min
+
+fit done in 1.16h, est. $1.031. All runs so far: 2.22 GPU-hours, est. $1.91
+=================== stage test  Tue Nov 24 00:56:53 UTC 2026 ===================
+phase1 test: 20 tasks, 0 already done, 20 to run on NVIDIA GeForce RTX 4090
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1/20] cup-catch   (stage elapsed 4.8s, est. $0.00)
+  [cup-catch] step 32/96  elapsed 36.3s  eta 1.2min
+  [cup-catch] step 64/96  elapsed 1.2min  eta 36.6s
+  [cup-catch] step 96/96  elapsed 1.8min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[2/20] finger-turn-easy   (stage elapsed 1.9min, est. $0.03)
+  [finger-turn-easy] step 32/96  elapsed 36.6s  eta 1.2min
+  [finger-turn-easy] step 64/96  elapsed 1.2min  eta 36.7s
+  [finger-turn-easy] step 96/96  elapsed 1.8min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[3/20] reacher-easy   (stage elapsed 3.8min, est. $0.06)
+  [reacher-easy] step 32/96  elapsed 36.8s  eta 1.2min
+  [reacher-easy] step 64/96  elapsed 1.2min  eta 36.9s
+  [reacher-easy] step 96/96  elapsed 1.8min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[4/20] cheetah-run   (stage elapsed 5.6min, est. $0.08)
+  [cheetah-run] step 32/96  elapsed 36.7s  eta 1.2min
+  [cheetah-run] step 64/96  elapsed 1.2min  eta 36.8s
+  [cheetah-run] step 96/96  elapsed 1.8min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[5/20] walker-walk   (stage elapsed 7.5min, est. $0.11)
+  [walker-walk] step 32/96  elapsed 37.8s  eta 1.3min
+  [walker-walk] step 64/96  elapsed 1.2min  eta 37.3s
+  [walker-walk] step 96/96  elapsed 1.9min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[6/20] mw-assembly   (stage elapsed 9.3min, est. $0.14)
+  [mw-assembly] step 32/92  elapsed 33.4s  eta 1.0min
+  [mw-assembly] step 64/92  elapsed 1.2min  eta 30.8s
+  [mw-assembly] step 92/92  elapsed 1.7min  eta 0.0s
+  saved 8 windows x 92 steps in 1.7min
+
+[7/20] mw-door-open   (stage elapsed 11.0min, est. $0.16)
+  [mw-door-open] step 32/92  elapsed 33.2s  eta 1.0min
+  [mw-door-open] step 64/92  elapsed 1.2min  eta 30.7s
+  [mw-door-open] step 92/92  elapsed 1.7min  eta 0.0s
+  saved 8 windows x 92 steps in 1.7min
+
+[8/20] ms-pick-cube   (stage elapsed 12.7min, est. $0.19)
+  [ms-pick-cube] step 17/17  elapsed 14.6s  eta 0.0s
+  saved 8 windows x 17 steps in 13.5s
+
+[9/20] ms-ant-walk   (stage elapsed 13.0min, est. $0.19)
+  [ms-ant-walk] step 32/96  elapsed 37.8s  eta 1.3min
+  [ms-ant-walk] step 64/96  elapsed 1.2min  eta 37.4s
+  [ms-ant-walk] step 96/96  elapsed 1.9min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[10/20] mujoco-halfcheetah   (stage elapsed 14.8min, est. $0.22)
+  [mujoco-halfcheetah] step 32/96  elapsed 43.7s  eta 1.5min
+  [mujoco-halfcheetah] step 64/96  elapsed 1.3min  eta 40.3s
+  [mujoco-halfcheetah] step 96/96  elapsed 2.0min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[11/20] bipedal-walker-uneven   (stage elapsed 16.8min, est. $0.25)
+  [bipedal-walker-uneven] step 32/96  elapsed 35.0s  eta 1.2min
+  [bipedal-walker-uneven] step 64/96  elapsed 1.2min  eta 36.0s
+  [bipedal-walker-uneven] step 96/96  elapsed 1.8min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[12/20] lunarlander-land   (stage elapsed 18.6min, est. $0.28)
+  [lunarlander-land] step 32/96  elapsed 35.8s  eta 1.2min
+  [lunarlander-land] step 64/96  elapsed 1.2min  eta 36.4s
+  [lunarlander-land] step 96/96  elapsed 1.8min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[13/20] rd-push-red   (stage elapsed 20.5min, est. $0.30)
+  [rd-push-red] step 32/92  elapsed 33.2s  eta 1.0min
+  [rd-push-red] step 64/92  elapsed 1.2min  eta 30.7s
+  [rd-push-red] step 92/92  elapsed 1.7min  eta 0.0s
+  saved 8 windows x 92 steps in 1.7min
+
+[14/20] og-point-maze   (stage elapsed 22.2min, est. $0.33)
+  [og-point-maze] step 32/92  elapsed 33.2s  eta 1.0min
+  [og-point-maze] step 64/92  elapsed 1.2min  eta 30.7s
+  [og-point-maze] step 92/92  elapsed 1.7min  eta 0.0s
+  saved 8 windows x 92 steps in 1.7min
+
+[15/20] og-antball   (stage elapsed 23.9min, est. $0.35)
+  [og-antball] step 32/96  elapsed 35.0s  eta 1.2min
+  [og-antball] step 64/96  elapsed 1.2min  eta 36.0s
+  [og-antball] step 96/96  elapsed 1.8min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[16/20] pygame-point-maze-var1   (stage elapsed 25.7min, est. $0.38)
+  [pygame-point-maze-var1] step 32/96  elapsed 34.5s  eta 1.2min
+  [pygame-point-maze-var1] step 64/96  elapsed 1.2min  eta 35.7s
+  [pygame-point-maze-var1] step 96/96  elapsed 1.8min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[17/20] pygame-pong   (stage elapsed 27.5min, est. $0.41)
+  [pygame-pong] step 32/96  elapsed 38.9s  eta 1.3min
+  [pygame-pong] step 64/96  elapsed 1.3min  eta 37.9s
+  [pygame-pong] step 96/96  elapsed 1.9min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[18/20] pygame-coinrun   (stage elapsed 29.4min, est. $0.44)
+  [pygame-coinrun] step 32/96  elapsed 38.2s  eta 1.3min
+  [pygame-coinrun] step 64/96  elapsed 1.3min  eta 37.5s
+  [pygame-coinrun] step 96/96  elapsed 1.9min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[19/20] atari-pong   (stage elapsed 31.3min, est. $0.46)
+  [atari-pong] step 32/96  elapsed 45.5s  eta 1.5min
+  [atari-pong] step 64/96  elapsed 1.4min  eta 41.2s
+  [atari-pong] step 96/96  elapsed 2.0min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+[20/20] atari-ms-pacman   (stage elapsed 33.3min, est. $0.49)
+  [atari-ms-pacman] step 32/96  elapsed 42.7s  eta 1.4min
+  [atari-ms-pacman] step 64/96  elapsed 1.3min  eta 39.8s
+  [atari-ms-pacman] step 96/96  elapsed 1.9min  eta 0.0s
+  saved 8 windows x 96 steps in 1.8min
+
+test done in 35.2min, est. $0.523. All runs so far: 2.81 GPU-hours, est. $2.43
+=================== stage unseen  Tue Nov 24 01:32:10 UTC 2026 ===================
+phase1 unseen: 10 tasks, 0 already done, 10 to run on NVIDIA GeForce RTX 4090
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1/10] cup-catch-var1   (stage elapsed 4.8s, est. $0.00)
+  saved 16 windows x 96 steps in 3.5min  (sealed)
+
+[2/10] finger-turn-easy-var1   (stage elapsed 3.7min, est. $0.06)
+  saved 16 windows x 96 steps in 3.5min  (sealed)
+
+[3/10] ms-push-banana   (stage elapsed 7.4min, est. $0.11)
+  saved 16 windows x 17 steps in 27.0s  (sealed)
+
+[4/10] og-point-var1   (stage elapsed 7.9min, est. $0.12)
+  saved 16 windows x 92 steps in 3.4min  (sealed)
+
+[5/10] og-point-var2   (stage elapsed 11.3min, est. $0.17)
+  saved 16 windows x 92 steps in 3.4min  (sealed)
+
+[6/10] pygame-point-maze-var4   (stage elapsed 14.7min, est. $0.22)
+  saved 16 windows x 96 steps in 3.5min  (sealed)
+
+[7/10] pygame-reacher-easy   (stage elapsed 18.3min, est. $0.27)
+  saved 16 windows x 96 steps in 3.5min  (sealed)
+
+[8/10] pygame-dungeon-explorer1   (stage elapsed 21.8min, est. $0.32)
+  saved 16 windows x 96 steps in 3.5min  (sealed)
+
+[9/10] pygame-foraging   (stage elapsed 25.4min, est. $0.38)
+  saved 16 windows x 96 steps in 3.5min  (sealed)
+
+[10/10] pygame-whirlpool   (stage elapsed 29.1min, est. $0.43)
+  saved 16 windows x 96 steps in 3.5min  (sealed)
+
+unseen done in 32.7min, est. $0.485. All runs so far: 3.35 GPU-hours, est. $2.92
+=================== all requested stages finished  Tue Nov 24 02:04:56 UTC 2026 ===================
