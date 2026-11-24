@@ -7,3 +7,5 @@ phase1-repro-20261123-233407,phase1,NVIDIA GeForce RTX 4090,0.89,1161.2,0.287,re
 phase1-fit-20261124-005652,phase1,NVIDIA GeForce RTX 4090,0.89,4168.3,1.031,fit
 phase1-test-20261124-013209,phase1,NVIDIA GeForce RTX 4090,0.89,2114.7,0.523,test
 phase1-unseen-20261124-020455,phase1,NVIDIA GeForce RTX 4090,0.89,1963.4,0.485,unseen
+phase3-bank-20261124-184716,phase3,NVIDIA RTX PRO 4500 Blackwell,0.89,232.7,0.058,bank
+phase3-dreams-20261124-195805,phase3,NVIDIA RTX PRO 4500 Blackwell,0.89,4246.3,1.05,dreams

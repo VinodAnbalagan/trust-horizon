@@ -1,0 +1,161 @@
+=================== phase3 bank  Tue Nov 24 18:43:22 UTC 2026 ===================
+phase3 bank: 0 done, 5 to run on NVIDIA RTX PRO 4500 Blackwell
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1/5] cup-catch   (elapsed 12.5s, est. $0.00)
+  saved
+
+[2/5] finger-turn-easy   (elapsed 1.0min, est. $0.02)
+  saved
+
+[3/5] og-point-maze   (elapsed 1.8min, est. $0.03)
+  saved
+
+[4/5] pygame-point-maze-var1   (elapsed 2.4min, est. $0.04)
+  saved
+
+[5/5] pygame-pong   (elapsed 3.0min, est. $0.04)
+  saved
+
+bank done in 3.9min, est. $0.058. All runs so far: 3.42 GPU-hours, est. $2.98
+=================== phase3 dreams  Tue Nov 24 18:47:17 UTC 2026 ===================
+phase3 dreams: 0 done, 15 to run on NVIDIA RTX PRO 4500 Blackwell
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1/15] cup-catch__active_random   (elapsed 4.8s, est. $0.00)
+  [cup-catch__active_random] step 32/96  elapsed 1.2min  eta 2.3min
+  [cup-catch__active_random] step 64/96  elapsed 1.9min  eta 57.6s
+  [cup-catch__active_random] step 96/96  elapsed 2.7min  eta 0.0s
+  [cup-catch__active_random] step 32/96  elapsed 3.3min  eta 6.7min
+  [cup-catch__active_random] step 64/96  elapsed 4.1min  eta 2.1min
+  [cup-catch__active_random] step 96/96  elapsed 4.9min  eta 0.0s
+  saved
+
+[2/15] cup-catch__active_zero   (elapsed 5.0min, est. $0.07)
+  [cup-catch__active_zero] step 32/96  elapsed 1.1min  eta 2.1min
+  [cup-catch__active_zero] step 64/96  elapsed 1.8min  eta 54.9s
+  [cup-catch__active_zero] step 96/96  elapsed 2.6min  eta 0.0s
+  [cup-catch__active_zero] step 32/96  elapsed 3.3min  eta 6.5min
+  [cup-catch__active_zero] step 64/96  elapsed 4.0min  eta 2.0min
+  [cup-catch__active_zero] step 96/96  elapsed 4.8min  eta 0.0s
+  saved
+
+[3/15] cup-catch__active_expert   (elapsed 9.8min, est. $0.14)
+  [cup-catch__active_expert] step 32/96  elapsed 1.1min  eta 2.1min
+  [cup-catch__active_expert] step 64/96  elapsed 1.8min  eta 55.0s
+  [cup-catch__active_expert] step 96/96  elapsed 2.6min  eta 0.0s
+  [cup-catch__active_expert] step 32/96  elapsed 3.3min  eta 6.5min
+  [cup-catch__active_expert] step 64/96  elapsed 4.0min  eta 2.0min
+  [cup-catch__active_expert] step 96/96  elapsed 4.8min  eta 0.0s
+  saved
+
+[4/15] finger-turn-easy__active_random   (elapsed 14.6min, est. $0.22)
+  [finger-turn-easy__active_random] step 32/96  elapsed 1.1min  eta 2.2min
+  [finger-turn-easy__active_random] step 64/96  elapsed 1.9min  eta 56.7s
+  [finger-turn-easy__active_random] step 96/96  elapsed 2.7min  eta 0.0s
+  [finger-turn-easy__active_random] step 32/96  elapsed 3.3min  eta 6.6min
+  [finger-turn-easy__active_random] step 64/96  elapsed 4.1min  eta 2.0min
+  [finger-turn-easy__active_random] step 96/96  elapsed 4.9min  eta 0.0s
+  saved
+
+[5/15] finger-turn-easy__active_zero   (elapsed 19.4min, est. $0.29)
+  [finger-turn-easy__active_zero] step 32/96  elapsed 1.1min  eta 2.1min
+  [finger-turn-easy__active_zero] step 64/96  elapsed 1.8min  eta 54.8s
+  [finger-turn-easy__active_zero] step 96/96  elapsed 2.6min  eta 0.0s
+  [finger-turn-easy__active_zero] step 32/96  elapsed 3.3min  eta 6.5min
+  [finger-turn-easy__active_zero] step 64/96  elapsed 4.0min  eta 2.0min
+  [finger-turn-easy__active_zero] step 96/96  elapsed 4.8min  eta 0.0s
+  saved
+
+[6/15] finger-turn-easy__active_expert   (elapsed 24.2min, est. $0.36)
+  [finger-turn-easy__active_expert] step 32/96  elapsed 1.1min  eta 2.2min
+  [finger-turn-easy__active_expert] step 64/96  elapsed 1.9min  eta 56.6s
+  [finger-turn-easy__active_expert] step 96/96  elapsed 2.7min  eta 0.0s
+  [finger-turn-easy__active_expert] step 32/96  elapsed 3.3min  eta 6.6min
+  [finger-turn-easy__active_expert] step 64/96  elapsed 4.1min  eta 2.0min
+  [finger-turn-easy__active_expert] step 96/96  elapsed 4.9min  eta 0.0s
+  saved
+
+[7/15] og-point-maze__active_random   (elapsed 29.1min, est. $0.43)
+  [og-point-maze__active_random] step 32/92  elapsed 50.4s  eta 1.6min
+  [og-point-maze__active_random] step 64/92  elapsed 1.6min  eta 42.3s
+  [og-point-maze__active_random] step 92/92  elapsed 2.3min  eta 0.0s
+  [og-point-maze__active_random] step 32/92  elapsed 2.9min  eta 5.5min
+  [og-point-maze__active_random] step 64/92  elapsed 3.7min  eta 1.6min
+  [og-point-maze__active_random] step 92/92  elapsed 4.4min  eta 0.0s
+  saved
+
+[8/15] og-point-maze__active_zero   (elapsed 33.4min, est. $0.50)
+  [og-point-maze__active_zero] step 32/92  elapsed 48.4s  eta 1.5min
+  [og-point-maze__active_zero] step 64/92  elapsed 1.6min  eta 41.4s
+  [og-point-maze__active_zero] step 92/92  elapsed 2.2min  eta 0.0s
+  [og-point-maze__active_zero] step 32/92  elapsed 2.9min  eta 5.4min
+  [og-point-maze__active_zero] step 64/92  elapsed 3.7min  eta 1.6min
+  [og-point-maze__active_zero] step 92/92  elapsed 4.3min  eta 0.0s
+  saved
+
+[9/15] og-point-maze__active_expert   (elapsed 37.8min, est. $0.56)
+  [og-point-maze__active_expert] step 32/92  elapsed 50.0s  eta 1.6min
+  [og-point-maze__active_expert] step 64/92  elapsed 1.6min  eta 42.1s
+  [og-point-maze__active_expert] step 92/92  elapsed 2.3min  eta 0.0s
+  [og-point-maze__active_expert] step 32/92  elapsed 2.9min  eta 5.5min
+  [og-point-maze__active_expert] step 64/92  elapsed 3.7min  eta 1.6min
+  [og-point-maze__active_expert] step 92/92  elapsed 4.4min  eta 0.0s
+  saved
+
+[10/15] pygame-point-maze-var1__active_random   (elapsed 42.2min, est. $0.63)
+  [pygame-point-maze-var1__active_random] step 32/96  elapsed 53.4s  eta 1.8min
+  [pygame-point-maze-var1__active_random] step 64/96  elapsed 1.7min  eta 49.8s
+  [pygame-point-maze-var1__active_random] step 96/96  elapsed 2.4min  eta 0.0s
+  [pygame-point-maze-var1__active_random] step 32/96  elapsed 3.1min  eta 6.2min
+  [pygame-point-maze-var1__active_random] step 64/96  elapsed 3.9min  eta 1.9min
+  [pygame-point-maze-var1__active_random] step 96/96  elapsed 4.6min  eta 0.0s
+  saved
+
+[11/15] pygame-point-maze-var1__active_zero   (elapsed 46.8min, est. $0.69)
+  [pygame-point-maze-var1__active_zero] step 32/96  elapsed 53.7s  eta 1.8min
+  [pygame-point-maze-var1__active_zero] step 64/96  elapsed 1.7min  eta 49.9s
+  [pygame-point-maze-var1__active_zero] step 96/96  elapsed 2.4min  eta 0.0s
+  [pygame-point-maze-var1__active_zero] step 32/96  elapsed 3.1min  eta 6.2min
+  [pygame-point-maze-var1__active_zero] step 64/96  elapsed 3.9min  eta 1.9min
+  [pygame-point-maze-var1__active_zero] step 96/96  elapsed 4.6min  eta 0.0s
+  saved
+
+[12/15] pygame-point-maze-var1__active_expert   (elapsed 51.4min, est. $0.76)
+  [pygame-point-maze-var1__active_expert] step 32/96  elapsed 54.5s  eta 1.8min
+  [pygame-point-maze-var1__active_expert] step 64/96  elapsed 1.7min  eta 50.4s
+  [pygame-point-maze-var1__active_expert] step 96/96  elapsed 2.4min  eta 0.0s
+  [pygame-point-maze-var1__active_expert] step 32/96  elapsed 3.1min  eta 6.2min
+  [pygame-point-maze-var1__active_expert] step 64/96  elapsed 3.9min  eta 1.9min
+  [pygame-point-maze-var1__active_expert] step 96/96  elapsed 4.6min  eta 0.0s
+  saved
+
+[13/15] pygame-pong__active_random   (elapsed 56.1min, est. $0.83)
+  [pygame-pong__active_random] step 32/96  elapsed 1.2min  eta 2.4min
+  [pygame-pong__active_random] step 64/96  elapsed 1.9min  eta 58.4s
+  [pygame-pong__active_random] step 96/96  elapsed 2.7min  eta 0.0s
+  [pygame-pong__active_random] step 32/96  elapsed 3.4min  eta 6.7min
+  [pygame-pong__active_random] step 64/96  elapsed 4.1min  eta 2.1min
+  [pygame-pong__active_random] step 96/96  elapsed 4.9min  eta 0.0s
+  saved
+
+[14/15] pygame-pong__active_zero   (elapsed 1.02h, est. $0.90)
+  [pygame-pong__active_zero] step 32/96  elapsed 1.2min  eta 2.3min
+  [pygame-pong__active_zero] step 64/96  elapsed 1.9min  eta 57.6s
+  [pygame-pong__active_zero] step 96/96  elapsed 2.7min  eta 0.0s
+  [pygame-pong__active_zero] step 32/96  elapsed 3.3min  eta 6.7min
+  [pygame-pong__active_zero] step 64/96  elapsed 4.1min  eta 2.1min
+  [pygame-pong__active_zero] step 96/96  elapsed 4.9min  eta 0.0s
+  saved
+
+[15/15] pygame-pong__active_expert   (elapsed 1.10h, est. $0.98)
+  [pygame-pong__active_expert] step 32/96  elapsed 1.2min  eta 2.3min
+  [pygame-pong__active_expert] step 64/96  elapsed 1.9min  eta 58.2s
+  [pygame-pong__active_expert] step 96/96  elapsed 2.7min  eta 0.0s
+  [pygame-pong__active_expert] step 32/96  elapsed 3.4min  eta 6.7min
+  [pygame-pong__active_expert] step 64/96  elapsed 4.1min  eta 2.1min
+  [pygame-pong__active_expert] step 96/96  elapsed 4.9min  eta 0.0s
+  saved
+
+dreams done in 1.18h, est. $1.05. All runs so far: 4.60 GPU-hours, est. $4.03
+=================== phase3 finished  Tue Nov 24 19:58:05 UTC 2026 ===================

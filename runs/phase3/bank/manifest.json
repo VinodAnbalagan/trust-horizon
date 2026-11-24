@@ -1,0 +1,30 @@
+{
+  "stage": "bank",
+  "items": {
+    "cup-catch": {
+      "task": "cup-catch",
+      "n": 2000,
+      "dim": 4096
+    },
+    "finger-turn-easy": {
+      "task": "finger-turn-easy",
+      "n": 2000,
+      "dim": 4096
+    },
+    "og-point-maze": {
+      "task": "og-point-maze",
+      "n": 2000,
+      "dim": 4096
+    },
+    "pygame-point-maze-var1": {
+      "task": "pygame-point-maze-var1",
+      "n": 2000,
+      "dim": 4096
+    },
+    "pygame-pong": {
+      "task": "pygame-pong",
+      "n": 2000,
+      "dim": 4096
+    }
+  }
+}
