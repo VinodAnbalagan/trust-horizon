@@ -107,3 +107,13 @@ frozen frame, and a decent dream of a near-still scene can lose to one.
     picks the wrong signal when signals are correlated (planted u_r, chose u_s), so it is unreliable.
 20. **Detection reported alongside forecasting.** AUROC for "the dream is already broken at step t",
     to separate "the signals notice a break" from "the signals see it coming".
+
+## Before opening the unseen tasks (2026-11-24)
+
+21. **Phase 4 evaluates all three definitions** (frozen frame, tau 0.5 primary, tau 1.0), each with
+    models fit on `fit` only, reported for seen `test` and unseen side by side: detection and
+    forecast AUROC, both plain and beyond time (within groups of similar dream step), Brier,
+    calibration gap, median warning, and trust horizon per task. For unseen tasks, weak-baseline
+    flags and chance error come from their own dreams (both are properties of the task, not of
+    the outcome). Guess 5 is scored as pre-registered (plain forecast AUROC within 0.05) on the
+    primary label. The seal check runs first and Phase 4 stops if any unseen file changed.
