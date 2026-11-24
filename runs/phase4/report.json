@@ -1,0 +1,442 @@
+{
+  "seal": {
+    "intact": 10,
+    "changed_or_missing": []
+  },
+  "k": 8,
+  "labels": {
+    "dpsnr": {
+      "description": "frozen frame (paper)",
+      "seen_test": {
+        "n_dreams": 120,
+        "weak_tasks": [
+          "bipedal-walker-uneven",
+          "lunarlander-land",
+          "ms-ant-walk",
+          "ms-pick-cube",
+          "og-antball"
+        ],
+        "frac_dreams_broken": 0.45,
+        "forecast": {
+          "positive_rate": 0.0441,
+          "auroc": 0.583,
+          "auroc_beyond_time": 0.513,
+          "brier": 0.04358,
+          "max_calibration_gap": 0.09709413075247317,
+          "median_warning": 0.0
+        },
+        "detection": {
+          "positive_rate": 0.3192,
+          "auroc": 0.719,
+          "auroc_beyond_time": 0.707
+        },
+        "trust_horizon": {
+          "atari-ms-pacman": {
+            "median": null,
+            "frac_broken": 0.125
+          },
+          "atari-pong": {
+            "median": null,
+            "frac_broken": 0.25
+          },
+          "cheetah-run": {
+            "median": null,
+            "frac_broken": 0.25
+          },
+          "cup-catch": {
+            "median": 1,
+            "frac_broken": 1.0
+          },
+          "finger-turn-easy": {
+            "median": 15,
+            "frac_broken": 0.75
+          },
+          "mujoco-halfcheetah": {
+            "median": null,
+            "frac_broken": 0.375
+          },
+          "mw-assembly": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "mw-door-open": {
+            "median": 10,
+            "frac_broken": 0.625
+          },
+          "og-point-maze": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "pygame-coinrun": {
+            "median": null,
+            "frac_broken": 0.375
+          },
+          "pygame-point-maze-var1": {
+            "median": 37,
+            "frac_broken": 1.0
+          },
+          "pygame-pong": {
+            "median": 63,
+            "frac_broken": 0.625
+          },
+          "rd-push-red": {
+            "median": null,
+            "frac_broken": 0.125
+          },
+          "reacher-easy": {
+            "median": 7,
+            "frac_broken": 1.0
+          },
+          "walker-walk": {
+            "median": null,
+            "frac_broken": 0.25
+          }
+        }
+      },
+      "unseen": {
+        "n_dreams": 0,
+        "weak_tasks": [
+          "cup-catch-var1",
+          "finger-turn-easy-var1",
+          "ms-push-banana",
+          "og-point-var1",
+          "og-point-var2",
+          "pygame-dungeon-explorer1",
+          "pygame-foraging",
+          "pygame-point-maze-var4",
+          "pygame-reacher-easy",
+          "pygame-whirlpool"
+        ],
+        "frac_dreams_broken": null,
+        "trust_horizon": {}
+      }
+    },
+    "error_tau0.5": {
+      "description": "halfway to a random frame (primary)",
+      "seen_test": {
+        "n_dreams": 160,
+        "weak_tasks": [],
+        "frac_dreams_broken": 0.606,
+        "forecast": {
+          "positive_rate": 0.0956,
+          "auroc": 0.841,
+          "auroc_beyond_time": 0.795,
+          "brier": 0.07892,
+          "max_calibration_gap": 0.27023881136761585,
+          "median_warning": 0.0
+        },
+        "detection": {
+          "positive_rate": 0.5235,
+          "auroc": 0.868,
+          "auroc_beyond_time": 0.841
+        },
+        "trust_horizon": {
+          "atari-ms-pacman": {
+            "median": 13,
+            "frac_broken": 1.0
+          },
+          "atari-pong": {
+            "median": 17,
+            "frac_broken": 1.0
+          },
+          "bipedal-walker-uneven": {
+            "median": 15,
+            "frac_broken": 1.0
+          },
+          "cheetah-run": {
+            "median": 37,
+            "frac_broken": 0.875
+          },
+          "cup-catch": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "finger-turn-easy": {
+            "median": null,
+            "frac_broken": 0.125
+          },
+          "lunarlander-land": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "ms-ant-walk": {
+            "median": 9,
+            "frac_broken": 1.0
+          },
+          "ms-pick-cube": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "mujoco-halfcheetah": {
+            "median": null,
+            "frac_broken": 0.375
+          },
+          "mw-assembly": {
+            "median": 4,
+            "frac_broken": 1.0
+          },
+          "mw-door-open": {
+            "median": 6,
+            "frac_broken": 1.0
+          },
+          "og-antball": {
+            "median": 44,
+            "frac_broken": 0.625
+          },
+          "og-point-maze": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "pygame-coinrun": {
+            "median": 5,
+            "frac_broken": 1.0
+          },
+          "pygame-point-maze-var1": {
+            "median": null,
+            "frac_broken": 0.125
+          },
+          "pygame-pong": {
+            "median": 7,
+            "frac_broken": 1.0
+          },
+          "rd-push-red": {
+            "median": 10,
+            "frac_broken": 1.0
+          },
+          "reacher-easy": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "walker-walk": {
+            "median": 18,
+            "frac_broken": 1.0
+          }
+        }
+      },
+      "unseen": {
+        "n_dreams": 160,
+        "weak_tasks": [],
+        "frac_dreams_broken": 0.863,
+        "forecast": {
+          "positive_rate": 0.1639,
+          "auroc": 0.659,
+          "auroc_beyond_time": 0.542,
+          "brier": 0.12693,
+          "max_calibration_gap": 0.39553298800432674,
+          "median_warning": 0.0
+        },
+        "detection": {
+          "positive_rate": 0.8564,
+          "auroc": 0.892,
+          "auroc_beyond_time": 0.864
+        },
+        "trust_horizon": {
+          "cup-catch-var1": {
+            "median": 1,
+            "frac_broken": 1.0
+          },
+          "finger-turn-easy-var1": {
+            "median": 1,
+            "frac_broken": 1.0
+          },
+          "ms-push-banana": {
+            "median": null,
+            "frac_broken": 0.312
+          },
+          "og-point-var1": {
+            "median": 1,
+            "frac_broken": 1.0
+          },
+          "og-point-var2": {
+            "median": null,
+            "frac_broken": 0.312
+          },
+          "pygame-dungeon-explorer1": {
+            "median": 1,
+            "frac_broken": 1.0
+          },
+          "pygame-foraging": {
+            "median": 1,
+            "frac_broken": 1.0
+          },
+          "pygame-point-maze-var4": {
+            "median": 32,
+            "frac_broken": 1.0
+          },
+          "pygame-reacher-easy": {
+            "median": 4,
+            "frac_broken": 1.0
+          },
+          "pygame-whirlpool": {
+            "median": 1,
+            "frac_broken": 1.0
+          }
+        }
+      }
+    },
+    "error_tau1": {
+      "description": "as far as a random frame (strict check)",
+      "seen_test": {
+        "n_dreams": 160,
+        "weak_tasks": [],
+        "frac_dreams_broken": 0.163,
+        "forecast": {
+          "positive_rate": 0.0172,
+          "auroc": 0.615,
+          "auroc_beyond_time": 0.444,
+          "brier": 0.0169,
+          "max_calibration_gap": 0.018264973717496386,
+          "median_warning": 0.0
+        },
+        "detection": {
+          "positive_rate": 0.1068,
+          "auroc": 0.725,
+          "auroc_beyond_time": 0.705
+        },
+        "trust_horizon": {
+          "atari-ms-pacman": {
+            "median": null,
+            "frac_broken": 0.125
+          },
+          "atari-pong": {
+            "median": null,
+            "frac_broken": 0.375
+          },
+          "bipedal-walker-uneven": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "cheetah-run": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "cup-catch": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "finger-turn-easy": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "lunarlander-land": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "ms-ant-walk": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "ms-pick-cube": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "mujoco-halfcheetah": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "mw-assembly": {
+            "median": 9,
+            "frac_broken": 1.0
+          },
+          "mw-door-open": {
+            "median": 14,
+            "frac_broken": 0.875
+          },
+          "og-antball": {
+            "median": null,
+            "frac_broken": 0.125
+          },
+          "og-point-maze": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "pygame-coinrun": {
+            "median": 75,
+            "frac_broken": 0.5
+          },
+          "pygame-point-maze-var1": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "pygame-pong": {
+            "median": null,
+            "frac_broken": 0.25
+          },
+          "rd-push-red": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "reacher-easy": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "walker-walk": {
+            "median": null,
+            "frac_broken": 0.0
+          }
+        }
+      },
+      "unseen": {
+        "n_dreams": 160,
+        "weak_tasks": [],
+        "frac_dreams_broken": 0.613,
+        "forecast": {
+          "positive_rate": 0.0799,
+          "auroc": 0.595,
+          "auroc_beyond_time": 0.574,
+          "brier": 0.07776,
+          "max_calibration_gap": 0.06969104081354277,
+          "median_warning": 0.0
+        },
+        "detection": {
+          "positive_rate": 0.5132,
+          "auroc": 0.835,
+          "auroc_beyond_time": 0.811
+        },
+        "trust_horizon": {
+          "cup-catch-var1": {
+            "median": 1,
+            "frac_broken": 1.0
+          },
+          "finger-turn-easy-var1": {
+            "median": 21,
+            "frac_broken": 0.875
+          },
+          "ms-push-banana": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "og-point-var1": {
+            "median": null,
+            "frac_broken": 0.438
+          },
+          "og-point-var2": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "pygame-dungeon-explorer1": {
+            "median": 31,
+            "frac_broken": 0.875
+          },
+          "pygame-foraging": {
+            "median": 1,
+            "frac_broken": 1.0
+          },
+          "pygame-point-maze-var4": {
+            "median": null,
+            "frac_broken": 0.0
+          },
+          "pygame-reacher-easy": {
+            "median": 49,
+            "frac_broken": 0.938
+          },
+          "pygame-whirlpool": {
+            "median": 25,
+            "frac_broken": 1.0
+          }
+        }
+      }
+    }
+  },
+  "guess5_unseen_forecast_auroc_within_0.05": false
+}
