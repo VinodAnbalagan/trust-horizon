@@ -9,8 +9,8 @@ const f2 = (v: number) => v.toFixed(2);
 
 type View = "auroc" | "beyond_time" | "within_task_and_time";
 const VIEW_LABEL: Record<View, string> = {
-  auroc: "All rows pooled",
-  beyond_time: "Same dream step",
+  auroc: "Any two moments",
+  beyond_time: "Same step",
   within_task_and_time: "Same task and step",
 };
 
@@ -18,7 +18,7 @@ export function AurocViews() {
   const [view, setView] = useState<View>("auroc");
   const v = site.views;
   const rows = [
-    { k: "Detection: has it already broken?", who: "familiar", d: v.seen.detection, c: "var(--real)" },
+    { k: "Alarm: has it already broken?", who: "familiar", d: v.seen.detection, c: "var(--real)" },
     { k: "", who: "unseen", d: v.unseen.detection, c: "var(--real)" },
     { k: "Forecast: will it break within 8 steps?", who: "familiar", d: v.seen.forecast, c: "var(--dream)" },
     { k: "", who: "unseen", d: v.unseen.forecast, c: "var(--dream)" },
@@ -29,8 +29,8 @@ export function AurocViews() {
   const X = (a: number) => l + ((a - 0.4) / 0.6) * (W - l - r);
   return (
     <figure className="fig">
-      <p className="chart-title">How well the signals tell broken from unbroken (AUROC)</p>
-      <p className="chart-sub">Compare dreams more and more alike before asking the signals to tell them apart. 0.5 is a coin flip; 1.0 is perfect. Test split, primary label.</p>
+      <p className="chart-title">How often each prediction picks the broken dream</p>
+      <p className="chart-sub">Take one moment where a dream has broken and one where it has not. How often does the prediction give the broken one the higher chance? This score is called AUROC: 0.5 is a coin flip, 1.0 is perfect. The buttons make the two moments more and more alike. Scored on the 160 test dreams.</p>
       <div className="seg" role="group" aria-label="Which dreams are compared">
         {(Object.keys(VIEW_LABEL) as View[]).map((k) => (
           <button key={k} aria-pressed={view === k} onClick={() => setView(k)}>{VIEW_LABEL[k]}</button>
@@ -66,7 +66,7 @@ export function AurocViews() {
         </svg>
       </div>
       <figcaption className="note">
-        Hollow circles mark the pooled score. Pooling mixes three skills: knowing which tasks are risky, knowing that late steps are riskier, and reading the dream in front of you. Only the last view isolates that third skill. Detection keeps about 0.72 on familiar tasks; the forecast keeps 0.61, and on unseen tasks 0.56.
+        Hollow circles mark the "any two moments" score. That score mixes three skills: knowing which tasks are risky, knowing that late steps are riskier, and reading the dream in front of you. Only the last view isolates that third skill. The Alarm keeps about 0.72 on familiar tasks; the Forecast keeps 0.61, and on unseen tasks 0.56.
       </figcaption>
     </figure>
   );
@@ -169,7 +169,7 @@ export function WindowSweep() {
   return (
     <figure className="fig" style={{ margin: 0 }}>
       <p className="chart-title">Is a short-range forecast easier?</p>
-      <p className="chart-sub">Forecast AUROC for "breaks within k steps", familiar test dreams.</p>
+      <p className="chart-sub">The Forecast for "breaks within the next k steps", scored the same way (AUROC, 0.5 = coin flip), on familiar tasks.</p>
       <LineChart ariaLabel="Forecast AUROC by window length"
         width={470} height={360} rightPad={120}
         series={[
@@ -225,7 +225,7 @@ export function AlignedAtBreak() {
       </div>
       <figcaption className="note">
         {mode === "test"
-          ? "The rule written before the test: claim a lead only if the 95% interval excludes 0 at 2 or more steps before the break. It does (u_r is +0.58 SD at -2, interval +0.23 to +0.94; the shaded band is u_r's interval). On unseen tasks there is no lead."
+          ? "The rule written before the test: claim a lead only if the signals are clearly above normal (the 95% range of likely values stays above 0) at 2 or more steps before the break. They are: 2 steps before, round trip sits 0.58 standard deviations above normal (likely range +0.23 to +0.94, the shaded band). On unseen tasks there is no lead."
           : "Not in the plan, so exploratory. The error is already 0.5 SD above the controls 2 steps before the official onset and climbs at the same pace as the signals; after the onset the signals level off while the error keeps rising. The signals track error that is growing below the threshold."}
       </figcaption>
     </figure>
@@ -278,7 +278,7 @@ export function DistanceSurvival() {
   const bins = site.phase3.bins as { dist_range: [number, number]; n: number; frac_failed: number; median_trust_horizon: number | null; S: number[] }[];
   const ramp = ["#9fc7c1", "#5aa59b", "#1f7f74", "#0d4f48"];
   const rampDark = ["#3b6e68", "#4f978d", "#6fc0b4", "#a7e3da"];
-  const dark = typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+  const dark = true;
   const names = ["nearest", "near", "far", "farthest"];
   const series = bins.map((b, i) => ({
     key: "q" + i, label: `${names[i]} (${b.dist_range[0].toFixed(2)}-${b.dist_range[1].toFixed(2)})`,
@@ -287,7 +287,7 @@ export function DistanceSurvival() {
   return (
     <figure className="fig">
       <p className="chart-title">Does a less familiar start state break sooner?</p>
-      <p className="chart-sub">320 dreams on 5 familiar tasks, split into quarters by distance from the training data (1.0 = a typical held-out expert start). Darker = farther.</p>
+      <p className="chart-sub">320 dreams on 5 familiar tasks, split into quarters by distance from the training data (1.0 = as far as a typical new expert episode starts). Darker = farther.</p>
       <LineChart ariaLabel="Survival curves by distance quartile" series={series} x0={0} xDomain={[0, 92]} yDomain={[0, 1]}
         xTicks={[0, 16, 32, 48, 64, 80]} yTicks={[0, 0.25, 0.5, 0.75, 1]} yFormat={(v) => `${v * 100}%`} xTitle="dream step"
         tipX={(v) => `step ${v}`} tipValue={(v) => `${Math.round(v * 100)}%`} refs={[{ y: 0.5 }]} height={260} />
@@ -297,7 +297,7 @@ export function DistanceSurvival() {
         ))}
       </div>
       <figcaption className="note">
-        The horizon does not fall steadily with distance. In a hazard model the distance effect is +0.44 per unit of log distance, but a bootstrap interval (exploratory) runs from -0.47 to +1.46: no detectable effect. Most start states sat between 0.9 and 1.1, so this range was too narrow to show one.
+        The horizon does not fall steadily with distance. A statistical test of "farther starts break sooner" gives an effect too small to tell apart from zero: its range of plausible values (exploratory) runs from a little protective to clearly harmful. Most start states sat between 0.9 and 1.1, so this range was too narrow to show one.
       </figcaption>
     </figure>
   );
@@ -305,7 +305,7 @@ export function DistanceSurvival() {
 
 /* ------------------------------------------------------------------ unseen gallery */
 
-function Thumb({ task, kind, step }: { task: string; kind: "real" | "dream"; step: number }) {
+export function Thumb({ task, kind, step }: { task: string; kind: "real" | "dream"; step: number }) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     let live = true;

@@ -6,6 +6,9 @@ import {
 } from "./components/Figures";
 import { dreams, pretty, site } from "./data";
 import { ProbabilityCards } from "./components/Probability";
+import { BrokenExplainer, DreamMachine, ThreeDreams } from "./components/Explainers";
+import { DataTable, SignalsExplainer } from "./components/Explainers2";
+import { AlignExplainer, PairsGame, PredictionExplainer, SurvivalLanes } from "./components/Explainers3";
 
 const REPO = "https://github.com/VinodAnbalagan/trust-horizon";
 const PAPER = "https://arxiv.org/abs/2606.27326";
@@ -14,14 +17,17 @@ const PAPER_CODE = "https://github.com/nicklashansen/mmbench2";
 
 const SECTIONS = [
   { id: "dream", t: "How a world model dreams" },
+  { id: "broken", t: "When is a dream broken?" },
   { id: "signals", t: "The three signals" },
-  { id: "broken", t: "What counts as broken" },
-  { id: "probability", t: "The probability behind it" },
+  { id: "data", t: "The data" },
+  { id: "predictions", t: "Our two predictions" },
+  { id: "explore", t: "Explore every dream" },
   { id: "results", t: "Alarms, not forecasts" },
   { id: "horizon", t: "The trust horizon" },
   { id: "unseen", t: "Unseen tasks" },
   { id: "distance", t: "Distance from training" },
   { id: "meaning", t: "What it means" },
+  { id: "probability", t: "The probability behind it" },
   { id: "honest", t: "How we checked" },
 ];
 
@@ -141,6 +147,47 @@ export default function App() {
               </div>
             </section>
 
+            <ul className="claims">
+              <li><span className="num good">0.84</span><span className="txt">The paper's result reproduces: the signals put tasks in nearly the same order, safest to riskiest, as the real error does (rank correlation 0.84; 1 would be perfect).</span></li>
+              <li><span className="num">{v.seen.detection.within_task_and_time.toFixed(2)}</span><span className="txt">Within one task, at the same step, the Alarm picks out the broken dream of a broken and a sound pair {Math.round(v.seen.detection.within_task_and_time * 100)}% of the time (50% would be a coin flip). Useful, but modest.</span></li>
+              <li><span className="num bad">0</span><span className="txt">Steps of warning before the median break. Shorter windows are not easier, and a more flexible model finds nothing more.</span></li>
+              <li><span className="num bad">86%</span><span className="txt">Of dreams break on the 10 tasks the model never trained on; 6 tasks break from step 1, and the Forecast does no better than a coin flip.</span></li>
+            </ul>
+          </header>
+
+          <Chapter id="dream" title="How a world model dreams">
+            <p className="lede prose">A world model is a learned simulator. Shown a few real frames and the actions taken, it imagines the frames that come next, one at a time, each built on the last. Press play and watch one imagine the future.</p>
+            <DreamMachine />
+            <div className="two-up">
+              <p>Robots and agents use such dreams to plan, or to practise without touching the real world. This one is the 350-million-parameter world model of <a href={PAPER}>Hansen and Wang (2026)</a>, trained on 200 tasks: Atari games, simulated robots, mazes and small games. To imagine a frame it starts from random noise and cleans it up in a few steps, like a photograph developing in a tray.</p>
+              <p>Because every imagined frame is built on the one before, small errors pile up, and at some point the dream stops matching reality. The paper calls this a <em>hallucination</em> and shows that the world model's own uncertainty signals predict which tasks hallucinate. We asked the probability question: <strong>at any moment of a dream, what is the chance it is about to break, and how long can you trust it?</strong></p>
+            </div>
+          </Chapter>
+
+          <Chapter id="broken" title="When is a dream broken?">
+            <p className="lede prose">To say a dream has broken, we need a fair way to say "too far off". Here is the idea first, then the real thing.</p>
+            <BrokenExplainer />
+            <p className="prose">A dream works the same way. Each frame is squeezed into a compact code, its position in the world model's map. The gap is the distance between the imagined code and the real one, and the ruler is the distance between two random moments of the same task. A dream is <strong>broken</strong> once its gap stays above half a ruler for 5 steps in a row.</p>
+            <ThreeDreams />
+          </Chapter>
+
+          <Chapter id="signals" title="How the world model can tell it is unsure">
+            <p className="lede prose">While it dreams, the world model can report three numbers about its own guess, without ever seeing the real frames. So a robot could compute them about a future that has not happened yet. Switch between a moment where it is sure and one where it is not.</p>
+            <SignalsExplainer />
+            <p className="prose">The paper showed that these signals, averaged over a whole dream, tell <em>which tasks</em> the world model dreams badly. We asked a sharper question: at a single moment of a single dream, do they say whether this dream is about to break?</p>
+          </Chapter>
+
+          <Chapter id="data" title="The data">
+            <DataTable />
+          </Chapter>
+
+          <Chapter id="predictions" title="Our two predictions">
+            <p className="lede prose">From those numbers, at every step, we compute two chances: the <b>Forecast</b>, that this dream breaks within the next 8 steps, and the <b>Alarm</b>, that it has already broken. Watch them follow the cheetah dream.</p>
+            <PredictionExplainer />
+          </Chapter>
+
+          <Chapter id="explore" title="Explore every dream">
+            <p className="lede prose">Everything so far in one player, for all 30 tasks: the frames, the gap, the Forecast, the Alarm and the signals. Pick a dream and press play.</p>
             <div className="seg" role="group" aria-label="Example dreams" style={{ marginBottom: "0.8rem" }}>
               {PICKS.map((p) => (
                 <button key={p.t} aria-pressed={task === p.t} onClick={() => setTask(p.t)}>
@@ -153,86 +200,16 @@ export default function App() {
               Real model output: the paper's 350M-parameter world model, given 8 real frames and the real actions, imagining up to 96 frames at 64 x 64 pixels. Hover a chart to scrub through the dream.
             </p>
 
-            <ul className="claims">
-              <li><span className="num good">0.84</span><span className="txt">The paper's result reproduces: the signals rank tasks by how badly the model dreams them (Spearman 0.84 and 0.85).</span></li>
-              <li><span className="num">{v.seen.detection.within_task_and_time.toFixed(2)}</span><span className="txt">Within one task at the same step, they tell a broken dream from a sound one with AUROC {v.seen.detection.within_task_and_time.toFixed(2)}. Useful, but modest.</span></li>
-              <li><span className="num bad">0</span><span className="txt">Steps of warning before the median break. Shorter windows are not easier, and a more flexible model finds nothing more.</span></li>
-              <li><span className="num bad">86%</span><span className="txt">Of dreams break on the 10 tasks the model never trained on; 6 tasks break from step 1, and the forecast falls to chance ({v.unseen.forecast.beyond_time.toFixed(2)}).</span></li>
-            </ul>
-          </header>
-
-          <Chapter id="dream" title="How a world model dreams">
-            <Split
-              text={<>
-                <p className="lede">A world model is a learned simulator. Shown a few real frames and a list of actions, it predicts the frames that follow. When it keeps feeding its own predictions back in, it is dreaming.</p>
-                <p>Robots and agents use such dreams to plan, or to practise without touching the real world. <a href={PAPER}>Hansen and Wang (2026)</a> trained a 350-million-parameter world model in the style of Dreamer 4 on MMBench2: 200 tasks across 10 domains, from Atari and DeepMind Control to robot arms, mazes and small pygame games, with 10 more tasks held out.</p>
-                <p>A tokenizer squeezes each 64 x 64 frame into a compact code, a <em>latent</em>, the way a zip file holds a picture. A dynamics Transformer predicts the next latent from the past ones and the action. It starts from random noise and cleans it up in a few steps, like a photograph developing in a tray. That is flow matching.</p>
-                <p>Every predicted frame is a little wrong, and the next one is built on it. At some point the dream stops resembling what happened: the agent is somewhere else, the ball has vanished, the scene has frozen. The paper calls that drift a <em>hallucination</em> and shows that the model's own signals predict which tasks will hallucinate.</p>
-                <p>We asked the probability question on top of theirs: <strong>at any step of a dream, what is the chance it breaks within the next few steps, and how long can you trust it?</strong> We call that span the trust horizon.</p>
-                <div className="flow" aria-label="How one dream step is made">
-                  <span className="node">8 real frames</span><span className="arrow">→</span>
-                  <span className="node">tokenizer</span><span className="arrow">→</span>
-                  <span className="node">latents</span><span className="arrow">→</span>
-                  <span className="node">dynamics + action</span><span className="arrow">→</span>
-                  <span className="node dream">next latent</span><span className="arrow">→</span>
-                  <span className="node">decoder</span><span className="arrow">→</span>
-                  <span className="node dream">dreamed frame</span><span className="arrow">↺ fed back in</span>
-                </div>
-              </>}
-              fig={<Filmstrip />}
-            />
-          </Chapter>
-
-          <Chapter id="signals" title="Three ways to ask the model whether it is sure">
-            <p className="lede prose">Each dream step yields three numbers that need no ground truth, so a robot could compute them about a future it has not seen.</p>
-            <div className="cards">
-              <div className="card ur">
-                <h4>u<sub>r</sub>, round trip</h4>
-                <p>Decode the predicted latent to an image and encode it again. How far did it move?</p>
-                <p className="everyday">Translate a sentence to French and back. A well-formed sentence survives unchanged.</p>
-              </div>
-              <div className="card uf">
-                <h4>u<sub>f</sub>, flow instability</h4>
-                <p>While cleaning up the noise, did the model keep changing its guess of the clean frame?</p>
-                <p className="everyday">A student who keeps rewriting an answer is less sure than one who writes it once.</p>
-              </div>
-              <div className="card us">
-                <h4>u<sub>s</sub>, seed spread</h4>
-                <p>Do two different random starts lead to the same next frame?</p>
-                <p className="everyday">Ask two witnesses. If their stories differ, trust neither.</p>
-              </div>
-            </div>
-            <div className="two-up" style={{ marginTop: 0 }}>
-              <p>A busy scene makes every signal larger even when the dream is fine, so, as in the paper, each signal is divided by how much the task's real latents normally move per step. A value of 2 means "twice as unsure as this scene usually moves".</p>
-              <p>The paper averaged the signals over a 16-step dream and compared tasks. That answers <em>which tasks</em> to worry about. We wanted the per-step, per-dream version: do the numbers at step <em>t</em> say anything about this dream's next few steps?</p>
-            </div>
-          </Chapter>
-
-          <Chapter id="broken" title="What counts as broken">
-            <Split
-              text={<>
-                <p className="lede">To forecast a break you must first define one, and the definition turned out to matter more than any model.</p>
-                <p>Our primary label uses a natural yardstick, the <em>chance error</em>: the typical distance between two unrelated moments of the same task. If you are guessing where a friend is in a city, the chance error is the distance between two random spots in that city. Being off by half of that is a bad guess. A dream is broken once its error stays at or above half the chance error.</p>
-                <p>We smooth the error with a 5-step median and call the break at the first of 5 broken steps in a row, so one wild frame cannot trigger it, and a dream that touches the line and recovers has not broken.</p>
-                <p>The paper's own label, "worse than repeating the last real frame", turned out to rise and fall with how much the scene moves, so it partly measures motion rather than dream quality. Under it almost nothing worked.</p>
-                <h3>Reproducing the paper first</h3>
-                <p>Our first reproduction failed: Spearman 0.26 to 0.42 against the paper's 0.8. An audit against the authors' evaluation code found four settings copied from their interactive demo instead (float16 instead of bfloat16, 8 denoising steps instead of 4, and two signals computed from the wrong number of seeds). With those fixed and committed before the rerun, the task-level correlation came out at <strong>0.84 for u<sub>r</sub> and 0.85 for u<sub>f</sub></strong>. Everything below rests on that matched setup.</p>
-              </>}
-              fig={<BreakDefinition />}
-            />
-          </Chapter>
-
-          <Chapter id="probability" title="The probability behind it">
-            <p className="lede prose">Every number on this page comes from a handful of ideas from the Probability for AI course. Here they are, in the form this project uses them.</p>
-            <ProbabilityCards />
           </Chapter>
 
           <Chapter id="results" title="Alarms, not forecasts">
+            <p className="lede prose">How good are the two predictions? First the game that scores them, then the real scores on all 160 test dreams.</p>
+            <PairsGame />
             <Split
               text={<>
-                <p className="lede">We trained a small, readable probability model on 320 dreams and tested it on 160 others. It sees 11 numbers per step, all known at that step, and gives two probabilities: has the dream already broken, and will it break within the next 8 steps?</p>
-                <p>Pooled over all test steps, both look strong. But a pooled score rewards knowing that pong breaks more than mazes, and that step 80 is riskier than step 5. A doctor who says "older smokers get sick more" scores well across a whole hospital without reading anyone's chart.</p>
-                <p>So we narrowed the comparison until only the dream in front of the model was left. Press the buttons on the chart to watch the scores move. Detection survives the narrowing; the forecast mostly does not.</p>
+                <h3 style={{ marginTop: 0 }}>Make the game fair</h3>
+                <p>Drawn from anywhere, the pairs are easy: a pong moment against a maze moment, or step 80 against step 5. A prediction can win those just by knowing that pong breaks more than mazes and that late steps break more. A doctor who says "older smokers get sick more" scores well across a whole hospital without reading anyone's chart.</p>
+                <p>So we made the pairs more and more alike, until both moments come from the same task at the same step and only the dream itself differs. Press the buttons on the chart to watch the scores move. The Alarm survives the narrowing; the Forecast mostly does not.</p>
               </>}
               fig={<AurocViews />}
             />
@@ -249,9 +226,10 @@ export default function App() {
               <Reliability />
               <WindowSweep />
             </div>
+            <h3>The signals do rise before the break, a little</h3>
+            <AlignExplainer />
             <Split
               text={<>
-                <h3 style={{ marginTop: 0 }}>The signals do rise before the break, a little</h3>
                 <p>The most direct test lines every breaking dream up at its break and compares it with unbroken dreams of the same task at the same step. On familiar tasks the signals sit 0.3 to 0.6 standard deviations above their controls from about 5 steps before the break, which meets the lead rule we wrote down in advance.</p>
                 <p>Then switch the chart to the extra check, which adds the error itself.</p>
                 <div className="aside exploratory">The official break is where the error crosses a threshold and stays there. The error does not jump from zero at that moment; it climbs to it, and the signals climb with it. So this is early detection of a slow drift, not foresight of a sudden failure. Real and useful, but detection.</div>
@@ -261,9 +239,11 @@ export default function App() {
           </Chapter>
 
           <Chapter id="horizon" title="How long can you trust a dream?">
+            <p className="lede prose">Follow many dreams at once and count, at every step, how many are still sound. That count, as a share, is the trust horizon.</p>
+            <SurvivalLanes />
             <Split
               text={<>
-                <p className="lede">A survival curve answers the trust-horizon question directly: of all dreams that start, what share is still sound after <em>t</em> steps?</p>
+                <p>The same count over all 160 test dreams gives the real curves. A survival curve answers the trust-horizon question directly: of all dreams that start, what share is still sound after <em>t</em> steps?</p>
                 <p>Dreams that never broke within their horizon still count, up to the last step we saw. That is what a Kaplan-Meier curve handles: it uses every dream for as long as it was watched.</p>
                 <p>On familiar tasks half the dreams are still sound at step {site.survival.seen.pooled.median}, though tasks differ enormously: robot-arm dreams break within a handful of steps, some maze dreams never do. On unseen tasks half are broken at step 1.</p>
               </>}
@@ -274,7 +254,7 @@ export default function App() {
           <Chapter id="unseen" title="Tasks the model never saw">
             <div className="two-up" style={{ marginTop: 0 }}>
               <p className="lede" style={{ margin: 0 }}>The 10 held-out tasks were dreamed early but sealed: only file fingerprints were kept, the analysis code refused to open them, and the final test opened them once.</p>
-              <p style={{ margin: 0 }}>86% of dreams break, and on 6 of the 10 tasks the typical dream is broken from step 1, though several are small variations of familiar tasks. The model cannot even reproduce the first frame of a scene it has not seen. The paper calls this perceptual hallucination, with the tokenizer's reconstruction quality falling from 38.3 dB on seen tasks to 17.3 dB on unseen ones. With most dreams broken before they start, the forecast falls to {v.unseen.forecast.beyond_time.toFixed(2)}.</p>
+              <p style={{ margin: 0 }}>86% of dreams break, and on 6 of the 10 tasks the typical dream is broken from step 1, though several are small variations of familiar tasks. The model cannot even reproduce the first frame of a scene it has not seen. The paper calls this perceptual hallucination: the part of the world model that compresses frames rebuilds familiar scenes almost perfectly but unseen scenes poorly (38.3 against 17.3 on its image-quality score, where higher is better). With most dreams broken before they start, the forecast falls to {v.unseen.forecast.beyond_time.toFixed(2)}.</p>
             </div>
             <UnseenGallery onPick={pick} />
           </Chapter>
@@ -283,7 +263,7 @@ export default function App() {
             <Split
               text={<>
                 <p className="lede">A world model should be most trustworthy near what it was trained on. Methods such as Mind Dreamer (ICML 2026) dream from novel states on purpose, so the price of novelty matters.</p>
-                <p>For 5 familiar tasks, MMBench2 also has episodes recorded after the model was trained, by a random policy, a do-nothing policy and an expert. We measured each start state's distance to 2,000 training clips (mean distance to its 5 nearest neighbours) and dreamed 96 steps from each.</p>
+                <p>For 5 familiar tasks, MMBench2 also has episodes recorded after the model was trained, by a random policy, a do-nothing policy and an expert. For each new starting moment we measured how far it is from the most similar moments the world model trained on (the average distance to its 5 closest matches among 2,000 training clips), then dreamed 96 steps from it.</p>
                 <p>This does not show that distance is harmless. A random policy in these simple games visits the same kinds of screens the training data covered, so the test had almost no range. The genuinely far case is the unseen tasks, where distance clearly matters. Within a familiar task it was not shown.</p>
               </>}
               fig={<DistanceSurvival />}
@@ -307,7 +287,14 @@ export default function App() {
             </div>
           </Chapter>
 
+          <Chapter id="probability" title="The probability behind it">
+            <p className="lede prose">Every number on this page comes from a handful of ideas from the Probability for AI course. Here they are, in the form this project uses them.</p>
+            <ProbabilityCards />
+          </Chapter>
+
           <Chapter id="honest" title="How we kept ourselves honest">
+            <div className="prose"><h3>Reproducing the paper first</h3>
+                <p>Our first reproduction failed: Spearman 0.26 to 0.42 against the paper's 0.8. An audit against the authors' evaluation code found four settings copied from their interactive demo instead (float16 instead of bfloat16, 8 denoising steps instead of 4, and two signals computed from the wrong number of seeds). With those fixed and committed before the rerun, the task-level correlation came out at <strong>0.84 for u<sub>r</sub> and 0.85 for u<sub>f</sub></strong>. Everything below rests on that matched setup.</p></div>
             <p className="lede prose">Three labels, several smoothing choices and many ways to pool make it easy to try options until one looks good. Four habits guarded against that.</p>
             <div className="cards">
               <div className="card"><h4>Guesses before data</h4><p>Six predictions with confidences were committed before any dream existed and never edited.</p></div>
@@ -322,7 +309,7 @@ export default function App() {
                   <table>
                     <thead><tr><th>Guess (confidence)</th><th>Result</th><th></th></tr></thead>
                     <tbody>
-                      <tr><td>The combined model beats the best single signal on Brier score (70%)</td><td>0.079 against 0.092</td><td className="verdict-yes">yes</td></tr>
+                      <tr><td>Using all signals together beats the best single signal at getting the chances right (70%)</td><td>0.079 against 0.092</td><td className="verdict-yes">yes</td></tr>
                       <tr><td>Calibration within 0.1 in every well-filled bin (55%)</td><td>gap 0.27</td><td className="verdict-no">no</td></tr>
                       <tr><td>Median warning of at least 3 steps (40%)</td><td>0 steps</td><td className="verdict-no">no</td></tr>
                       <tr><td>Time to failure falls steadily with distance (60%)</td><td>not monotone</td><td className="verdict-no">no</td></tr>
@@ -344,7 +331,7 @@ export default function App() {
                       <tr><td>Still scenes gave an infinite frozen-frame score</td><td>3 of 20 tasks in the first run</td><td>A small noise floor</td></tr>
                       <tr><td>The paper's label mostly tracked scene motion</td><td>Negative correlations within tasks</td><td>Direct-error label, marked exploratory</td></tr>
                       <tr><td>"Largest weight" picked the wrong signal</td><td>Known-answer test</td><td>Importance by ablation</td></tr>
-                      <tr><td>Detection 0.84 was pooled across tasks</td><td>The within-task view</td><td>Every AUROC reported three ways</td></tr>
+                      <tr><td>The Alarm's 0.84 was pooled across tasks</td><td>The within-task view</td><td>Every AUROC reported three ways</td></tr>
                     </tbody>
                   </table>
                 </div>
