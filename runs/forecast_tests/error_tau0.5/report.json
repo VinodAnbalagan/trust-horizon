@@ -1,0 +1,958 @@
+{
+  "label": "error_tau0.5",
+  "fit_tasks": 20,
+  "test_tasks": 20,
+  "unseen_tasks": 10,
+  "weak_tasks_left_out": [],
+  "min_rows_per_cell": {
+    "beyond_time": 50,
+    "within_task_and_time": 20
+  },
+  "T1_window_sweep": {
+    "1": {
+      "test": {
+        "positive_rate": 0.0138,
+        "n_rows": 6894,
+        "auroc": 0.832,
+        "beyond_time": 0.797,
+        "within_task_and_time": 0.585
+      },
+      "unseen": {
+        "positive_rate": 0.0272,
+        "n_rows": 1984,
+        "auroc": 0.704,
+        "beyond_time": 0.534,
+        "within_task_and_time": 0.547
+      }
+    },
+    "2": {
+      "test": {
+        "positive_rate": 0.0272,
+        "n_rows": 6831,
+        "auroc": 0.839,
+        "beyond_time": 0.805,
+        "within_task_and_time": 0.567
+      },
+      "unseen": {
+        "positive_rate": 0.0525,
+        "n_rows": 1962,
+        "auroc": 0.698,
+        "beyond_time": 0.531,
+        "within_task_and_time": 0.553
+      }
+    },
+    "4": {
+      "test": {
+        "positive_rate": 0.0532,
+        "n_rows": 6705,
+        "auroc": 0.841,
+        "beyond_time": 0.805,
+        "within_task_and_time": 0.569
+      },
+      "unseen": {
+        "positive_rate": 0.0949,
+        "n_rows": 1918,
+        "auroc": 0.687,
+        "beyond_time": 0.543,
+        "within_task_and_time": 0.568
+      }
+    },
+    "8": {
+      "test": {
+        "positive_rate": 0.0956,
+        "n_rows": 6453,
+        "auroc": 0.841,
+        "beyond_time": 0.795,
+        "within_task_and_time": 0.605
+      },
+      "unseen": {
+        "positive_rate": 0.1639,
+        "n_rows": 1830,
+        "auroc": 0.659,
+        "beyond_time": 0.542,
+        "within_task_and_time": 0.562
+      }
+    },
+    "16": {
+      "test": {
+        "positive_rate": 0.1636,
+        "n_rows": 5949,
+        "auroc": 0.854,
+        "beyond_time": 0.808,
+        "within_task_and_time": 0.656
+      },
+      "unseen": {
+        "positive_rate": 0.2878,
+        "n_rows": 1654,
+        "auroc": 0.636,
+        "beyond_time": 0.503,
+        "within_task_and_time": 0.508
+      }
+    }
+  },
+  "T2_aligned": {
+    "test": {
+      "n_dreams": 46,
+      "offsets": [
+        -10,
+        -9,
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "signals": {
+        "u_r": {
+          "mean": [
+            -0.044,
+            0.104,
+            0.101,
+            0.08,
+            0.311,
+            0.478,
+            0.345,
+            0.639,
+            0.578,
+            0.399,
+            0.291,
+            0.301,
+            0.263,
+            0.373,
+            0.353
+          ],
+          "ci_lo": [
+            -0.321,
+            -0.184,
+            -0.144,
+            -0.185,
+            0.022,
+            0.157,
+            -0.009,
+            0.301,
+            0.234,
+            0.028,
+            -0.065,
+            -0.116,
+            -0.077,
+            -0.059,
+            -0.103
+          ],
+          "ci_hi": [
+            0.223,
+            0.384,
+            0.337,
+            0.338,
+            0.601,
+            0.782,
+            0.719,
+            0.971,
+            0.942,
+            0.773,
+            0.667,
+            0.699,
+            0.634,
+            0.841,
+            0.826
+          ],
+          "offsets_ci_excludes_0_at_or_before_-2": [
+            -6,
+            -5,
+            -3,
+            -2
+          ],
+          "lead_claimed": true
+        },
+        "u_f": {
+          "mean": [
+            0.008,
+            -0.043,
+            0.07,
+            0.067,
+            0.227,
+            0.4,
+            0.045,
+            0.343,
+            0.374,
+            0.385,
+            0.398,
+            0.489,
+            0.611,
+            0.276,
+            0.222
+          ],
+          "ci_lo": [
+            -0.233,
+            -0.303,
+            -0.158,
+            -0.204,
+            -0.054,
+            0.077,
+            -0.281,
+            -0.042,
+            0.013,
+            -0.001,
+            0.012,
+            0.096,
+            0.248,
+            -0.168,
+            -0.257
+          ],
+          "ci_hi": [
+            0.235,
+            0.223,
+            0.306,
+            0.337,
+            0.509,
+            0.76,
+            0.356,
+            0.71,
+            0.741,
+            0.774,
+            0.808,
+            0.873,
+            0.969,
+            0.728,
+            0.704
+          ],
+          "offsets_ci_excludes_0_at_or_before_-2": [
+            -5,
+            -2
+          ],
+          "lead_claimed": true
+        },
+        "u_s": {
+          "mean": [
+            -0.1,
+            -0.035,
+            -0.075,
+            0.064,
+            0.153,
+            0.295,
+            0.022,
+            0.535,
+            0.515,
+            0.271,
+            0.641,
+            0.345,
+            0.319,
+            0.309,
+            0.593
+          ],
+          "ci_lo": [
+            -0.312,
+            -0.305,
+            -0.336,
+            -0.245,
+            -0.087,
+            -0.016,
+            -0.241,
+            0.221,
+            0.209,
+            -0.159,
+            0.325,
+            -0.008,
+            -0.081,
+            -0.093,
+            0.108
+          ],
+          "ci_hi": [
+            0.108,
+            0.212,
+            0.179,
+            0.371,
+            0.385,
+            0.623,
+            0.279,
+            0.875,
+            0.826,
+            0.689,
+            0.973,
+            0.714,
+            0.729,
+            0.71,
+            1.115
+          ],
+          "offsets_ci_excludes_0_at_or_before_-2": [
+            -3,
+            -2
+          ],
+          "lead_claimed": true
+        }
+      }
+    },
+    "fit (more dreams, no model involved)": {
+      "n_dreams": 135,
+      "offsets": [
+        -10,
+        -9,
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "signals": {
+        "u_r": {
+          "mean": [
+            0.147,
+            0.193,
+            0.199,
+            0.172,
+            0.282,
+            0.358,
+            0.371,
+            0.352,
+            0.478,
+            0.509,
+            0.575,
+            0.58,
+            0.592,
+            0.594,
+            0.595
+          ],
+          "ci_lo": [
+            -0.013,
+            0.032,
+            0.041,
+            0.007,
+            0.11,
+            0.195,
+            0.204,
+            0.194,
+            0.33,
+            0.36,
+            0.437,
+            0.427,
+            0.437,
+            0.43,
+            0.444
+          ],
+          "ci_hi": [
+            0.298,
+            0.345,
+            0.354,
+            0.339,
+            0.448,
+            0.53,
+            0.534,
+            0.506,
+            0.623,
+            0.654,
+            0.715,
+            0.744,
+            0.747,
+            0.775,
+            0.751
+          ],
+          "offsets_ci_excludes_0_at_or_before_-2": [
+            -9,
+            -8,
+            -7,
+            -6,
+            -5,
+            -4,
+            -3,
+            -2
+          ],
+          "lead_claimed": true
+        },
+        "u_f": {
+          "mean": [
+            0.241,
+            0.277,
+            0.231,
+            0.211,
+            0.369,
+            0.433,
+            0.347,
+            0.375,
+            0.544,
+            0.572,
+            0.657,
+            0.618,
+            0.611,
+            0.591,
+            0.607
+          ],
+          "ci_lo": [
+            0.058,
+            0.083,
+            0.039,
+            0.018,
+            0.188,
+            0.258,
+            0.177,
+            0.208,
+            0.382,
+            0.422,
+            0.498,
+            0.459,
+            0.456,
+            0.428,
+            0.436
+          ],
+          "ci_hi": [
+            0.431,
+            0.467,
+            0.427,
+            0.415,
+            0.561,
+            0.612,
+            0.515,
+            0.537,
+            0.71,
+            0.714,
+            0.807,
+            0.774,
+            0.761,
+            0.751,
+            0.783
+          ],
+          "offsets_ci_excludes_0_at_or_before_-2": [
+            -10,
+            -9,
+            -8,
+            -7,
+            -6,
+            -5,
+            -4,
+            -3,
+            -2
+          ],
+          "lead_claimed": true
+        },
+        "u_s": {
+          "mean": [
+            0.172,
+            0.231,
+            0.246,
+            0.247,
+            0.409,
+            0.456,
+            0.372,
+            0.422,
+            0.557,
+            0.564,
+            0.65,
+            0.589,
+            0.578,
+            0.62,
+            0.583
+          ],
+          "ci_lo": [
+            -0.016,
+            0.061,
+            0.066,
+            0.048,
+            0.229,
+            0.288,
+            0.208,
+            0.255,
+            0.401,
+            0.413,
+            0.493,
+            0.437,
+            0.422,
+            0.444,
+            0.413
+          ],
+          "ci_hi": [
+            0.363,
+            0.418,
+            0.437,
+            0.453,
+            0.612,
+            0.638,
+            0.55,
+            0.592,
+            0.725,
+            0.721,
+            0.803,
+            0.75,
+            0.743,
+            0.798,
+            0.76
+          ],
+          "offsets_ci_excludes_0_at_or_before_-2": [
+            -9,
+            -8,
+            -7,
+            -6,
+            -5,
+            -4,
+            -3,
+            -2
+          ],
+          "lead_claimed": true
+        }
+      }
+    },
+    "unseen": {
+      "n_dreams": 22,
+      "offsets": [
+        -10,
+        -9,
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "signals": {
+        "u_r": {
+          "mean": [
+            0.152,
+            0.112,
+            0.145,
+            0.083,
+            0.07,
+            0.057,
+            0.03,
+            0.041,
+            0.03,
+            0.074,
+            0.092,
+            0.065,
+            0.013,
+            -0.013,
+            0.019
+          ],
+          "ci_lo": [
+            -0.217,
+            -0.275,
+            -0.242,
+            -0.288,
+            -0.288,
+            -0.307,
+            -0.323,
+            -0.314,
+            -0.361,
+            -0.322,
+            -0.362,
+            -0.401,
+            -0.479,
+            -0.511,
+            -0.551
+          ],
+          "ci_hi": [
+            0.548,
+            0.512,
+            0.54,
+            0.462,
+            0.444,
+            0.426,
+            0.382,
+            0.389,
+            0.414,
+            0.471,
+            0.557,
+            0.537,
+            0.514,
+            0.504,
+            0.612
+          ],
+          "offsets_ci_excludes_0_at_or_before_-2": [],
+          "lead_claimed": false
+        },
+        "u_f": {
+          "mean": [
+            0.114,
+            0.018,
+            -0.15,
+            -0.147,
+            0.199,
+            0.092,
+            0.014,
+            0.015,
+            -0.111,
+            -0.094,
+            0.265,
+            0.025,
+            0.537,
+            0.179,
+            0.079
+          ],
+          "ci_lo": [
+            -0.16,
+            -0.204,
+            -0.432,
+            -0.405,
+            -0.098,
+            -0.255,
+            -0.264,
+            -0.193,
+            -0.313,
+            -0.355,
+            -0.212,
+            -0.256,
+            0.09,
+            -0.116,
+            -0.238
+          ],
+          "ci_hi": [
+            0.388,
+            0.257,
+            0.125,
+            0.129,
+            0.518,
+            0.487,
+            0.313,
+            0.266,
+            0.1,
+            0.178,
+            0.842,
+            0.335,
+            1.012,
+            0.496,
+            0.407
+          ],
+          "offsets_ci_excludes_0_at_or_before_-2": [],
+          "lead_claimed": false
+        },
+        "u_s": {
+          "mean": [
+            0.323,
+            0.241,
+            -0.177,
+            -0.05,
+            0.074,
+            -0.08,
+            0.023,
+            0.01,
+            -0.026,
+            0.06,
+            -0.07,
+            -0.063,
+            0.361,
+            -0.006,
+            0.171
+          ],
+          "ci_lo": [
+            -0.048,
+            -0.135,
+            -0.418,
+            -0.25,
+            -0.177,
+            -0.405,
+            -0.241,
+            -0.222,
+            -0.263,
+            -0.286,
+            -0.369,
+            -0.337,
+            -0.038,
+            -0.238,
+            -0.232
+          ],
+          "ci_hi": [
+            0.818,
+            0.751,
+            0.081,
+            0.172,
+            0.332,
+            0.334,
+            0.316,
+            0.283,
+            0.269,
+            0.51,
+            0.274,
+            0.309,
+            0.789,
+            0.264,
+            0.687
+          ],
+          "offsets_ci_excludes_0_at_or_before_-2": [],
+          "lead_claimed": false
+        }
+      }
+    }
+  },
+  "T3_landmark": {
+    "1": {
+      "fit_dreams_at_risk": 292,
+      "test": {
+        "dreams_at_risk": 158,
+        "events": 95,
+        "c_index": 0.677,
+        "c_index_within_task": 0.637,
+        "u16_mean_predicted": 0.538,
+        "u16_observed": 0.589,
+        "u16_max_calibration_gap": 0.191,
+        "per_u": {
+          "4": {
+            "n": 158,
+            "observed_unbroken": 0.861,
+            "mean_predicted": 0.796,
+            "auroc": 0.71
+          },
+          "8": {
+            "n": 158,
+            "observed_unbroken": 0.728,
+            "mean_predicted": 0.642,
+            "auroc": 0.715
+          },
+          "16": {
+            "n": 158,
+            "observed_unbroken": 0.589,
+            "mean_predicted": 0.538,
+            "auroc": 0.663
+          },
+          "32": {
+            "n": 150,
+            "observed_unbroken": 0.46,
+            "mean_predicted": 0.32,
+            "auroc": 0.778
+          }
+        }
+      },
+      "unseen": {
+        "dreams_at_risk": 76,
+        "events": 54,
+        "c_index": 0.39,
+        "c_index_within_task": 0.575,
+        "u16_mean_predicted": 0.803,
+        "u16_observed": 0.513,
+        "u16_max_calibration_gap": 0.553,
+        "per_u": {
+          "4": {
+            "n": 76,
+            "observed_unbroken": 0.711,
+            "mean_predicted": 0.911,
+            "auroc": 0.4
+          },
+          "8": {
+            "n": 76,
+            "observed_unbroken": 0.618,
+            "mean_predicted": 0.859,
+            "auroc": 0.421
+          },
+          "16": {
+            "n": 76,
+            "observed_unbroken": 0.513,
+            "mean_predicted": 0.803,
+            "auroc": 0.376
+          },
+          "32": {
+            "n": 65,
+            "observed_unbroken": 0.308,
+            "mean_predicted": 0.597,
+            "auroc": 0.418
+          }
+        }
+      }
+    },
+    "8": {
+      "fit_dreams_at_risk": 197,
+      "test": {
+        "dreams_at_risk": 118,
+        "events": 55,
+        "c_index": 0.757,
+        "c_index_within_task": 0.625,
+        "u16_mean_predicted": 0.646,
+        "u16_observed": 0.691,
+        "u16_max_calibration_gap": 0.097,
+        "per_u": {
+          "4": {
+            "n": 118,
+            "observed_unbroken": 0.924,
+            "mean_predicted": 0.928,
+            "auroc": 0.737
+          },
+          "8": {
+            "n": 118,
+            "observed_unbroken": 0.814,
+            "mean_predicted": 0.854,
+            "auroc": 0.759
+          },
+          "16": {
+            "n": 110,
+            "observed_unbroken": 0.691,
+            "mean_predicted": 0.646,
+            "auroc": 0.781
+          },
+          "32": {
+            "n": 110,
+            "observed_unbroken": 0.591,
+            "mean_predicted": 0.456,
+            "auroc": 0.844
+          }
+        }
+      },
+      "unseen": {
+        "dreams_at_risk": 49,
+        "events": 27,
+        "c_index": 0.521,
+        "c_index_within_task": 0.6,
+        "u16_mean_predicted": 0.815,
+        "u16_observed": 0.579,
+        "u16_max_calibration_gap": 0.192,
+        "per_u": {
+          "4": {
+            "n": 49,
+            "observed_unbroken": 0.898,
+            "mean_predicted": 0.956,
+            "auroc": 0.823
+          },
+          "8": {
+            "n": 49,
+            "observed_unbroken": 0.857,
+            "mean_predicted": 0.922,
+            "auroc": 0.65
+          },
+          "16": {
+            "n": 38,
+            "observed_unbroken": 0.579,
+            "mean_predicted": 0.815,
+            "auroc": 0.69
+          },
+          "32": {
+            "n": 38,
+            "observed_unbroken": 0.447,
+            "mean_predicted": 0.585,
+            "auroc": 0.535
+          }
+        }
+      }
+    },
+    "24": {
+      "fit_dreams_at_risk": 114,
+      "test": {
+        "dreams_at_risk": 76,
+        "events": 21,
+        "c_index": 0.832,
+        "c_index_within_task": 0.755,
+        "u16_mean_predicted": 0.681,
+        "u16_observed": 0.855,
+        "u16_max_calibration_gap": 0.274,
+        "per_u": {
+          "4": {
+            "n": 76,
+            "observed_unbroken": 0.961,
+            "mean_predicted": 0.901,
+            "auroc": 0.53
+          },
+          "8": {
+            "n": 76,
+            "observed_unbroken": 0.947,
+            "mean_predicted": 0.865,
+            "auroc": 0.653
+          },
+          "16": {
+            "n": 76,
+            "observed_unbroken": 0.855,
+            "mean_predicted": 0.681,
+            "auroc": 0.881
+          },
+          "32": {
+            "n": 76,
+            "observed_unbroken": 0.803,
+            "mean_predicted": 0.579,
+            "auroc": 0.877
+          }
+        }
+      },
+      "unseen": {
+        "dreams_at_risk": 22,
+        "events": 11,
+        "c_index": 0.306,
+        "c_index_within_task": 0.358,
+        "u16_mean_predicted": 0.698,
+        "u16_observed": 0.773,
+        "u16_max_calibration_gap": null,
+        "per_u": {
+          "4": {
+            "n": 22,
+            "observed_unbroken": 0.955,
+            "mean_predicted": 0.803,
+            "auroc": 0.476
+          },
+          "8": {
+            "n": 22,
+            "observed_unbroken": 0.909,
+            "mean_predicted": 0.796,
+            "auroc": 0.25
+          },
+          "16": {
+            "n": 22,
+            "observed_unbroken": 0.773,
+            "mean_predicted": 0.698,
+            "auroc": 0.318
+          },
+          "32": {
+            "n": 22,
+            "observed_unbroken": 0.5,
+            "mean_predicted": 0.714,
+            "auroc": 0.231
+          }
+        }
+      }
+    }
+  },
+  "T4_trees": {
+    "test": {
+      "logistic (Phase 2 features)": {
+        "brier": 0.07892,
+        "auroc": 0.841,
+        "beyond_time": 0.795,
+        "within_task_and_time": 0.605
+      },
+      "logistic (+ last 8 levels)": {
+        "brier": 0.07885,
+        "auroc": 0.842,
+        "beyond_time": 0.794,
+        "within_task_and_time": 0.594
+      },
+      "boosted trees (+ last 8 levels)": {
+        "brier": 0.08284,
+        "auroc": 0.819,
+        "beyond_time": 0.763,
+        "within_task_and_time": 0.517
+      }
+    },
+    "unseen": {
+      "logistic (Phase 2 features)": {
+        "brier": 0.12693,
+        "auroc": 0.659,
+        "beyond_time": 0.542,
+        "within_task_and_time": 0.562
+      },
+      "logistic (+ last 8 levels)": {
+        "brier": 0.12698,
+        "auroc": 0.657,
+        "beyond_time": 0.537,
+        "within_task_and_time": 0.553
+      },
+      "boosted trees (+ last 8 levels)": {
+        "brier": 0.16347,
+        "auroc": 0.385,
+        "beyond_time": 0.414,
+        "within_task_and_time": 0.349
+      }
+    }
+  }
+}
