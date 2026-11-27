@@ -341,3 +341,37 @@ export function UnseenGallery({ onPick }: { onPick: (t: string) => void }) {
     </figure></div>
   );
 }
+
+/* ------------------------------------------------------------------ filmstrip */
+
+const FILM_TASKS = ["walker-walk", "pygame-pong", "atari-ms-pacman", "og-point-var1"];
+
+export function Filmstrip() {
+  const [task, setTask] = useState(FILM_TASKS[0]);
+  const d = dreams[task];
+  const steps = [1, 8, 16, 32, 64, 96].map((s) => Math.min(s, d.T));
+  return (
+    <figure className="fig">
+      <p className="chart-title">A photocopy of a photocopy</p>
+      <p className="chart-sub">The same moments, real and dreamed. An orange outline marks steps after the dream broke.</p>
+      <div className="seg" role="group" aria-label="Task" style={{ marginBottom: "0.8rem" }}>
+        {FILM_TASKS.map((t) => (
+          <button key={t} aria-pressed={task === t} onClick={() => setTask(t)}>
+            {pretty(t)}{dreams[t].split === "unseen" ? " (unseen)" : ""}
+          </button>
+        ))}
+      </div>
+      <div className="filmstrip">
+        <span />
+        {steps.map((s) => <span key={"l" + s} className="steplab">step {s}</span>)}
+        <span className="rowlab r">Real</span>
+        {steps.map((s) => <div key={"r" + s}><Thumb task={task} kind="real" step={s} /></div>)}
+        <span className="rowlab d">Dreamed</span>
+        {steps.map((s) => <div key={"d" + s} className={d.onset != null && s >= d.onset ? "broken" : ""}><Thumb task={task} kind="dream" step={s} /></div>)}
+      </div>
+      <figcaption className="note">
+        {d.onset == null ? "This dream never crossed the break line." : `This dream breaks at step ${d.onset}.`} The model saw 8 real frames before step 1 and the real actions throughout; everything in the bottom row is imagined.
+      </figcaption>
+    </figure>
+  );
+}
