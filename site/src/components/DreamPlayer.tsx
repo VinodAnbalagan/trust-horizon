@@ -93,14 +93,17 @@ export default function DreamPlayer({ task, setTask }: { task: string; setTask: 
           </div>
           <div className="readouts">
             <div className="readout">
-              <div className="v">{pct(d.p_forecast[i])}</div>
-              <div className="k"><span className="sw" style={{ background: "var(--dream)" }} />model's chance it breaks within the next 8 steps</div>
+              <div className="v" style={{ color: broken ? "var(--ink-2)" : undefined }}>{broken ? "done" : pct(d.p_forecast[i])}</div>
+              <div className="k"><span className="sw solid" />Forecast: chance a sound dream breaks within the next 8 steps</div>
             </div>
             <div className="readout">
               <div className="v">{pct(d.p_detect[i])}</div>
-              <div className="k"><span className="sw" style={{ background: "var(--real)" }} />model's chance it has already broken</div>
+              <div className="k"><span className="sw dashed" />Alarm: chance the dream has already broken</div>
             </div>
           </div>
+          <p className="muted" style={{ fontSize: "var(--t-small)", lineHeight: 1.45, margin: "0.75rem 0 0" }}>
+            Two different questions. The forecast only makes sense while the dream is still sound, so it stops at the break. The alarm asks whether it has broken by now; it is meant to be low before the break and high after. A good forecast would climb <em>before</em> the break. Watch whether it does.
+          </p>
         </div>
 
         <div className="panels">
@@ -117,13 +120,13 @@ export default function DreamPlayer({ task, setTask }: { task: string; setTask: 
 
           <p className="panel-title">
             <span><b style={{ color: "var(--ink)" }}>The model's probabilities</b>, using only signals up to that step</span>
-            <span className="key"><i style={{ background: "var(--dream)" }} />breaks within 8 steps</span>
-            <span className="key"><i style={{ background: "var(--real)" }} />already broken</span>
+            <span className="key"><i className="solid" />forecast: breaks within 8 steps</span>
+            <span className="key"><i className="dashed" />alarm: already broken</span>
           </p>
           <LineChart ariaLabel="Forecast and detection probabilities over the dream"
             series={[
-              { key: "pf", label: "breaks within 8", values: d.p_forecast, color: "var(--dream)" },
-              { key: "pd", label: "already broken", values: d.p_detect, color: "var(--real)" },
+              { key: "pf", label: "forecast", values: d.p_forecast.map((v, j) => (d.onset != null && j + 1 > d.onset ? null : v)), color: "var(--dream)", width: 2.5 },
+              { key: "pd", label: "alarm", values: d.p_detect, color: "var(--real)", width: 2.5, dash: "7 5" },
             ]}
             xDomain={[1, d.T]} yDomain={[0, 1]} xTicks={xTicks} yTicks={[0, 0.5, 1]} yFormat={(v) => pct(v)}
             shadeFrom={d.onset} cursor={step} onHover={onHover} height={150} tipX={(x) => `step ${x}`} tipValue={pct} />

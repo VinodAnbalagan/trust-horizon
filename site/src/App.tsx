@@ -5,6 +5,7 @@ import {
   AlignedAtBreak, AurocViews, DistanceSurvival, Filmstrip, Reliability, SurvivalCurves, UnseenGallery, WarningHist, WindowSweep,
 } from "./components/Figures";
 import { dreams, pretty, site } from "./data";
+import { ProbabilityCards } from "./components/Probability";
 
 const REPO = "https://github.com/VinodAnbalagan/trust-horizon";
 const PAPER = "https://arxiv.org/abs/2606.27326";
@@ -15,6 +16,7 @@ const SECTIONS = [
   { id: "dream", t: "How a world model dreams" },
   { id: "signals", t: "The three signals" },
   { id: "broken", t: "What counts as broken" },
+  { id: "probability", t: "The probability behind it" },
   { id: "results", t: "Alarms, not forecasts" },
   { id: "horizon", t: "The trust horizon" },
   { id: "unseen", t: "Unseen tasks" },
@@ -120,10 +122,24 @@ export default function App() {
                 <div className="btn-row">
                   <a href={REPO}>Code and data</a>
                   <a href={PAPER}>Hansen and Wang (2026)</a>
-                  <a href="#honest">How we checked</a>
                 </div>
               </div>
             </div>
+
+            <section className="summary" aria-label="Summary">
+              <div>
+                <h3>What we asked</h3>
+                <p>A world model imagines the future one frame at a time, and sooner or later the dream goes wrong. Its own uncertainty signals are known to flag which tasks go wrong. We asked whether they can give the probability that a particular dream is about to break, and how long a dream can be trusted.</p>
+              </div>
+              <div>
+                <h3>What we found</h3>
+                <p>They are good alarms, not forecasts. They rank risky tasks well (0.84, reproducing the paper) and, within a task, tell a broken dream from a sound one about {Math.round(v.seen.detection.within_task_and_time * 100)}% of the time. But a break usually comes with no warning, and on tasks the model never saw, 86% of dreams break and the signals say nothing useful.</p>
+              </div>
+              <div>
+                <h3>What it means</h3>
+                <p>Use the signals to decide where to trust a world model and to cut a drifting dream short. Do not count on them for advance warning, or on new tasks. A real forecast needs a signal that rises before the error does.</p>
+              </div>
+            </section>
 
             <div className="seg" role="group" aria-label="Example dreams" style={{ marginBottom: "0.8rem" }}>
               {PICKS.map((p) => (
@@ -204,6 +220,11 @@ export default function App() {
               </>}
               fig={<BreakDefinition />}
             />
+          </Chapter>
+
+          <Chapter id="probability" title="The probability behind it">
+            <p className="lede prose">Every number on this page comes from a handful of ideas from the Probability for AI course. Here they are, in the form this project uses them.</p>
+            <ProbabilityCards />
           </Chapter>
 
           <Chapter id="results" title="Alarms, not forecasts">

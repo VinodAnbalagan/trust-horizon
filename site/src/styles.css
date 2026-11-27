@@ -219,12 +219,14 @@ button:hover, select:hover { border-color: var(--ink-2); }
 .readouts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1rem; margin-top: 1rem; }
 .readout .v { font-size: 1.75rem; font-variant-numeric: tabular-nums; line-height: 1.1; font-weight: 600; font-stretch: 112%; }
 .readout .k { font-size: var(--t-small); color: var(--ink-2); line-height: 1.3; }
-.readout .sw { display: inline-block; width: 0.75em; height: 2px; vertical-align: middle; margin-right: 0.35em; }
+.readout .sw { display: inline-block; width: 1.6em; vertical-align: middle; margin-right: 0.45em; }
+.sw.solid, .key i.solid { border-top: 3px solid var(--dream); height: 0; background: none !important; }
+.sw.dashed, .key i.dashed { border-top: 3px dashed var(--real); height: 0; background: none !important; }
 
 .panels { display: grid; gap: 0.2rem; }
 .panel-title { font-size: var(--t-small); color: var(--ink-2); margin: 0.4rem 0 0; display: flex; gap: 0.25rem 1rem; flex-wrap: wrap; }
 .key { display: inline-flex; align-items: center; gap: 0.35rem; }
-.key i { display: inline-block; width: 1rem; height: 2px; }
+.key i { display: inline-block; width: 1.4rem; height: 3px; }
 
 /* ---------- charts ---------- */
 .chart { font-family: var(--sans); font-size: 12px; font-stretch: 94%; }
@@ -330,3 +332,19 @@ ul.tight li { margin-bottom: 0.4rem; }
   .filmstrip { grid-template-columns: 3.4rem repeat(6, minmax(0, 1fr)); gap: 3px; }
   .filmstrip .steplab { font-size: 10px; }
 }
+
+/* ---------- summary ---------- */
+.summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem 2rem; background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 1.25rem 1.4rem; margin: 0 0 1.75rem; }
+.summary h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+.summary p { margin: 0; font-size: 0.9688rem; line-height: 1.55; }
+@media (max-width: 900px) { .summary { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- probability cards ---------- */
+.pcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); gap: 1rem; margin: 1.25rem 0 1rem; }
+.pcard { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 1rem 1.2rem 1.1rem; display: flex; flex-direction: column; }
+.pcard .lesson { font-size: var(--t-small); color: var(--dream); font-weight: 600; }
+.pcard h4 { margin: 0.2rem 0 0.2rem; font-size: 1.0625rem; font-weight: 700; font-stretch: 112%; }
+.pcard p { margin: 0; font-size: 0.9063rem; line-height: 1.5; color: var(--ink-2); }
+.pcard .math-block { display: block; overflow-x: auto; overflow-y: hidden; padding: 0.35rem 0; }
+.pcard .math-block .katex-display { margin: 0.4rem 0 0.6rem; text-align: left; }
+.pcard .math-block .katex-display > .katex { text-align: left; font-size: 1.08em; }

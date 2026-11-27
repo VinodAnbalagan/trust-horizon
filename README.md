@@ -6,7 +6,7 @@ signals can detect these hallucinations. This project turns those signals into a
 **probability forecast**: how likely a dream is to break within the next few steps, and how
 long it can be trusted.
 
-<a href="https://vinodanbalagan.github.io/trust-horizon/"><img src="assets/open-results.svg" alt="Open the interactive results" height="44"></a>
+<a href="https://vinodanbalagan.github.io/trust-horizon/"><img src="assets/open-results.svg" alt="Interactive results website" height="28"></a>
 
 Questions:
 1. Can the signals give a calibrated probability that a dream breaks soon, and with how much warning?
