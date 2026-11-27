@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./styles.css";
 import DreamPlayer from "./components/DreamPlayer";
 import LineChart from "./components/LineChart";
 import {
@@ -14,6 +15,8 @@ const REPO = "https://github.com/VinodAnbalagan/trust-horizon";
 const PAPER = "https://arxiv.org/abs/2606.27326";
 const PAPER_PAGE = "https://www.nicklashansen.com/mmbench2";
 const PAPER_CODE = "https://github.com/nicklashansen/mmbench2";
+const DATASET = "https://huggingface.co/datasets/nicklashansen/mmbench2";
+const MODELS = "https://huggingface.co/nicklashansen/mmbench2-models";
 
 const SECTIONS = [
   { id: "dream", t: "How a world model dreams" },
@@ -125,6 +128,7 @@ export default function App() {
               <div>
                 <p className="finding">A world model's own uncertainty signals are good alarms, not good forecasts.</p>
                 <p className="byline">Trust Horizon, by Vinod Anbalagan. Final project for Stanford's probability for AI course, November 2026.</p>
+                <p className="byline">Data: <a href={DATASET}>MMBench2</a> by Hansen and Wang (2026), CC BY 4.0. World model: <a href={MODELS}>mmbench2-models</a> (base checkpoint), MIT licence.</p>
                 <div className="btn-row">
                   <a href={REPO}>Code and data</a>
                   <a href={PAPER}>Hansen and Wang (2026)</a>
@@ -203,7 +207,7 @@ export default function App() {
           </Chapter>
 
           <Chapter id="results" title="Alarms, not forecasts">
-            <p className="lede prose">How good are the two predictions? First the game that scores them, then the real scores on all 160 test dreams.</p>
+            <p className="lede prose">How good are the two predictions? First the game that rates them, then the real results on all 160 test dreams.</p>
             <PairsGame />
             <Split
               text={<>
@@ -310,7 +314,7 @@ export default function App() {
                     <thead><tr><th>Guess (confidence)</th><th>Result</th><th></th></tr></thead>
                     <tbody>
                       <tr><td>Using all signals together beats the best single signal at getting the chances right (70%)</td><td>0.079 against 0.092</td><td className="verdict-yes">yes</td></tr>
-                      <tr><td>Calibration within 0.1 in every well-filled bin (55%)</td><td>gap 0.27</td><td className="verdict-no">no</td></tr>
+                      <tr><td>Calibration within 0.1 in every well-filled bin (55%)</td><td>largest gap 0.27 (average gap 0.07)</td><td className="verdict-no">no</td></tr>
                       <tr><td>Median warning of at least 3 steps (40%)</td><td>0 steps</td><td className="verdict-no">no</td></tr>
                       <tr><td>Time to failure falls steadily with distance (60%)</td><td>not monotone</td><td className="verdict-no">no</td></tr>
                       <tr><td>Unseen forecast within 0.05 of familiar (40%)</td><td>0.66 against 0.84</td><td className="verdict-no">no</td></tr>
@@ -328,7 +332,7 @@ export default function App() {
                       <tr><td>Evaluation settings copied from the authors' demo</td><td>Reproduction at 0.26 to 0.42 instead of 0.8</td><td>Audit against the paper's code, rerun</td></tr>
                       <tr><td>The first checkpoint had been finetuned on the "unseen" tasks too</td><td>Reading its README before the main run</td><td>Base checkpoint throughout</td></tr>
                       <tr><td>A trailing median noticed breaks 2 steps late</td><td>Fake warning in a known-answer test</td><td>Centered median</td></tr>
-                      <tr><td>Still scenes gave an infinite frozen-frame score</td><td>3 of 20 tasks in the first run</td><td>A small noise floor</td></tr>
+                      <tr><td>Still scenes gave an infinite frozen-frame value</td><td>3 of 20 tasks in the first run</td><td>A small noise floor</td></tr>
                       <tr><td>The paper's label mostly tracked scene motion</td><td>Negative correlations within tasks</td><td>Direct-error label, marked exploratory</td></tr>
                       <tr><td>"Largest weight" picked the wrong signal</td><td>Known-answer test</td><td>Importance by ablation</td></tr>
                       <tr><td>The Alarm's 0.84 was pooled across tasks</td><td>The within-task view</td><td>Every AUROC reported three ways</td></tr>
@@ -347,7 +351,7 @@ export default function App() {
             </div>
             <div>
               <h4>Code and data</h4>
-              <p>Pipeline, protocol, pre-registration and every result file: <a href={REPO}>github.com/VinodAnbalagan/trust-horizon</a>. Built on Hansen and Wang, <a href={PAPER}>Hallucination in World Models is Predictable and Preventable</a> (2026), with their <a href={PAPER_PAGE}>project page</a>, <a href={PAPER_CODE}>code</a>, checkpoints and MMBench2 data. This page bundles its data and makes no network requests.</p>
+              <p>Pipeline, protocol, pre-registration and every result file: <a href={REPO}>github.com/VinodAnbalagan/trust-horizon</a>. Built on Hansen and Wang, <a href={PAPER}>Hallucination in World Models is Predictable and Preventable</a> (2026), with their <a href={PAPER_PAGE}>project page</a> and <a href={PAPER_CODE}>code</a>. Data: the <a href={DATASET}>MMBench2 dataset</a> (CC BY 4.0). World model: the <a href={MODELS}>mmbench2-models</a> base checkpoint (MIT licence). Every frame on this page is from the dataset or dreamed by that model. This page bundles its data and makes no network requests.</p>
               <h4>Cost</h4>
               <p>All GPU work cost about $4.03 over three days on rented cards. Every analysis after the dreams ran free on a laptop CPU.</p>
             </div>

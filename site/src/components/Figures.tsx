@@ -30,7 +30,7 @@ export function AurocViews() {
   return (
     <figure className="fig">
       <p className="chart-title">How often each prediction picks the broken dream</p>
-      <p className="chart-sub">Take one moment where a dream has broken and one where it has not. How often does the prediction give the broken one the higher chance? This score is called AUROC: 0.5 is a coin flip, 1.0 is perfect. The buttons make the two moments more and more alike. Scored on the 160 test dreams.</p>
+      <p className="chart-sub">Take one moment where a dream has broken and one where it has not. How often does the prediction give the broken one the higher chance? This share is called AUROC: 0.5 is a coin flip, 1.0 is perfect. The buttons make the two moments more and more alike. Scored on the 160 test dreams.</p>
       <div className="seg" role="group" aria-label="Which dreams are compared">
         {(Object.keys(VIEW_LABEL) as View[]).map((k) => (
           <button key={k} aria-pressed={view === k} onClick={() => setView(k)}>{VIEW_LABEL[k]}</button>
@@ -66,7 +66,7 @@ export function AurocViews() {
         </svg>
       </div>
       <figcaption className="note">
-        Hollow circles mark the "any two moments" score. That score mixes three skills: knowing which tasks are risky, knowing that late steps are riskier, and reading the dream in front of you. Only the last view isolates that third skill. The Alarm keeps about 0.72 on familiar tasks; the Forecast keeps 0.61, and on unseen tasks 0.56.
+        Hollow circles mark the "any two moments" result. That result mixes three skills: knowing which tasks are risky, knowing that late steps are riskier, and reading the dream in front of you. Only the last view isolates that third skill. The Alarm keeps about 0.72 on familiar tasks; the Forecast keeps 0.61, and on unseen tasks 0.56.
       </figcaption>
     </figure>
   );
@@ -155,7 +155,7 @@ export function Reliability() {
           </div>
         )}
       </div>
-      <figcaption className="note">Between 30% and 60% the model over-predicts by up to 0.27. Faded dots hold fewer than 50 steps.</figcaption>
+      <figcaption className="note">Average gap 0.07: each forecast's distance from how often its group really broke, averaged over all 6,453 forecasts. Below 30% the Forecast is close to calibrated. Between 30% and 60% it is overconfident: it said 35% to 55%, but only 18% to 35% broke (a largest gap of 0.27). Faded dots hold fewer than 50 steps.</figcaption>
     </figure>
   );
 }
@@ -169,7 +169,7 @@ export function WindowSweep() {
   return (
     <figure className="fig" style={{ margin: 0 }}>
       <p className="chart-title">Is a short-range forecast easier?</p>
-      <p className="chart-sub">The Forecast for "breaks within the next k steps", scored the same way (AUROC, 0.5 = coin flip), on familiar tasks.</p>
+      <p className="chart-sub">The Forecast for "breaks within the next k steps", rated the same way (AUROC, 0.5 = coin flip), on familiar tasks.</p>
       <LineChart ariaLabel="Forecast AUROC by window length"
         width={470} height={360} rightPad={120}
         series={[
@@ -179,7 +179,7 @@ export function WindowSweep() {
         x0={0} xDomain={[0, 4]} yDomain={[0.4, 1]} xTicks={xs} yTicks={[0.5, 0.6, 0.7, 0.8, 0.9, 1]}
         xFormat={(v) => String(2 ** v)} tipX={(v) => `k = ${2 ** v}`} xTitle="k, steps ahead"
         refs={[{ y: 0.5, label: "coin flip" }]} />
-      <figcaption className="note">If the signals gave a short warning, k = 1 would score highest. It scores lowest within task and step (0.59 against 0.66 at k = 16).</figcaption>
+      <figcaption className="note">If the signals gave a short warning, k = 1 would do best. It does worst within task and step (0.59 against 0.66 at k = 16).</figcaption>
     </figure>
   );
 }

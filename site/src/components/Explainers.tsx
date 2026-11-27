@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Thumb } from "./Figures";
 import LineChart from "./LineChart";
+import { useSvgFont } from "./useWidth";
 import { dreams, pretty } from "../data";
 
 const reduceMotion = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -133,6 +134,7 @@ export function BrokenExplainer() {
   const f = friendAt(i), g = guessAt(i);
   const broken = ONSET != null && t >= ONSET;
   const trail = Array.from({ length: t }, (_, k) => friendAt(k));
+  const [box, fs] = useSvgFont<HTMLDivElement>(400);
 
   return (
     <figure className="fig explainer">
@@ -142,8 +144,8 @@ export function BrokenExplainer() {
         <button onClick={() => { setT(1); setPlaying(true); }}>Start over</button>
       </div>
       <div className="two-up" style={{ margin: 0, alignItems: "start" }}>
-        <div className="chart">
-          <svg viewBox="0 0 400 290" role="img" aria-label="A friend walking a loop through a city and a guess of their position drifting away">
+        <div className="chart" ref={box}>
+          <svg className="scaled" style={{ fontSize: fs }} viewBox="0 0 400 290" role="img" aria-label="A friend walking a loop through a city and a guess of their position drifting away">
             <rect x="4" y="4" width="392" height="282" rx="10" fill="var(--card)" stroke="var(--rule)" />
             {Array.from({ length: 9 }, (_, k) => <line key={"v" + k} x1={30 + k * 43} x2={30 + k * 43} y1={10} y2={280} stroke="var(--grid)" strokeWidth="5" />)}
             {Array.from({ length: 6 }, (_, k) => <line key={"h" + k} y1={25 + k * 48} y2={25 + k * 48} x1={10} x2={390} stroke="var(--grid)" strokeWidth="5" />)}
@@ -152,12 +154,12 @@ export function BrokenExplainer() {
               <circle cx={30} cy={262} r={4} fill="var(--ink-2)" />
               <circle cx={30 + RULER} cy={262} r={4} fill="var(--ink-2)" />
               <line x1={30} x2={30 + RULER} y1={262} y2={262} stroke="var(--ink-2)" strokeWidth="1.5" />
-              <text className="label-2" x={30 + RULER + 8} y={266}>ruler: two random spots (1x)</text>
+              <text className="label-2" x={30} y={250}>ruler (1x): two random spots</text>
             </g>
             <path d={trail.map((p, k) => `${k ? "L" : "M"}${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join("")} fill="none" stroke="var(--real)" strokeOpacity="0.35" strokeWidth="2" />
             {/* half a ruler around the friend: inside = close enough */}
             <circle cx={f.x} cy={f.y} r={RULER / 2} fill={broken ? "var(--broken-wash)" : "none"} stroke="var(--broken)" strokeDasharray="4 4" strokeWidth="1.25" />
-            <text className="label-2" x={f.x} y={f.y - RULER / 2 - 6} textAnchor="middle">half a ruler</text>
+            <text className="label-2" x={f.x} y={f.y + RULER / 2 + 20} textAnchor="middle">half a ruler</text>
             <line x1={f.x} y1={f.y} x2={g.x} y2={g.y} stroke="var(--ink)" strokeDasharray="2 3" />
             <circle cx={f.x} cy={f.y} r={7} fill="var(--real)" stroke="var(--paper)" strokeWidth="2" />
             <circle cx={g.x} cy={g.y} r={7} fill="var(--dream)" stroke="var(--paper)" strokeWidth="2" />

@@ -12,3 +12,9 @@ export function useWidth<T extends HTMLElement>(fallback: number) {
   }, []);
   return [ref, w] as const;
 }
+
+/** For an SVG with a fixed viewBox width: the font size, in its own units, that shows as 16 px on screen. */
+export function useSvgFont<T extends HTMLElement>(viewBoxWidth: number, fallback = viewBoxWidth) {
+  const [ref, w] = useWidth<T>(fallback);
+  return [ref, (16 * viewBoxWidth) / Math.max(w, 1)] as const;
+}

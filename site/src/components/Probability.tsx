@@ -1,10 +1,13 @@
-import { useMemo } from "react";
+import { useEffect, useRef } from "react";
 import katex from "katex";
-import "katex/dist/katex.min.css";
 
+/** A formula drawn as MathML, which browsers render without any stylesheet. */
 export function M({ tex, block }: { tex: string; block?: boolean }) {
-  const html = useMemo(() => katex.renderToString(tex, { displayMode: !!block, throwOnError: false }), [tex, block]);
-  return <span className={block ? "math-block" : "math"} dangerouslySetInnerHTML={{ __html: html }} />;
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    if (ref.current) katex.render(tex, ref.current, { displayMode: !!block, throwOnError: false, output: "mathml" });
+  }, [tex, block]);
+  return <span ref={ref} className={block ? "math-block" : "math"} />;
 }
 
 const CARDS: { lesson: string; title: string; tex: string; plain: React.ReactNode }[] = [
@@ -48,7 +51,7 @@ const CARDS: { lesson: string; title: string; tex: string; plain: React.ReactNod
     lesson: "The train test split",
     title: "Three piles of dreams",
     tex: String.raw`\underbrace{320}_{\text{fit}} \;\big|\; \underbrace{160}_{\text{test}} \;\big|\; \underbrace{160}_{\text{unseen, sealed}}`,
-    plain: <>Weights come only from the first pile. Every score on this page is from the second, or from the third, which was opened once at the very end.</>,
+    plain: <>Weights come only from the first pile. Every result on this page is from the second, or from the third, which was opened once at the very end.</>,
   },
   {
     lesson: "Conditional probability",
@@ -59,8 +62,8 @@ const CARDS: { lesson: string; title: string; tex: string; plain: React.ReactNod
   {
     lesson: "Probability",
     title: "AUROC is a probability too",
-    tex: String.raw`\text{AUROC} = P\big(p_{\text{broken step}} > p_{\text{sound step}}\big)`,
-    plain: <>Pick one broken and one sound step at random: how often does the model give the broken one the higher score? 0.5 is a coin flip.</>,
+    tex: String.raw`\text{AUROC} = P\big(p_{\text{broken}} > p_{\text{sound}}\big)`,
+    plain: <>Pick one broken and one sound step at random: how often does the model give the broken one the higher chance? 0.5 is a coin flip.</>,
   },
 ];
 

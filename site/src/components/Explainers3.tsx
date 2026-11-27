@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { dreams, pretty, seenTasks, unseenTasks } from "../data";
 import { Thumb } from "./Figures";
 import LineChart from "./LineChart";
+import { useSvgFont, useWidth } from "./useWidth";
 
 const reduceMotion = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 const pct = (v: number) => `${Math.round(v * 100)}%`;
@@ -22,7 +23,7 @@ function useTick(n: number, ms: number, hold = 8) {
 /* ======================================================================== how a prediction is made */
 
 function SCurve({ p, color, label, dashed }: { p: number; color: string; label: string; dashed?: boolean }) {
-  const W = 260, H = 150, l = 34, r = 10, top = 10, b = 26;
+  const W = 260, H = 170, l = 44, r = 10, top = 10, b = 34;
   const iw = W - l - r, ih = H - top - b;
   const z0 = -6, z1 = 6;
   const X = (z: number) => l + ((z - z0) / (z1 - z0)) * iw, Y = (q: number) => top + ih - q * ih;
@@ -30,16 +31,17 @@ function SCurve({ p, color, label, dashed }: { p: number; color: string; label: 
   const curve = Array.from({ length: 61 }, (_, k) => { const z = z0 + (k / 60) * (z1 - z0); return `${k ? "L" : "M"}${X(z).toFixed(1)} ${Y(sig(z)).toFixed(1)}`; }).join("");
   const z = Math.log(Math.max(p, 1e-4) / Math.max(1 - p, 1e-4));
   const zc = Math.max(z0, Math.min(z1, z));
+  const [box, fs] = useSvgFont<HTMLDivElement>(W);
   return (
-    <div className="chart">
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label={`${label}: ${pct(p)}`}>
+    <div className="chart" ref={box}>
+      <svg className="scaled" style={{ fontSize: fs }} viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label={`${label}: ${pct(p)}`}>
         <g className="grid">{[0, 0.5, 1].map((q) => <line key={q} x1={l} x2={l + iw} y1={Y(q)} y2={Y(q)} />)}</g>
         <g className="axis">{[0, 0.5, 1].map((q) => <text key={q} x={l - 5} y={Y(q) + 4} textAnchor="end">{pct(q)}</text>)}</g>
         <path d={curve} fill="none" stroke={color} strokeWidth="2.5" strokeDasharray={dashed ? "7 5" : undefined} />
         <line x1={X(zc)} x2={X(zc)} y1={top + ih} y2={Y(sig(zc))} stroke="var(--ink-2)" strokeDasharray="2 3" />
         <line x1={l} x2={X(zc)} y1={Y(sig(zc))} y2={Y(sig(zc))} stroke="var(--ink-2)" strokeDasharray="2 3" />
         <circle cx={X(zc)} cy={Y(sig(zc))} r="7" fill={color} stroke="var(--card)" strokeWidth="2.5" style={{ transition: "cx 200ms, cy 200ms" }} />
-        <text className="axis-title" x={l + iw / 2} y={H - 4} textAnchor="middle">score: the weighed sum of the 11 numbers</text>
+        <text className="axis-title" x={l + iw / 2} y={H - 4} textAnchor="middle">weighted sum</text>
       </svg>
     </div>
   );
@@ -76,7 +78,7 @@ export function PredictionExplainer() {
           {bars.map((b) => (
             <div key={b.k} className="pbar"><span>{b.k}</span><div><i style={{ width: `${Math.min(1, b.v / b.max) * 100}%`, background: b.c }} /></div></div>
           ))}
-          <p className="muted" style={{ fontSize: 12, margin: "0.4rem 0 0" }}>Plus each signal's recent average and trend, and scene motion: 11 numbers in all.</p>
+          <p className="muted" style={{ fontSize: 16, margin: "0.4rem 0 0" }}>Plus each signal's recent average and trend, and scene motion: 11 numbers in all.</p>
         </div>
         <div className="pred-arrow" aria-hidden="true">→</div>
         <div className="pred-curves">
@@ -92,7 +94,7 @@ export function PredictionExplainer() {
         </div>
       </div>
       <figcaption className="note">
-        Each prediction weighs the 11 numbers, adds them into one score, and an S-shaped curve turns the score into a chance between 0% and 100%. This is logistic regression. The weights were learned from 320 other dreams (the training set) and never from the dreams shown here.
+        Each prediction weighs the 11 numbers and adds them up, and an S-shaped curve turns that weighted sum into a chance between 0% and 100%. This is logistic regression. The weights were learned from 320 other dreams (the training set) and never from the dreams shown here.
       </figcaption>
     </figure>
   );
@@ -184,7 +186,7 @@ export function PairsGame() {
           <p className="tally-n">{round ? pct(wins / round) : "..."}</p>
           <p className="muted">of {round} pairs won so far</p>
           <div className="meter-bar"><i style={{ width: `${round ? (wins / round) * 100 : 0}%`, background: kind === "alarm" ? "var(--real)" : "var(--dream)" }} /></div>
-          <p className="muted" style={{ fontSize: 12 }}>Over every possible pair of these 20 example dreams: <b style={{ color: "var(--ink)" }}>{pct(full)}</b>. 50% would be a coin flip.</p>
+          <p className="muted" style={{ fontSize: 16 }}>Over every possible pair of these 20 example dreams: <b style={{ color: "var(--ink)" }}>{pct(full)}</b>. 50% would be a coin flip.</p>
         </div>
       </div>
       <figcaption className="note">
@@ -203,17 +205,19 @@ export function AlignExplainer() {
   // 0..20: own time; 20..40: slide; 40..60: hold aligned
   const f = Math.max(0, Math.min(1, (t - 20) / 20));
   const ease = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
-  const W = 720, H = 240, l = 40, r = 20, top = 12, b = 34;
+  const [box, bw] = useWidth<HTMLDivElement>(720);
+  const W = Math.max(bw, 280), H = W < 520 ? 300 : 260, l = 48, r = 16, top = 14, b = 44;
   const iw = W - l - r, ih = H - top - b;
   const xMin = -70, xMax = 96;
   const X = (x: number) => l + ((x - xMin) / (xMax - xMin)) * iw;
   const Y = (v: number) => top + ih - Math.min(v, 1.2) / 1.2 * ih;
   const colors = ["#7fb6ff", "#e8a0ff", "#ffd27a", "#9be7c4", "#ff9f80"];
+  const narrow = W < 520;
   return (
     <figure className="fig explainer">
       <p className="chart-title">{ease < 0.05 ? "Five real dreams, each breaking at its own time" : ease > 0.95 ? "Lined up so every break sits at 0" : "Sliding each dream so its break lines up..."}</p>
-      <div className="chart">
-        <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Gap curves of five dreams sliding so that their breaks line up">
+      <div className="chart" ref={box}>
+        <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H} role="img" aria-label="Gap curves of five dreams sliding so that their breaks line up">
           <g className="grid">{[0, 0.5, 1].map((v) => <line key={v} x1={l} x2={l + iw} y1={Y(v)} y2={Y(v)} />)}</g>
           <g className="axis">{[0, 0.5, 1].map((v) => <text key={v} x={l - 6} y={Y(v) + 4} textAnchor="end">{v}x</text>)}</g>
           <line x1={l} x2={l + iw} y1={Y(0.5)} y2={Y(0.5)} stroke="var(--broken)" strokeDasharray="4 4" />
@@ -229,8 +233,8 @@ export function AlignExplainer() {
               </g>
             );
           })}
-          <g className="axis">{(ease > 0.6 ? [-60, -40, -20, 0, 20, 40, 60, 80] : [1, 20, 40, 60, 80, 96]).map((v) => <text key={v} x={X(v)} y={top + ih + 16} textAnchor="middle">{ease > 0.6 && v > 0 ? `+${v}` : v}</text>)}</g>
-          <text className="axis-title" x={l + iw / 2} y={H - 2} textAnchor="middle">{ease > 0.6 ? "steps from the break" : "dream step"}</text>
+          <g className="axis">{(ease > 0.6 ? (narrow ? [-60, -30, 0, 30, 60] : [-60, -40, -20, 0, 20, 40, 60, 80]) : (narrow ? [1, 48, 96] : [1, 20, 40, 60, 80, 96])).map((v) => <text key={v} x={X(v)} y={top + ih + 16} textAnchor="middle">{ease > 0.6 && v > 0 ? `+${v}` : v}</text>)}</g>
+          <text className="axis-title" x={l + iw / 2} y={H - 6} textAnchor="middle">{ease > 0.6 ? "steps from the break" : "dream step"}</text>
         </svg>
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem 1.1rem", fontSize: "var(--t-small)", marginTop: "0.4rem" }}>

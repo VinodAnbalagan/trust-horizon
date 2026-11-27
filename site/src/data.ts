@@ -20,9 +20,9 @@ export const dreams = dreamsJson as unknown as Record<string, Dream>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const site = siteJson as any;
 
-const frameUrls = import.meta.glob("./assets/frames/*.webp", { eager: true, query: "?url", import: "default" }) as Record<string, string>;
+import { FRAMES } from "./frames";
 export function frameUrl(task: string, kind: "real" | "dream"): string {
-  return frameUrls[`./assets/frames/${task}_${kind}.webp`];
+  return FRAMES[`${task}_${kind}`];
 }
 
 export const seenTasks = Object.keys(dreams).filter((k) => dreams[k].split === "seen");
